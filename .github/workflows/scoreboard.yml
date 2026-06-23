@@ -13,7 +13,6 @@ permissions:
   pages: write
   id-token: write
 
-timeout-minutes: 355
 concurrency:
   group: sector-scoreboard-pages
   cancel-in-progress: false
@@ -21,6 +20,7 @@ concurrency:
 jobs:
   update-and-deploy:
     runs-on: windows-latest
+    timeout-minutes: 355
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
