@@ -30,54 +30,57 @@ jobs:
       - name: Monitor source after 18:00
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         id: monitor
-        shell: powershell
+        shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          $jsonPath = Join-Path $PWD 'site\sector_scoreboard.json'
+          $jsonPath = Join-Path $PWD 'site/sector_scoreboard.json'
           $baseline = ''
           if (Test-Path $jsonPath) {
-            $baseline = (Get-Content -Raw $jsonPath | ConvertFrom-Json).nextDate
+            $baselineJson = (Get-Content -Raw -Encoding UTF8 $jsonPath).TrimStart([char]0xFEFF) | ConvertFrom-Json
+            $baseline = $baselineJson.nextDate
           }
+
           $deadline = (Get-Date).AddMinutes(345)
-          Write-Host "目前已同步隔日日期：$baseline"
+          Write-Host "Current deployed nextDate: $baseline"
 
           while ((Get-Date) -lt $deadline) {
             try {
-              $response = Invoke-WebRequest -Uri 'https://chengwaye.com/nextday-performance' -UseBasicParsing -TimeoutSec 45 -Headers @{
-                'User-Agent' = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) GitHubActions-SectorScoreboard/1.0'
-                'Cache-Control' = 'no-cache'
-              }
-              $match = [regex]::Match($response.Content, '漲停日\s*(?<limit>\d{4}/\d{2}/\d{2})\s*(?:→|&rarr;)\s*隔日\s*(?<next>\d{4}/\d{2}/\d{2})')
-              if (-not $match.Success) { throw '來源頁找不到漲停日／隔日日期' }
-              $sourceDate = $match.Groups['next'].Value
-              Write-Host "$(Get-Date -Format 'HH:mm:ss') 來源隔日日期：$sourceDate"
+              $probeDir = Join-Path $PWD 'probe_site'
+              & ./update_sector_scoreboard.ps1 -OutputDirectory $probeDir
+              $probeJsonPath = Join-Path $probeDir 'sector_scoreboard.json'
+              $probeJson = (Get-Content -Raw -Encoding UTF8 $probeJsonPath).TrimStart([char]0xFEFF) | ConvertFrom-Json
+              $sourceDate = $probeJson.nextDate
+              Write-Host "$(Get-Date -Format 'HH:mm:ss') source nextDate: $sourceDate"
 
               if ([string]::IsNullOrWhiteSpace($baseline) -or $sourceDate -ne $baseline) {
-                & .\update_sector_scoreboard.ps1 -OutputDirectory (Join-Path $PWD 'site')
-                Copy-Item .\site\sector_scoreboard.html .\site\index.html -Force
-                $updated = Get-Content -Raw $jsonPath | ConvertFrom-Json
+                Copy-Item (Join-Path $probeDir 'sector_scoreboard.html') (Join-Path $PWD 'site/sector_scoreboard.html') -Force
+                Copy-Item (Join-Path $probeDir 'sector_scoreboard.csv') (Join-Path $PWD 'site/sector_scoreboard.csv') -Force
+                Copy-Item (Join-Path $probeDir 'sector_scoreboard.json') (Join-Path $PWD 'site/sector_scoreboard.json') -Force
+                Copy-Item (Join-Path $PWD 'site/sector_scoreboard.html') (Join-Path $PWD 'site/index.html') -Force
+
+                $updated = (Get-Content -Raw -Encoding UTF8 $jsonPath).TrimStart([char]0xFEFF) | ConvertFrom-Json
                 if ($updated.nextDate -ne $sourceDate) {
-                  throw "更新驗證失敗：JSON=$($updated.nextDate)，來源=$sourceDate"
+                  throw "Update verification failed: json=$($updated.nextDate), source=$sourceDate"
                 }
                 "changed=true" >> $env:GITHUB_OUTPUT
                 "source_date=$sourceDate" >> $env:GITHUB_OUTPUT
-                Write-Host "更新完成，停止本日監控。"
+                Write-Host 'Update completed. Stop monitoring for today.'
                 break
               }
             } catch {
-              Write-Warning "檢查失敗：$($_.Exception.Message)；5 分鐘後重試。"
+              Write-Warning "Check failed: $($_.Exception.Message). Retry after 5 minutes."
             }
             Start-Sleep -Seconds 300
           }
 
           if ((Get-Date) -ge $deadline) {
-            Write-Warning '本次監控期限內未發現新資料。'
+            Write-Warning 'No new source data was detected within this monitoring window.'
             "changed=false" >> $env:GITHUB_OUTPUT
           }
 
       - name: Commit updated scoreboard
         if: steps.monitor.outputs.changed == 'true'
-        shell: powershell
+        shell: pwsh
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
