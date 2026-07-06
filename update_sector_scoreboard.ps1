@@ -4,6 +4,10 @@
 )
 
 $ErrorActionPreference = 'Stop'
+if ([string]::IsNullOrWhiteSpace($Url)) {
+    $taipeiDate = [DateTime]::UtcNow.AddHours(8).ToString('yyyyMMdd')
+    $Url = "https://chengwaye.com/nextday-performance-$taipeiDate"
+}
 $scoreMap = [ordered]@{
     '續漲停'   =  2
     '強續漲'   =  1
