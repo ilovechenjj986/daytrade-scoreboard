@@ -1,0 +1,45 @@
+name: Update scoreboard
+
+on:
+  schedule:
+    # 08:35 UTC = 16:35 Asia/Taipei. Adjust this if the source page updates later.
+    - cron: "35 8 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: "Optional source date in YYYYMMDD, for example 20260706"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-scoreboard
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate latest page
+        env:
+          TARGET_DATE: ${{ inputs.target_date }}
+        run: node scripts/update.js
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html data/latest.json
+          git diff --cached --quiet || git commit -m "Update scoreboard"
+          git push
