@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
   schedule:
-    # 18:00 Asia/Taipei = 10:00 UTC, Monday-Friday
-    - cron: '0 10 * * 1-5'
+    # 18:17 Asia/Taipei = 10:17 UTC, Monday-Friday. Avoid GitHub Actions top-of-hour schedule drops.
+    - cron: '17 10 * * 1-5'
   workflow_dispatch:
 
 permissions:
