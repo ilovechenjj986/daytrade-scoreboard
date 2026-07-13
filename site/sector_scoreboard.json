@@ -1,10 +1,10 @@
 {
-  "source": "https://chengwaye.com/nextday-performance-20260709",
-  "generatedAt": "2026-07-09 12:47:22 +00:00",
-  "limitDate": "2026/07/08",
-  "nextDate": "2026/07/09",
-  "stockCount": 33,
-  "sectorCount": 22,
+  "source": "https://chengwaye.com/nextday-performance-20260713",
+  "generatedAt": "2026-07-13 12:40:18 +00:00",
+  "limitDate": "2026/07/09",
+  "nextDate": "2026/07/13",
+  "stockCount": 42,
+  "sectorCount": 25,
   "scoring": {
     "續漲停": 2,
     "強續漲": 1,
@@ -14,46 +14,39 @@
   },
   "stocks": [
     {
-      "code": "7714",
-      "name": "創泓科技",
+      "code": "6488",
+      "name": "環球晶",
       "label": "續漲停",
-      "sector": "資安",
+      "sector": "矽晶圓",
       "score": 2
     },
     {
-      "code": "2332",
-      "name": "友訊",
+      "code": "6933",
+      "name": "AMAX-KY",
       "label": "續漲停",
-      "sector": "網通",
+      "sector": "AI伺服器",
       "score": 2
     },
     {
-      "code": "3374",
-      "name": "精材",
+      "code": "8039",
+      "name": "台虹",
       "label": "續漲停",
-      "sector": "封測",
+      "sector": "電子材料",
       "score": 2
     },
     {
-      "code": "6142",
-      "name": "友勁",
+      "code": "5488",
+      "name": "松普",
       "label": "續漲停",
-      "sector": "網通",
+      "sector": "連接器",
       "score": 2
     },
     {
-      "code": "2465",
-      "name": "麗臺",
+      "code": "8383",
+      "name": "千附",
       "label": "續漲停",
-      "sector": "板卡",
+      "sector": "精密零組件",
       "score": 2
-    },
-    {
-      "code": "4556",
-      "name": "旭然",
-      "label": "強續漲",
-      "sector": "設備耗材",
-      "score": 1
     },
     {
       "code": "2434",
@@ -63,204 +56,261 @@
       "score": 2
     },
     {
-      "code": "2601",
-      "name": "益航",
-      "label": "強續漲",
-      "sector": "航運",
-      "score": 1
+      "code": "6538",
+      "name": "倉和",
+      "label": "續漲停",
+      "sector": "設備耗材",
+      "score": 2
     },
     {
-      "code": "3189",
-      "name": "景碩",
-      "label": "強續漲",
+      "code": "2321",
+      "name": "東訊",
+      "label": "續漲停",
+      "sector": "網通",
+      "score": 2
+    },
+    {
+      "code": "8046",
+      "name": "南電",
+      "label": "弱續漲",
       "sector": "PCB",
-      "score": 1
-    },
-    {
-      "code": "3211",
-      "name": "順達",
-      "label": "強續漲",
-      "sector": "電源模組",
-      "score": 1
-    },
-    {
-      "code": "6182",
-      "name": "合晶",
-      "label": "強續漲",
-      "sector": "矽晶圓",
-      "score": 1
-    },
-    {
-      "code": "3026",
-      "name": "禾伸堂",
-      "label": "強續漲",
-      "sector": "被動元件",
-      "score": 1
-    },
-    {
-      "code": "2645",
-      "name": "長榮航太",
-      "label": "弱續漲",
-      "sector": "軍工",
       "score": 0
     },
     {
-      "code": "3564",
-      "name": "其陽",
+      "code": "2332",
+      "name": "友訊",
+      "label": "強續漲",
+      "sector": "網通",
+      "score": 1
+    },
+    {
+      "code": "7714",
+      "name": "創泓科技",
+      "label": "強續漲",
+      "sector": "資安",
+      "score": 1
+    },
+    {
+      "code": "6207",
+      "name": "雷科",
       "label": "開高走低",
-      "sector": "工業電腦",
+      "sector": "半導體設備",
       "score": -1
     },
     {
-      "code": "6573",
-      "name": "虹揚-KY",
+      "code": "4949",
+      "name": "有成精密",
       "label": "弱續漲",
-      "sector": "被動元件",
+      "sector": "綠能",
       "score": 0
     },
     {
-      "code": "6901",
-      "name": "鑽石投資",
+      "code": "5351",
+      "name": "鈺創",
+      "label": "弱續漲",
+      "sector": "記憶體",
+      "score": 0
+    },
+    {
+      "code": "8027",
+      "name": "鈦昇",
       "label": "開高走低",
-      "sector": "生技醫療",
+      "sector": "半導體設備",
       "score": -1
     },
     {
-      "code": "7402",
-      "name": "邑錡",
+      "code": "5484",
+      "name": "慧友",
       "label": "開高走低",
       "sector": "電腦週邊",
       "score": -1
     },
     {
-      "code": "8033",
-      "name": "雷虎",
-      "label": "直接跌",
-      "sector": "軍工",
-      "score": -2
+      "code": "3593",
+      "name": "力銘",
+      "label": "強續漲",
+      "sector": "電源模組",
+      "score": 1
     },
     {
-      "code": "3617",
-      "name": "碩天",
+      "code": "6142",
+      "name": "友勁",
+      "label": "開高走低",
+      "sector": "網通",
+      "score": -1
+    },
+    {
+      "code": "1536",
+      "name": "和大",
       "label": "弱續漲",
-      "sector": "電力設備",
+      "sector": "汽車",
       "score": 0
     },
     {
-      "code": "4923",
-      "name": "力士",
+      "code": "7769",
+      "name": "鴻勁",
+      "label": "弱續漲",
+      "sector": "半導體設備",
+      "score": 0
+    },
+    {
+      "code": "2408",
+      "name": "南亞科",
       "label": "開高走低",
+      "sector": "記憶體",
+      "score": -1
+    },
+    {
+      "code": "3374",
+      "name": "精材",
+      "label": "弱續漲",
+      "sector": "封測",
+      "score": 0
+    },
+    {
+      "code": "6218",
+      "name": "豪勉",
+      "label": "開高走低",
+      "sector": "網通",
+      "score": -1
+    },
+    {
+      "code": "8150",
+      "name": "南茂",
+      "label": "開高走低",
+      "sector": "封測",
+      "score": -1
+    },
+    {
+      "code": "6187",
+      "name": "萬潤",
+      "label": "開高走低",
+      "sector": "半導體設備",
+      "score": -1
+    },
+    {
+      "code": "8064",
+      "name": "東捷",
+      "label": "直接跌",
+      "sector": "半導體設備",
+      "score": -2
+    },
+    {
+      "code": "8024",
+      "name": "佑華",
+      "label": "弱續漲",
       "sector": "IC設計",
-      "score": -1
+      "score": 0
     },
     {
-      "code": "2395",
-      "name": "研華",
+      "code": "2465",
+      "name": "麗臺",
       "label": "開高走低",
-      "sector": "工業電腦",
+      "sector": "AI伺服器",
       "score": -1
     },
     {
-      "code": "8096",
-      "name": "擎亞",
+      "code": "7828",
+      "name": "創新服務",
+      "label": "開高走低",
+      "sector": "軟體",
+      "score": -1
+    },
+    {
+      "code": "3006",
+      "name": "晶豪科",
+      "label": "開高走低",
+      "sector": "記憶體",
+      "score": -1
+    },
+    {
+      "code": "6141",
+      "name": "柏承",
+      "label": "開高走低",
+      "sector": "PCB",
+      "score": -1
+    },
+    {
+      "code": "6113",
+      "name": "亞矽",
       "label": "直接跌",
       "sector": "電子通路",
       "score": -2
     },
     {
-      "code": "8442",
-      "name": "威宏-KY",
+      "code": "6270",
+      "name": "倍微",
+      "label": "直接跌",
+      "sector": "電子通路",
+      "score": -2
+    },
+    {
+      "code": "4768",
+      "name": "晶呈科技",
       "label": "開高走低",
-      "sector": "製鞋",
+      "sector": "半導體材料",
       "score": -1
     },
     {
-      "code": "6637",
-      "name": "醫影",
+      "code": "3521",
+      "name": "台鋼建設",
+      "label": "直接跌",
+      "sector": "營建資產",
+      "score": -2
+    },
+    {
+      "code": "6465",
+      "name": "威潤",
       "label": "開高走低",
+      "sector": "汽車",
+      "score": -1
+    },
+    {
+      "code": "2423",
+      "name": "固緯",
+      "label": "直接跌",
+      "sector": "機械",
+      "score": -2
+    },
+    {
+      "code": "3504",
+      "name": "揚明光",
+      "label": "直接跌",
+      "sector": "面板光電",
+      "score": -2
+    },
+    {
+      "code": "7827",
+      "name": "漢康-KY創",
+      "label": "直接跌",
       "sector": "生技醫療",
-      "score": -1
-    },
-    {
-      "code": "6907",
-      "name": "雅特力-KY",
-      "label": "弱續漲",
-      "sector": "IC設計",
-      "score": 0
-    },
-    {
-      "code": "3081",
-      "name": "聯亞",
-      "label": "直接跌",
-      "sector": "光通訊",
       "score": -2
     },
     {
-      "code": "6727",
-      "name": "亞泰金屬",
-      "label": "開高走低",
-      "sector": "金屬加工",
-      "score": -1
-    },
-    {
-      "code": "4127",
-      "name": "天良",
+      "code": "3543",
+      "name": "州巧",
       "label": "直接跌",
-      "sector": "生技醫療",
+      "sector": "面板光電",
       "score": -2
     },
     {
-      "code": "5230",
-      "name": "雷笛克光學",
+      "code": "6449",
+      "name": "鈺邦",
       "label": "直接跌",
-      "sector": "光學鏡頭",
+      "sector": "被動元件",
       "score": -2
     },
     {
-      "code": "4931",
-      "name": "新盛力",
-      "label": "開高走低",
-      "sector": "電源模組",
-      "score": -1
-    },
-    {
-      "code": "2424",
-      "name": "隴華",
+      "code": "8042",
+      "name": "金山電",
       "label": "直接跌",
-      "sector": "工業電腦",
+      "sector": "被動元件",
       "score": -2
-    },
-    {
-      "code": "6969",
-      "name": "成信實業*-創",
-      "label": "直接跌",
-      "sector": "消費內需",
-      "score": -2
-    },
-    {
-      "code": "1796",
-      "name": "金穎生技",
-      "label": "開高走低",
-      "sector": "生技醫療",
-      "score": -1
     }
   ],
   "nonNegative": [
     {
-      "sector": "網通",
-      "average": 2.0,
-      "total": 4,
-      "count": 2,
-      "counts": {
-        "續漲停": 2,
-        "強續漲": 0,
-        "弱續漲": 0,
-        "開高走低": 0,
-        "直接跌": 0
-      }
-    },
-    {
-      "sector": "封測",
+      "sector": "矽晶圓",
       "average": 2.0,
       "total": 2,
       "count": 1,
@@ -273,7 +323,46 @@
       }
     },
     {
-      "sector": "板卡",
+      "sector": "精密零組件",
+      "average": 2.0,
+      "total": 2,
+      "count": 1,
+      "counts": {
+        "續漲停": 1,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "設備耗材",
+      "average": 2.0,
+      "total": 2,
+      "count": 1,
+      "counts": {
+        "續漲停": 1,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "連接器",
+      "average": 2.0,
+      "total": 2,
+      "count": 1,
+      "counts": {
+        "續漲停": 1,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "電子材料",
       "average": 2.0,
       "total": 2,
       "count": 1,
@@ -287,71 +376,6 @@
     },
     {
       "sector": "資安",
-      "average": 2.0,
-      "total": 2,
-      "count": 1,
-      "counts": {
-        "續漲停": 1,
-        "強續漲": 0,
-        "弱續漲": 0,
-        "開高走低": 0,
-        "直接跌": 0
-      }
-    },
-    {
-      "sector": "被動元件",
-      "average": 1.0,
-      "total": 3,
-      "count": 3,
-      "counts": {
-        "續漲停": 1,
-        "強續漲": 1,
-        "弱續漲": 1,
-        "開高走低": 0,
-        "直接跌": 0
-      }
-    },
-    {
-      "sector": "PCB",
-      "average": 1.0,
-      "total": 1,
-      "count": 1,
-      "counts": {
-        "續漲停": 0,
-        "強續漲": 1,
-        "弱續漲": 0,
-        "開高走低": 0,
-        "直接跌": 0
-      }
-    },
-    {
-      "sector": "矽晶圓",
-      "average": 1.0,
-      "total": 1,
-      "count": 1,
-      "counts": {
-        "續漲停": 0,
-        "強續漲": 1,
-        "弱續漲": 0,
-        "開高走低": 0,
-        "直接跌": 0
-      }
-    },
-    {
-      "sector": "航運",
-      "average": 1.0,
-      "total": 1,
-      "count": 1,
-      "counts": {
-        "續漲停": 0,
-        "強續漲": 1,
-        "弱續漲": 0,
-        "開高走低": 0,
-        "直接跌": 0
-      }
-    },
-    {
-      "sector": "設備耗材",
       "average": 1.0,
       "total": 1,
       "count": 1,
@@ -365,19 +389,58 @@
     },
     {
       "sector": "電源模組",
-      "average": 0.0,
-      "total": 0,
-      "count": 2,
+      "average": 1.0,
+      "total": 1,
+      "count": 1,
       "counts": {
         "續漲停": 0,
         "強續漲": 1,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "AI伺服器",
+      "average": 0.5,
+      "total": 1,
+      "count": 2,
+      "counts": {
+        "續漲停": 1,
+        "強續漲": 0,
         "弱續漲": 0,
         "開高走低": 1,
         "直接跌": 0
       }
     },
     {
-      "sector": "電力設備",
+      "sector": "網通",
+      "average": 0.25,
+      "total": 1,
+      "count": 4,
+      "counts": {
+        "續漲停": 1,
+        "強續漲": 1,
+        "弱續漲": 0,
+        "開高走低": 2,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "IC設計",
+      "average": 0.0,
+      "total": 0,
+      "count": 1,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 1,
+        "開高走低": 0,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "綠能",
       "average": 0.0,
       "total": 0,
       "count": 1,
@@ -392,7 +455,7 @@
   ],
   "negative": [
     {
-      "sector": "IC設計",
+      "sector": "PCB",
       "average": -0.5,
       "total": -1,
       "count": 2,
@@ -405,20 +468,72 @@
       }
     },
     {
-      "sector": "軍工",
-      "average": -1.0,
-      "total": -2,
+      "sector": "封測",
+      "average": -0.5,
+      "total": -1,
       "count": 2,
       "counts": {
         "續漲停": 0,
         "強續漲": 0,
         "弱續漲": 1,
+        "開高走低": 1,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "汽車",
+      "average": -0.5,
+      "total": -1,
+      "count": 2,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 1,
+        "開高走低": 1,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "被動元件",
+      "average": -0.667,
+      "total": -2,
+      "count": 3,
+      "counts": {
+        "續漲停": 1,
+        "強續漲": 0,
+        "弱續漲": 0,
         "開高走低": 0,
+        "直接跌": 2
+      }
+    },
+    {
+      "sector": "記憶體",
+      "average": -0.667,
+      "total": -2,
+      "count": 3,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 1,
+        "開高走低": 2,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "半導體設備",
+      "average": -1.0,
+      "total": -5,
+      "count": 5,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 1,
+        "開高走低": 3,
         "直接跌": 1
       }
     },
     {
-      "sector": "製鞋",
+      "sector": "半導體材料",
       "average": -1.0,
       "total": -1,
       "count": 1,
@@ -431,7 +546,7 @@
       }
     },
     {
-      "sector": "金屬加工",
+      "sector": "軟體",
       "average": -1.0,
       "total": -1,
       "count": 1,
@@ -457,72 +572,59 @@
       }
     },
     {
-      "sector": "生技醫療",
-      "average": -1.25,
-      "total": -5,
-      "count": 4,
-      "counts": {
-        "續漲停": 0,
-        "強續漲": 0,
-        "弱續漲": 0,
-        "開高走低": 3,
-        "直接跌": 1
-      }
-    },
-    {
-      "sector": "工業電腦",
-      "average": -1.333,
-      "total": -4,
-      "count": 3,
-      "counts": {
-        "續漲停": 0,
-        "強續漲": 0,
-        "弱續漲": 0,
-        "開高走低": 2,
-        "直接跌": 1
-      }
-    },
-    {
-      "sector": "光學鏡頭",
-      "average": -2.0,
-      "total": -2,
-      "count": 1,
-      "counts": {
-        "續漲停": 0,
-        "強續漲": 0,
-        "弱續漲": 0,
-        "開高走低": 0,
-        "直接跌": 1
-      }
-    },
-    {
-      "sector": "光通訊",
-      "average": -2.0,
-      "total": -2,
-      "count": 1,
-      "counts": {
-        "續漲停": 0,
-        "強續漲": 0,
-        "弱續漲": 0,
-        "開高走低": 0,
-        "直接跌": 1
-      }
-    },
-    {
-      "sector": "消費內需",
-      "average": -2.0,
-      "total": -2,
-      "count": 1,
-      "counts": {
-        "續漲停": 0,
-        "強續漲": 0,
-        "弱續漲": 0,
-        "開高走低": 0,
-        "直接跌": 1
-      }
-    },
-    {
       "sector": "電子通路",
+      "average": -2.0,
+      "total": -4,
+      "count": 2,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 2
+      }
+    },
+    {
+      "sector": "面板光電",
+      "average": -2.0,
+      "total": -4,
+      "count": 2,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 2
+      }
+    },
+    {
+      "sector": "機械",
+      "average": -2.0,
+      "total": -2,
+      "count": 1,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 1
+      }
+    },
+    {
+      "sector": "營建資產",
+      "average": -2.0,
+      "total": -2,
+      "count": 1,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 1
+      }
+    },
+    {
+      "sector": "生技醫療",
       "average": -2.0,
       "total": -2,
       "count": 1,
