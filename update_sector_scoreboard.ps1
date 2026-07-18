@@ -104,6 +104,46 @@ New-Item -ItemType Directory -Path $OutputDirectory -Force | Out-Null
 $jsonPath = Join-Path $OutputDirectory 'sector_scoreboard.json'
 $csvPath = Join-Path $OutputDirectory 'sector_scoreboard.csv'
 $htmlPath = Join-Path $OutputDirectory 'sector_scoreboard.html'
+$historyPath = Join-Path $OutputDirectory 'history'
+$historyIndexPath = Join-Path $historyPath 'index.json'
+
+function Get-ScoreboardSnapshotDate([string]$Value) {
+    if ([string]::IsNullOrWhiteSpace($Value)) { return $null }
+    try {
+        return [DateTime]::ParseExact($Value, 'yyyy/MM/dd', [Globalization.CultureInfo]::InvariantCulture)
+    } catch {
+        return $null
+    }
+}
+
+function Save-ScoreboardSnapshot([DateTime]$SnapshotDate) {
+    if ($null -eq $SnapshotDate) { return }
+    $snapshotKey = $SnapshotDate.ToString('yyyy-MM-dd')
+    New-Item -ItemType Directory -Path $historyPath -Force | Out-Null
+    foreach ($extension in @('html', 'json', 'csv')) {
+        $sourcePath = Join-Path $OutputDirectory "sector_scoreboard.$extension"
+        $snapshotPath = Join-Path $historyPath "$snapshotKey.$extension"
+        Copy-Item -LiteralPath $sourcePath -Destination $snapshotPath -Force
+        if ($extension -eq 'html') {
+            (Get-Content -LiteralPath $snapshotPath -Raw -Encoding UTF8).Replace('src="history-selector.js"', 'src="../history-selector.js"') |
+                Set-Content -LiteralPath $snapshotPath -Encoding UTF8
+        }
+    }
+}
+
+# Preserve the current published board before replacing it, including the first
+# update after this feature is enabled.
+if (Test-Path -LiteralPath $jsonPath) {
+    try {
+        $previous = (Get-Content -LiteralPath $jsonPath -Raw -Encoding UTF8).TrimStart([char]0xFEFF) | ConvertFrom-Json
+        $previousDate = Get-ScoreboardSnapshotDate $previous.nextDate
+        if ($null -ne $previousDate -and (Test-Path -LiteralPath $csvPath) -and (Test-Path -LiteralPath $htmlPath)) {
+            Save-ScoreboardSnapshot $previousDate
+        }
+    } catch {
+        Write-Warning "無法備份既有記分板：$($_.Exception.Message)"
+    }
+}
 
 $result | ConvertTo-Json -Depth 7 | Set-Content -LiteralPath $jsonPath -Encoding UTF8
 $sectors | Sort-Object @{Expression='average';Descending=$true}, sector |
@@ -153,6 +193,7 @@ $dashboard = @"
 <footer>資料來源：<a href="$sourceEscaped">Chengwaye 漲停隔日</a>。本頁僅為資料整理，不構成投資建議。JSON 與 CSV 會和此頁同步更新。</footer>
 </main>
 <dialog class="sector-dialog" id="sector-dialog"><div class="dialog-head"><h3 id="dialog-title"></h3><button type="button" class="dialog-close" aria-label="關閉">關閉</button></div><div class="stock-list" id="stock-list"></div></dialog>
+<script>document.write('<script src="'+(location.pathname.includes('/history/')?'../':'')+'history-selector.js"><\/script>')</script>
 <script>
 const stocks=$stocksJson;
 const dialog=document.getElementById('sector-dialog');
@@ -172,6 +213,41 @@ dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();
 </body></html>
 "@
 $dashboard | Set-Content -LiteralPath $htmlPath -Encoding UTF8
+
+$currentSnapshotDate = Get-ScoreboardSnapshotDate $nextDate
+Save-ScoreboardSnapshot $currentSnapshotDate
+
+$snapshotDates = @(
+    Get-ChildItem -LiteralPath $historyPath -File -Filter '*.json' |
+        Where-Object { $_.BaseName -match '^\d{4}-\d{2}-\d{2}$' } |
+        Sort-Object Name -Descending
+)
+$retentionStart = if ($null -ne $currentSnapshotDate) { $currentSnapshotDate.AddDays(-29) } else { $null }
+if ($null -ne $retentionStart) {
+    foreach ($expiredSnapshot in $snapshotDates) {
+        $expiredDate = [DateTime]::ParseExact($expiredSnapshot.BaseName, 'yyyy-MM-dd', [Globalization.CultureInfo]::InvariantCulture)
+        if ($expiredDate -lt $retentionStart) {
+            foreach ($extension in @('html', 'json', 'csv')) {
+                $expiredPath = Join-Path $historyPath ($expiredSnapshot.BaseName + '.' + $extension)
+                if (Test-Path -LiteralPath $expiredPath) {
+                    Remove-Item -LiteralPath $expiredPath -Force
+                }
+            }
+        }
+    }
+}
+
+$availableDates = @(
+    Get-ChildItem -LiteralPath $historyPath -File -Filter '*.json' |
+        Where-Object { $_.BaseName -match '^\d{4}-\d{2}-\d{2}$' } |
+        Sort-Object Name -Descending |
+        ForEach-Object { $_.BaseName }
+)
+[ordered]@{
+    dates = $availableDates
+    latestDate = if ($availableDates.Count) { $availableDates[0] } else { $null }
+    oldestDate = if ($availableDates.Count) { $availableDates[-1] } else { $null }
+} | ConvertTo-Json | Set-Content -LiteralPath $historyIndexPath -Encoding UTF8
 
 Write-Host "完成：$($stocks.Count) 檔、$($sectors.Count) 個族群"
 Write-Host "HTML: $htmlPath"
