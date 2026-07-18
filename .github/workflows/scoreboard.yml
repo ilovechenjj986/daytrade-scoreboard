@@ -56,9 +56,7 @@ jobs:
               Write-Host "$(Get-Date -Format 'HH:mm:ss') source nextDate: $sourceDate"
 
               if ([string]::IsNullOrWhiteSpace($baseline) -or $sourceDate -ne $baseline) {
-                Copy-Item (Join-Path $probeDir 'sector_scoreboard.html') (Join-Path $PWD 'site/sector_scoreboard.html') -Force
-                Copy-Item (Join-Path $probeDir 'sector_scoreboard.csv') (Join-Path $PWD 'site/sector_scoreboard.csv') -Force
-                Copy-Item (Join-Path $probeDir 'sector_scoreboard.json') (Join-Path $PWD 'site/sector_scoreboard.json') -Force
+                & ./update_sector_scoreboard.ps1 -Url $sourceUrl -OutputDirectory (Join-Path $PWD 'site')
                 Copy-Item (Join-Path $PWD 'site/sector_scoreboard.html') (Join-Path $PWD 'site/index.html') -Force
 
                 $updated = (Get-Content -Raw -Encoding UTF8 $jsonPath).TrimStart([char]0xFEFF) | ConvertFrom-Json
