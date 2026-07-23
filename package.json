@@ -2,7 +2,8 @@
   "name": "daytrade-scoreboard-automation",
   "private": true,
   "scripts": {
-    "capture:aistockmap": "node scripts/capture-aistockmap.cjs"
+    "capture:aistockmap": "node scripts/capture-aistockmap.cjs",
+    "test:capture-window": "node scripts/capture-window.test.cjs"
   },
   "dependencies": {
     "playwright": "1.61.1",
