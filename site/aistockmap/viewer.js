@@ -13,14 +13,18 @@
 
     snapshots.forEach(snapshot => {
       const option = document.createElement('option');
-      option.value = snapshot.date;
-      option.textContent = snapshot.date;
+      option.value = snapshot.capturedAt;
+      option.textContent = snapshot.label || `${snapshot.date} ${new Date(snapshot.capturedAt).toLocaleTimeString('zh-TW', {
+        timeZone: 'Asia/Taipei',
+        hour: '2-digit',
+        minute: '2-digit'
+      })}`;
       picker.append(option);
     });
 
-    const render = date => {
-      const snapshot = snapshots.find(item => item.date === date) || snapshots[0];
-      picker.value = snapshot.date;
+    const render = capturedAt => {
+      const snapshot = snapshots.find(item => item.capturedAt === capturedAt) || snapshots[0];
+      picker.value = snapshot.capturedAt;
       status.textContent = '點擊圖片可開啟原尺寸放大';
       meta.textContent = `擷取日期：${snapshot.date}｜擷取時間：${new Date(snapshot.capturedAt).toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' })}`;
       screens.replaceChildren(...snapshot.images.map(image => {
