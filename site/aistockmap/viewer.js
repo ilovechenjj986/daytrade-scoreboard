@@ -5,7 +5,7 @@
   const screens = document.querySelector('#screens');
 
   try {
-    const response = await fetch('manifest.json', { cache: 'no-store' });
+    const response = await fetch(`manifest.json?v=${Date.now()}`, { cache: 'no-store' });
     if (!response.ok) throw new Error('尚未建立雲端快照');
     const manifest = await response.json();
     const snapshots = Array.isArray(manifest.snapshots) ? manifest.snapshots : [];
@@ -29,11 +29,12 @@
         const heading = document.createElement('h2');
         heading.textContent = `${image.title}｜${image.width} × ${image.height}`;
         const link = document.createElement('a');
-        link.href = image.file;
+        const versionedImage = `${image.file}?v=${encodeURIComponent(snapshot.capturedAt)}`;
+        link.href = versionedImage;
         link.target = '_blank';
         link.rel = 'noopener';
         const picture = document.createElement('img');
-        picture.src = image.file;
+        picture.src = versionedImage;
         picture.alt = `${snapshot.date} ${image.title} 完整頁面快照`;
         picture.loading = 'eager';
         link.append(picture);
