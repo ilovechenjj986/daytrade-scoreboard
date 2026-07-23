@@ -17,16 +17,32 @@ function taipeiDate(date = new Date()) {
   }).format(date);
 }
 
-function taipeiWeekday(date = new Date()) {
-  return new Intl.DateTimeFormat('en-US', {
-    timeZone: 'Asia/Taipei', weekday: 'short'
-  }).format(date);
+function taipeiTime(date = new Date()) {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Taipei', hour: 'numeric', minute: '2-digit', hourCycle: 'h23'
+  }).formatToParts(date);
+  return {
+    hour: Number(parts.find(part => part.type === 'hour').value) % 24,
+    minute: Number(parts.find(part => part.type === 'minute').value)
+  };
 }
 
-function taipeiHour(date = new Date()) {
-  return Number(new Intl.DateTimeFormat('en-US', {
-    timeZone: 'Asia/Taipei', hour: 'numeric', hourCycle: 'h23'
-  }).format(date)) % 24;
+function previousDate(dateText) {
+  const date = new Date(`${dateText}T00:00:00Z`);
+  date.setUTCDate(date.getUTCDate() - 1);
+  return date.toISOString().slice(0, 10);
+}
+
+function captureDate(date = new Date()) {
+  const dateText = taipeiDate(date);
+  const { hour, minute } = taipeiTime(date);
+  return hour * 60 + minute < 18 * 60 + 5 ? previousDate(dateText) : dateText;
+}
+
+function weekdayForDate(dateText) {
+  return ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][
+    new Date(`${dateText}T12:00:00Z`).getUTCDay()
+  ];
 }
 
 function slotFor(dateText) {
@@ -54,7 +70,7 @@ async function clickExact(page, label) {
   await locator.click();
 }
 
-async function captureView(page, slot, view) {
+async function captureView(page, temporaryTag, view) {
   await clickExact(page, view.market);
   await page.waitForTimeout(900);
   await clickExact(page, view.period);
@@ -75,23 +91,23 @@ async function captureView(page, slot, view) {
   await page.waitForTimeout(500);
 
   const png = await page.screenshot({ fullPage: true, type: 'png', animations: 'disabled' });
-  const filename = `slot-${String(slot).padStart(2, '0')}-${view.id}.webp`;
+  const filename = `.pending-${temporaryTag}-${view.id}.webp`;
   const output = path.join(imageDir, filename);
   await sharp(png).webp({ lossless: true, effort: 4 }).toFile(output);
   const metadata = await sharp(output).metadata();
   return {
     id: view.id,
     title: view.title,
-    file: `screenshots/${filename}`,
+    temporaryFile: output,
     width: metadata.width,
     height: metadata.height,
     bytes: fs.statSync(output).size
   };
 }
 
-(async () => {
-  const date = taipeiDate();
-  if (taipeiWeekday() === 'Sun') {
+async function main() {
+  const expectedDate = captureDate();
+  if (weekdayForDate(expectedDate) === 'Sun') {
     writeStatus('skipped', '週日不執行擷取');
     console.log('SKIPPED Sunday');
     return;
@@ -99,11 +115,9 @@ async function captureView(page, slot, view) {
   if (!fs.existsSync(authStateFile)) throw new Error('找不到 AISTOCKMAP_AUTH_STATE_FILE');
 
   const manifest = readManifest();
-  const existingToday = manifest.snapshots.find(item => item.date === date);
-  const existingHour = existingToday ? taipeiHour(new Date(existingToday.capturedAt)) : -1;
-  if (existingToday && (taipeiHour() < 18 || existingHour >= 18) && process.env.FORCE_CAPTURE !== 'true') {
-    writeStatus('skipped', `${date} 已有完整頁面快照，不重複擷取`);
-    console.log(`SKIPPED ${date}`);
+  if (manifest.snapshots.some(item => item.date === expectedDate) && process.env.FORCE_CAPTURE !== 'true') {
+    writeStatus('skipped', `${expectedDate} 已有完整頁面快照，不重複擷取`);
+    console.log(`SKIPPED ${expectedDate}`);
     return;
   }
 
@@ -112,6 +126,7 @@ async function captureView(page, slot, view) {
   const launchOptions = { headless: true };
   if (process.env.CHROME_EXECUTABLE_PATH) launchOptions.executablePath = process.env.CHROME_EXECUTABLE_PATH;
   const browser = await chromium.launch(launchOptions);
+  let pendingImages = [];
   try {
     const context = await browser.newContext({
       storageState: authStateFile,
@@ -132,23 +147,50 @@ async function captureView(page, slot, view) {
     }
     await page.waitForTimeout(2000);
 
-    const slot = slotFor(date);
     const views = [
       { id: 'tw-week', title: '台股單週', market: '台股', period: '單週' },
       { id: 'tw-month', title: '台股單月', market: '台股', period: '單月' },
       { id: 'us-day', title: '美股單日', market: '美股', period: '單日' }
     ];
-    const images = [];
-    for (const view of views) images.push(await captureView(page, slot, view));
+    const temporaryTag = `${Date.now()}-${process.pid}`;
+    for (const view of views) pendingImages.push(await captureView(page, temporaryTag, view));
 
+    const completedAt = new Date();
+    const date = captureDate(completedAt);
+    const completedManifest = readManifest();
+    if (weekdayForDate(date) === 'Sun') {
+      writeStatus('skipped', '歸屬日期為週日，不保存擷取');
+      console.log('SKIPPED Sunday');
+      return;
+    }
+    if (completedManifest.snapshots.some(item => item.date === date) && process.env.FORCE_CAPTURE !== 'true') {
+      writeStatus('skipped', `${date} 已有完整頁面快照，不重複擷取`);
+      console.log(`SKIPPED ${date}`);
+      return;
+    }
+
+    const slot = slotFor(date);
+    const images = pendingImages.map(image => {
+      const filename = `slot-${String(slot).padStart(2, '0')}-${image.id}.webp`;
+      fs.renameSync(image.temporaryFile, path.join(imageDir, filename));
+      return {
+        id: image.id,
+        title: image.title,
+        file: `screenshots/${filename}`,
+        width: image.width,
+        height: image.height,
+        bytes: image.bytes
+      };
+    });
+    pendingImages = [];
     const entry = {
       date,
       slot,
-      capturedAt: new Date().toISOString(),
+      capturedAt: completedAt.toISOString(),
       sourceUrl: targetUrl,
       images
     };
-    const snapshots = manifest.snapshots.filter(item => item.slot !== slot && item.date !== date);
+    const snapshots = completedManifest.snapshots.filter(item => item.slot !== slot && item.date !== date);
     snapshots.push(entry);
     snapshots.sort((left, right) => right.date.localeCompare(left.date));
     writeJson(manifestFile, { snapshots });
@@ -157,9 +199,18 @@ async function captureView(page, slot, view) {
     await context.close();
   } finally {
     await browser.close();
+    for (const image of pendingImages) {
+      if (fs.existsSync(image.temporaryFile)) fs.rmSync(image.temporaryFile);
+    }
   }
-})().catch(error => {
-  writeStatus('failed', error.stack || error.message);
-  console.error(error);
-  process.exitCode = 1;
-});
+}
+
+module.exports = { captureDate, weekdayForDate };
+
+if (require.main === module) {
+  main().catch(error => {
+    writeStatus('failed', error.stack || error.message);
+    console.error(error);
+    process.exitCode = 1;
+  });
+}
