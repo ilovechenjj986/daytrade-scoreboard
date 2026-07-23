@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Stock Map 原頁快照庫</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <nav class="app-switcher" aria-label="功能切換">
+      <a href="../">族群記分板</a>
+      <a class="active" href="./">AI Stock Map 原頁快照</a>
+    </nav>
+    <h1>AI Stock Map 原頁快照庫</h1>
+    <p class="sub">保存網站每日更新後的台股單週、台股單月與美股單日完整原始畫面。</p>
+    <section class="toolbar">
+      <label for="snapshot-date">查看日期</label>
+      <select id="snapshot-date"></select>
+      <span id="status" role="status"></span>
+    </section>
+    <p id="meta" class="meta"></p>
+    <div id="screens" class="screens"></div>
+  </main>
+  <script src="viewer.js"></script>
+</body>
+</html>

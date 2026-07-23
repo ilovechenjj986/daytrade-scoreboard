@@ -1,0 +1,80 @@
+name: Capture AI Stock Map snapshots
+
+on:
+  schedule:
+    # 18:05 Asia/Taipei = 10:05 UTC, Monday-Saturday.
+    - cron: '5 10 * * 1-6'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Replace today's snapshot even if it already exists
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: sector-scoreboard-pages
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install browser dependencies
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Restore encrypted login state
+        shell: bash
+        env:
+          AUTH_STATE_B64: ${{ secrets.AISTOCKMAP_AUTH_STATE_B64 }}
+        run: |
+          test -n "$AUTH_STATE_B64"
+          printf '%s' "$AUTH_STATE_B64" | base64 --decode > "$RUNNER_TEMP/auth-state.json"
+
+      - name: Capture original full pages
+        env:
+          AISTOCKMAP_AUTH_STATE_FILE: ${{ runner.temp }}/auth-state.json
+          FORCE_CAPTURE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && 'true' || 'false' }}
+        run: npm run capture:aistockmap
+
+      - name: Commit snapshots
+        shell: bash
+        run: |
+          if git diff --quiet -- site/aistockmap; then
+            echo 'No snapshot changes.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add site/aistockmap
+          git commit -m "Update AI Stock Map snapshots $(TZ=Asia/Taipei date +%F)"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
