@@ -1,0 +1,11 @@
+{
+  "name": "daytrade-scoreboard-automation",
+  "private": true,
+  "scripts": {
+    "capture:aistockmap": "node scripts/capture-aistockmap.cjs"
+  },
+  "dependencies": {
+    "playwright": "1.61.1",
+    "sharp": "0.35.3"
+  }
+}

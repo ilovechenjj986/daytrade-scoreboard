@@ -1,0 +1,36 @@
+{
+  "snapshots": [
+    {
+      "date": "2026-07-23",
+      "slot": 17,
+      "capturedAt": "2026-07-23T00:12:55.057Z",
+      "sourceUrl": "https://aistockmap.com/?topic=niche-memory&activeTab=heatmap",
+      "images": [
+        {
+          "id": "tw-week",
+          "title": "台股單週",
+          "file": "screenshots/slot-17-tw-week.webp",
+          "width": 1932,
+          "height": 3137,
+          "bytes": 181922
+        },
+        {
+          "id": "tw-month",
+          "title": "台股單月",
+          "file": "screenshots/slot-17-tw-month.webp",
+          "width": 1932,
+          "height": 3137,
+          "bytes": 183282
+        },
+        {
+          "id": "us-day",
+          "title": "美股單日",
+          "file": "screenshots/slot-17-us-day.webp",
+          "width": 1932,
+          "height": 2130,
+          "bytes": 148610
+        }
+      ]
+    }
+  ]
+}

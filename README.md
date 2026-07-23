@@ -11,3 +11,9 @@
 GitHub Actions 於台北時間週一至週五 18:00 開始監控，每 5 分鐘檢查一次；發現來源日期更新後，重新產生記分板、提交資料並部署至 GitHub Pages，然後停止當日監控。
 
 線上記分板：https://ilovechenjj986.github.io/daytrade-scoreboard/
+
+## AI Stock Map 原頁快照
+
+另一個 GitHub Actions 工作流程於台北時間週一至週六 18:05，以加密登入狀態開啟 AI Stock Map，保存台股單週、台股單月及美股單日的完整原頁截圖。圖片採 lossless WebP，使用 30 個循環日期槽；電腦關機也不影響更新。
+
+快照庫：https://ilovechenjj986.github.io/daytrade-scoreboard/aistockmap/

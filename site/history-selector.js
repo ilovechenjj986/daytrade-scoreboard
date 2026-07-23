@@ -1,5 +1,16 @@
 (() => {
   const root = location.pathname.includes('/history/') ? '../' : './';
+  const main = document.querySelector('main');
+  if (main) {
+    const switcher = document.createElement('nav');
+    switcher.className = 'app-switcher';
+    switcher.setAttribute('aria-label', '功能切換');
+    switcher.innerHTML = '<a class="active" href="' + root + '">族群記分板</a><a href="' + root + 'aistockmap/">AI Stock Map 原頁快照</a>';
+    main.prepend(switcher);
+    const switcherStyle = document.createElement('style');
+    switcherStyle.textContent = '.app-switcher{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.app-switcher a{color:#c7d2fe;text-decoration:none;border:1px solid var(--line);background:#171e30;border-radius:10px;padding:8px 12px}.app-switcher a.active{background:#4f46e5;color:white}';
+    document.head.append(switcherStyle);
+  }
   const selectedDate = location.pathname.match(/\/(\d{4}-\d{2}-\d{2})\.html$/)?.[1] || '';
   const host = document.createElement('section');
   host.className = 'history-picker';
