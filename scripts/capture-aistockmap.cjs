@@ -23,6 +23,12 @@ function taipeiWeekday(date = new Date()) {
   }).format(date);
 }
 
+function taipeiHour(date = new Date()) {
+  return Number(new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Taipei', hour: 'numeric', hourCycle: 'h23'
+  }).format(date)) % 24;
+}
+
 function slotFor(dateText) {
   const days = Math.floor(Date.parse(`${dateText}T00:00:00Z`) / 86_400_000);
   return ((days % 30) + 30) % 30;
@@ -93,7 +99,9 @@ async function captureView(page, slot, view) {
   if (!fs.existsSync(authStateFile)) throw new Error('找不到 AISTOCKMAP_AUTH_STATE_FILE');
 
   const manifest = readManifest();
-  if (manifest.snapshots.some(item => item.date === date) && process.env.FORCE_CAPTURE !== 'true') {
+  const existingToday = manifest.snapshots.find(item => item.date === date);
+  const existingHour = existingToday ? taipeiHour(new Date(existingToday.capturedAt)) : -1;
+  if (existingToday && (taipeiHour() < 18 || existingHour >= 18) && process.env.FORCE_CAPTURE !== 'true') {
     writeStatus('skipped', `${date} 已有完整頁面快照，不重複擷取`);
     console.log(`SKIPPED ${date}`);
     return;
