@@ -3,7 +3,7 @@
     {
       "date": "2026-07-23",
       "slot": 17,
-      "capturedAt": "2026-07-23T00:40:45.566Z",
+      "capturedAt": "2026-07-23T11:59:56.503Z",
       "sourceUrl": "https://aistockmap.com/?topic=niche-memory&activeTab=heatmap",
       "images": [
         {
@@ -12,7 +12,7 @@
           "file": "screenshots/slot-17-tw-week.webp",
           "width": 1932,
           "height": 3137,
-          "bytes": 365740
+          "bytes": 366476
         },
         {
           "id": "tw-month",
@@ -20,7 +20,7 @@
           "file": "screenshots/slot-17-tw-month.webp",
           "width": 1932,
           "height": 3137,
-          "bytes": 372574
+          "bytes": 376898
         },
         {
           "id": "us-day",
@@ -28,7 +28,7 @@
           "file": "screenshots/slot-17-us-day.webp",
           "width": 1932,
           "height": 2130,
-          "bytes": 296698
+          "bytes": 296572
         }
       ]
     }
