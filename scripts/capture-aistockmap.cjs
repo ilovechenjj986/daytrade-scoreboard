@@ -115,7 +115,7 @@ async function main() {
   if (!fs.existsSync(authStateFile)) throw new Error('找不到 AISTOCKMAP_AUTH_STATE_FILE');
 
   const manifest = readManifest();
-  if (manifest.snapshots.some(item => item.date === expectedDate) && process.env.FORCE_CAPTURE !== 'true') {
+  if (manifest.snapshots.some(item => item.date === expectedDate && !item.preserved) && process.env.FORCE_CAPTURE !== 'true') {
     writeStatus('skipped', `${expectedDate} 已有完整頁面快照，不重複擷取`);
     console.log(`SKIPPED ${expectedDate}`);
     return;
@@ -163,7 +163,7 @@ async function main() {
       console.log('SKIPPED Sunday');
       return;
     }
-    if (completedManifest.snapshots.some(item => item.date === date) && process.env.FORCE_CAPTURE !== 'true') {
+    if (completedManifest.snapshots.some(item => item.date === date && !item.preserved) && process.env.FORCE_CAPTURE !== 'true') {
       writeStatus('skipped', `${date} 已有完整頁面快照，不重複擷取`);
       console.log(`SKIPPED ${date}`);
       return;
@@ -190,9 +190,11 @@ async function main() {
       sourceUrl: targetUrl,
       images
     };
-    const snapshots = completedManifest.snapshots.filter(item => item.slot !== slot && item.date !== date);
+    const snapshots = completedManifest.snapshots.filter(
+      item => item.preserved || (item.slot !== slot && item.date !== date)
+    );
     snapshots.push(entry);
-    snapshots.sort((left, right) => right.date.localeCompare(left.date));
+    snapshots.sort((left, right) => Date.parse(right.capturedAt) - Date.parse(left.capturedAt));
     writeJson(manifestFile, { snapshots });
     writeStatus('success', `已保存 ${date} 的 3 張網站完整頁面快照`);
     console.log(`SUCCESS ${date}`);
