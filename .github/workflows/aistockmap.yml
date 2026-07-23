@@ -4,6 +4,8 @@ on:
   schedule:
     # 18:05 Asia/Taipei = 10:05 UTC, Monday-Saturday.
     - cron: '5 10 * * 1-6'
+    # 18:09 Asia/Taipei backup. The collector skips if the evening capture already succeeded.
+    - cron: '9 10 * * 1-6'
   workflow_dispatch:
     inputs:
       force:
