@@ -5,12 +5,12 @@
     "capture:aistockmap": "node scripts/capture-aistockmap.cjs",
     "capture:limit-up": "node scripts/capture-limit-up.cjs",
     "capture:rotation-focus": "node scripts/capture-rotation-focus.cjs",
+    "test:aistockmap-data": "node scripts/capture-aistockmap-data.test.cjs",
     "test:capture-window": "node scripts/capture-window.test.cjs",
     "test:limit-up": "node scripts/capture-limit-up.test.cjs",
     "test:rotation-focus": "node scripts/capture-rotation-focus.test.cjs"
   },
   "dependencies": {
-    "playwright": "1.61.1",
-    "sharp": "0.35.3"
+    "playwright": "1.61.1"
   }
 }
