@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="最近 30 個保存日期的 Chengwaye 族群輪動焦點紀錄。">
+  <title>族群輪動焦點紀錄</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <nav class="app-switcher" aria-label="功能切換">
+      <a href="../">族群記分板</a>
+      <a href="../aistockmap/">AI Stock Map 原頁快照</a>
+      <a href="../limit-up/">每日漲停紀錄</a>
+      <a class="active" href="./">族群輪動焦點</a>
+    </nav>
+    <header>
+      <p class="eyebrow">CHENGWAYE ROTATION ARCHIVE</p>
+      <h1>族群輪動焦點紀錄</h1>
+      <p class="sub">依來源網站的焦點排序規則，保存最近 14 個交易日的族群輪動卡片，提供最近 30 個保存日期查詢。</p>
+    </header>
+    <section class="toolbar">
+      <label for="record-date">查詢日期</label>
+      <select id="record-date"></select>
+      <span id="status" role="status" aria-live="polite"></span>
+    </section>
+    <section class="lead" id="lead" aria-live="polite"></section>
+    <div id="latest-list" class="latest-list" aria-label="最新漲停族群"></div>
+    <section id="focus-board" class="focus-board" aria-live="polite"></section>
+    <p class="source"><a id="source-link" href="https://chengwaye.com/stats" target="_blank" rel="noopener">查看 Chengwaye 原始頁面</a></p>
+  </main>
+  <script src="viewer.js?v=1"></script>
+</body>
+</html>

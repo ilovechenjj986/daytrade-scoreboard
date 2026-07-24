@@ -1,0 +1,68 @@
+name: Capture Chengwaye rotation focus
+
+on:
+  schedule:
+    # 18:37 and 18:47 Asia/Taipei, Monday-Saturday.
+    - cron: '37 10 * * 1-6'
+    - cron: '47 10 * * 1-6'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Replace the latest source date even if it already exists
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: sector-scoreboard-pages
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Capture rotation focus
+        env:
+          FORCE_CAPTURE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && 'true' || 'false' }}
+        run: npm run capture:rotation-focus
+      - name: Commit records
+        id: commit
+        shell: bash
+        run: |
+          if git diff --quiet -- site/rotation-focus; then
+            echo 'No record changes.'
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add site/rotation-focus
+          git commit -m "Update rotation focus $(TZ=Asia/Taipei date +%F)"
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo 'changed=true' >> "$GITHUB_OUTPUT"
+      - if: steps.commit.outputs.changed == 'true'
+        uses: actions/configure-pages@v5
+      - if: steps.commit.outputs.changed == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy GitHub Pages
+        if: steps.commit.outputs.changed == 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4
