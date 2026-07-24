@@ -5,7 +5,7 @@
     const switcher = document.createElement('nav');
     switcher.className = 'app-switcher';
     switcher.setAttribute('aria-label', '功能切換');
-    switcher.innerHTML = '<a class="active" href="' + root + '">族群記分板</a><a href="' + root + 'aistockmap/">AI Stock Map 原頁快照</a><a href="' + root + 'limit-up/">每日漲停紀錄</a><a href="' + root + 'rotation-focus/">族群輪動焦點</a>';
+    switcher.innerHTML = '<a class="active" href="' + root + '">族群記分板</a><a href="' + root + 'aistockmap/">AI Stock Map 每日資料</a><a href="' + root + 'limit-up/">每日漲停紀錄</a><a href="' + root + 'rotation-focus/">族群輪動焦點</a>';
     main.prepend(switcher);
     const switcherStyle = document.createElement('style');
     switcherStyle.textContent = '.app-switcher{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.app-switcher a{color:#c7d2fe;text-decoration:none;border:1px solid var(--line);background:#171e30;border-radius:10px;padding:8px 12px}.app-switcher a.active{background:#4f46e5;color:white}';
