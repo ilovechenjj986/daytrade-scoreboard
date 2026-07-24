@@ -3,6 +3,18 @@
     {
       "date": "2026-07-23",
       "slot": 17,
+      "capturedAt": "2026-07-24T07:40:57.613Z",
+      "sourceUrl": "https://aistockmap.com/?topic=niche-memory&activeTab=heatmap",
+      "file": "data/slot-17.json",
+      "counts": {
+        "tw-week": 89,
+        "tw-month": 89,
+        "us-day": 52
+      }
+    },
+    {
+      "date": "2026-07-23",
+      "slot": 17,
       "capturedAt": "2026-07-23T11:59:56.503Z",
       "sourceUrl": "https://aistockmap.com/?topic=niche-memory&activeTab=heatmap",
       "images": [
