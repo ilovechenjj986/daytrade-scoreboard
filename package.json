@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "capture:aistockmap": "node scripts/capture-aistockmap.cjs",
-    "test:capture-window": "node scripts/capture-window.test.cjs"
+    "capture:limit-up": "node scripts/capture-limit-up.cjs",
+    "test:capture-window": "node scripts/capture-window.test.cjs",
+    "test:limit-up": "node scripts/capture-limit-up.test.cjs"
   },
   "dependencies": {
     "playwright": "1.61.1",
