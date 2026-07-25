@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { chromium } = require('playwright');
 
 const root = path.resolve(__dirname, '..');
 const outputDir = path.join(root, 'site', 'aistockmap');
@@ -9,6 +8,12 @@ const manifestFile = path.join(outputDir, 'manifest.json');
 const statusFile = path.join(outputDir, 'status.json');
 const authStateFile = process.env.AISTOCKMAP_AUTH_STATE_FILE || path.join(root, 'auth-state.json');
 const targetUrl = 'https://aistockmap.com/?topic=niche-memory&activeTab=heatmap';
+const changeThreshold = 1;
+const definitions = [
+  { id: 'tw-week', title: '台股單週', market: '台股', period: '單週' },
+  { id: 'tw-month', title: '台股單月', market: '台股', period: '單月' },
+  { id: 'us-day', title: '美股單日', market: '美股', period: '單日' }
+];
 
 function taipeiDate(date = new Date()) {
   return new Intl.DateTimeFormat('en-CA', {
@@ -85,6 +90,41 @@ function contentHash(views) {
   return crypto.createHash('sha256').update(JSON.stringify(comparable)).digest('hex');
 }
 
+function viewHasMaterialChange(previousView, nextView, threshold = changeThreshold) {
+  if (!previousView || !nextView) return true;
+  const previous = new Map(previousView.industries.map(industry => [industry.name, industry]));
+  const next = new Map(nextView.industries.map(industry => [industry.name, industry]));
+  if (previous.size !== next.size) return true;
+  for (const [name, industry] of next) {
+    const oldIndustry = previous.get(name);
+    if (!oldIndustry) return true;
+    if (Math.abs(Number(oldIndustry.change) - Number(industry.change)) > threshold + Number.EPSILON) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function isSnapshotComplete(snapshot) {
+  if (!snapshot) return false;
+  if (snapshot.complete === true) return true;
+  if (snapshot.complete === false) return false;
+  return definitions.every(definition => Number.isFinite(Number(snapshot.counts?.[definition.id])));
+}
+
+function readSnapshot(snapshot) {
+  if (!snapshot?.file) return null;
+  const file = path.join(outputDir, snapshot.file);
+  if (!fs.existsSync(file)) return null;
+  return JSON.parse(fs.readFileSync(file, 'utf8'));
+}
+
+function newestSnapshotBefore(manifest, date) {
+  return manifest.snapshots
+    .filter(snapshot => snapshot.file && snapshot.date < date)
+    .sort((left, right) => right.date.localeCompare(left.date))[0] || null;
+}
+
 function readManifest() {
   if (!fs.existsSync(manifestFile)) return { snapshots: [] };
   return JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
@@ -138,8 +178,15 @@ async function main() {
     console.log('SKIPPED Sunday');
     return;
   }
+  const initialManifest = readManifest();
+  const initialTarget = initialManifest.snapshots.find(item => item.file && item.date === expectedDate);
+  if (isSnapshotComplete(initialTarget) && process.env.FORCE_CAPTURE !== 'true') {
+    console.log(`SKIPPED COMPLETE ${expectedDate}`);
+    return;
+  }
   if (!fs.existsSync(authStateFile)) throw new Error('找不到 AISTOCKMAP_AUTH_STATE_FILE');
 
+  const { chromium } = require('playwright');
   const browser = await chromium.launch({ headless: true });
   try {
     const context = await browser.newContext({
@@ -160,11 +207,6 @@ async function main() {
     }
     await page.waitForTimeout(2000);
 
-    const definitions = [
-      { id: 'tw-week', title: '台股單週', market: '台股', period: '單週' },
-      { id: 'tw-month', title: '台股單月', market: '台股', period: '單月' },
-      { id: 'us-day', title: '美股單日', market: '美股', period: '單日' }
-    ];
     const views = [];
     for (const definition of definitions) views.push(await scrapeView(page, definition));
 
@@ -177,21 +219,37 @@ async function main() {
     }
 
     const latestManifest = readManifest();
-    const latestSnapshot = latestManifest.snapshots
-      .filter(item => item.file)
-      .sort((left, right) => Date.parse(right.capturedAt) - Date.parse(left.capturedAt))[0];
-    const hash = contentHash(views);
-    if (latestSnapshot) {
-      const latestFile = path.join(outputDir, latestSnapshot.file);
-      if (fs.existsSync(latestFile)) {
-        const latestData = JSON.parse(fs.readFileSync(latestFile, 'utf8'));
-        const latestHash = latestData.contentHash || contentHash(latestData.views);
-        if (hash === latestHash) {
-          console.log(`SKIPPED UNCHANGED ${latestSnapshot.date}`);
-          return;
-        }
+    const targetSnapshot = latestManifest.snapshots.find(item => item.file && item.date === date) || null;
+    const targetData = readSnapshot(targetSnapshot);
+    const baselineSnapshot = newestSnapshotBefore(latestManifest, date);
+    const baselineData = readSnapshot(baselineSnapshot);
+    const targetViews = new Map((targetData?.views || []).map(view => [view.id, view]));
+    const baselineViews = new Map((baselineData?.views || []).map(view => [view.id, view]));
+    const acceptedViewIds = [];
+
+    for (const view of views) {
+      const savedView = targetViews.get(view.id);
+      const comparisonView = savedView || baselineViews.get(view.id);
+      if (!comparisonView || viewHasMaterialChange(comparisonView, view)) {
+        targetViews.set(view.id, view);
+        acceptedViewIds.push(view.id);
       }
     }
+
+    if (!acceptedViewIds.length) {
+      console.log(`SKIPPED UNCHANGED ${baselineSnapshot?.date || 'no-baseline'}`);
+      return;
+    }
+
+    const mergedViews = definitions
+      .map(definition => targetViews.get(definition.id))
+      .filter(Boolean);
+    const availableViewIds = mergedViews.map(view => view.id);
+    const pendingViewIds = definitions
+      .map(definition => definition.id)
+      .filter(id => !targetViews.has(id));
+    const complete = pendingViewIds.length === 0;
+    const hash = contentHash(mergedViews);
 
     const slot = slotFor(date);
     const filename = `data/slot-${String(slot).padStart(2, '0')}.json`;
@@ -200,7 +258,11 @@ async function main() {
       capturedAt: completedAt.toISOString(),
       sourceUrl: targetUrl,
       contentHash: hash,
-      views
+      changeThreshold,
+      complete,
+      availableViewIds,
+      pendingViewIds,
+      views: mergedViews
     });
 
     const structured = latestManifest.snapshots.filter(
@@ -213,22 +275,44 @@ async function main() {
       sourceUrl: targetUrl,
       file: filename,
       contentHash: hash,
-      counts: Object.fromEntries(views.map(view => [view.id, view.industries.length]))
+      changeThreshold,
+      complete,
+      availableViewIds,
+      pendingViewIds,
+      counts: Object.fromEntries(mergedViews.map(view => [view.id, view.industries.length]))
     });
     structured.sort((left, right) => right.date.localeCompare(left.date));
     writeJson(manifestFile, {
       snapshots: structured.slice(0, 30)
         .sort((left, right) => Date.parse(right.capturedAt) - Date.parse(left.capturedAt))
     });
-    writeStatus('success', `已保存 ${date} 的三組條列資料`);
-    console.log(`SUCCESS ${date} ${views.map(view => `${view.id}:${view.industries.length}`).join(' ')}`);
+    const pendingTitles = definitions
+      .filter(definition => pendingViewIds.includes(definition.id))
+      .map(definition => definition.title);
+    writeStatus(
+      'success',
+      complete
+        ? `已保存 ${date}，三個檢視皆已更新`
+        : `已保存 ${date} 的部分更新；等待：${pendingTitles.join('、')}`
+    );
+    console.log(
+      `SUCCESS ${date} accepted=${acceptedViewIds.join(',')} pending=${pendingViewIds.join(',') || 'none'}`
+    );
     await context.close();
   } finally {
     await browser.close();
   }
 }
 
-module.exports = { captureDate, weekdayForDate, parseListText, slotFor, contentHash };
+module.exports = {
+  captureDate,
+  weekdayForDate,
+  parseListText,
+  slotFor,
+  contentHash,
+  viewHasMaterialChange,
+  isSnapshotComplete
+};
 
 if (require.main === module) {
   main().catch(error => {
