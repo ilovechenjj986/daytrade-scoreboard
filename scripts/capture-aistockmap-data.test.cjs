@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { parseListText } = require('./capture-aistockmap.cjs');
+const { parseListText, contentHash } = require('./capture-aistockmap.cjs');
 
 const text = `
 台股產業市場熱力圖
@@ -25,4 +25,11 @@ assert.deepEqual(parseListText('AI 伺服器 12家 +3.25%\n雲端與 MSP\t6家\t
   { name: 'AI 伺服器', companies: 12, change: 3.25 },
   { name: '雲端與 MSP', companies: 6, change: -0.4 }
 ]);
+const views = [{ id: 'tw-week', sourceUpdatedAt: '下午1:00', industries: [
+  { name: 'AI 伺服器', companies: 12, change: 3.25 }
+] }];
+assert.equal(contentHash(views), contentHash([{ ...views[0], sourceUpdatedAt: '下午2:00' }]));
+assert.notEqual(contentHash(views), contentHash([{ ...views[0], industries: [
+  { name: 'AI 伺服器', companies: 12, change: 3.26 }
+] }]));
 console.log('AI Stock Map list parser tests passed');

@@ -4,28 +4,6 @@
   const meta = document.querySelector('#meta');
   const screens = document.querySelector('#screens');
 
-  const renderLegacy = snapshot => {
-    status.textContent = '舊版圖片快照；點擊圖片可開啟原尺寸';
-    screens.replaceChildren(...snapshot.images.map(image => {
-      const card = document.createElement('section');
-      card.className = 'card legacy-card';
-      const heading = document.createElement('h2');
-      heading.textContent = `${image.title}｜${image.width} × ${image.height}`;
-      const link = document.createElement('a');
-      const versionedImage = `${image.file}?v=${encodeURIComponent(snapshot.capturedAt)}`;
-      link.href = versionedImage;
-      link.target = '_blank';
-      link.rel = 'noopener';
-      const picture = document.createElement('img');
-      picture.src = versionedImage;
-      picture.alt = `${snapshot.date} ${image.title} 完整頁面快照`;
-      picture.loading = 'lazy';
-      link.append(picture);
-      card.append(heading, link);
-      return card;
-    }));
-  };
-
   const renderData = async snapshot => {
     status.textContent = '載入條列資料中…';
     const response = await fetch(`${snapshot.file}?v=${encodeURIComponent(snapshot.capturedAt)}`, { cache: 'no-store' });
@@ -67,7 +45,7 @@
       card.append(heading, tableWrap, updated);
       return card;
     }));
-    status.textContent = '已改用條列資料保存，不再新增圖片';
+    status.textContent = '僅在來源內容變更時新增紀錄';
   };
 
   function showError(error) {
@@ -79,7 +57,7 @@
     const response = await fetch(`manifest.json?v=${Date.now()}`, { cache: 'no-store' });
     if (!response.ok) throw new Error('尚未建立雲端紀錄');
     const manifest = await response.json();
-    const snapshots = Array.isArray(manifest.snapshots) ? manifest.snapshots : [];
+    const snapshots = Array.isArray(manifest.snapshots) ? manifest.snapshots.filter(item => item.file) : [];
     if (!snapshots.length) throw new Error('尚未建立雲端紀錄');
     snapshots.forEach(snapshot => {
       const option = document.createElement('option');
@@ -87,15 +65,14 @@
       const time = new Date(snapshot.capturedAt).toLocaleTimeString('zh-TW', {
         timeZone: 'Asia/Taipei', hour: '2-digit', minute: '2-digit'
       });
-      option.textContent = snapshot.label || `${snapshot.date} ${time}${snapshot.images ? '（舊圖片）' : ''}`;
+      option.textContent = `${snapshot.date} ${time}`;
       picker.append(option);
     });
     const render = async capturedAt => {
       const snapshot = snapshots.find(item => item.capturedAt === capturedAt) || snapshots[0];
       picker.value = snapshot.capturedAt;
       meta.textContent = `紀錄日期：${snapshot.date}｜保存時間：${new Date(snapshot.capturedAt).toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' })}`;
-      if (Array.isArray(snapshot.images)) renderLegacy(snapshot);
-      else await renderData(snapshot);
+      await renderData(snapshot);
     };
     picker.addEventListener('change', () => render(picker.value).catch(showError));
     await render(snapshots[0].capturedAt);
@@ -104,7 +81,7 @@
     picker.disabled = true;
     const empty = document.createElement('p');
     empty.className = 'empty';
-    empty.textContent = '第一次雲端排程成功後，條列資料會顯示在這裡。';
+    empty.textContent = '來源內容第一次變更並成功保存後，條列資料會顯示在這裡。';
     screens.append(empty);
   }
 })();
