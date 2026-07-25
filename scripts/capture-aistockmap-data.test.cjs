@@ -41,11 +41,11 @@ const baseline = { id: 'tw-week', industries: [
   { name: 'AI 伺服器', companies: 12, change: 3.25 }
 ] };
 assert.equal(viewHasMaterialChange(baseline, { ...baseline, industries: [
-  { name: 'AI 伺服器', companies: 12, change: 4.25 }
-]}), false, 'exactly 1 percentage point is treated as unchanged');
+  { name: 'AI 伺服器', companies: 12, change: 4.24 }
+]}), false, 'less than 1 percentage point is treated as unchanged');
 assert.equal(viewHasMaterialChange(baseline, { ...baseline, industries: [
-  { name: 'AI 伺服器', companies: 12, change: 4.26 }
-]}), true, 'more than 1 percentage point is a material change');
+  { name: 'AI 伺服器', companies: 12, change: 4.25 }
+]}), true, 'exactly 1 percentage point is a material change');
 assert.equal(viewHasMaterialChange(baseline, { ...baseline, industries: [
   { name: 'AI 伺服器', companies: 13, change: 3.25 }
 ]}), false, 'company count alone does not cross the percentage threshold');

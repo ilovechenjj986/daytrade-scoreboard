@@ -98,7 +98,7 @@ function viewHasMaterialChange(previousView, nextView, threshold = changeThresho
   for (const [name, industry] of next) {
     const oldIndustry = previous.get(name);
     if (!oldIndustry) return true;
-    if (Math.abs(Number(oldIndustry.change) - Number(industry.change)) > threshold + Number.EPSILON) {
+    if (Math.abs(Number(oldIndustry.change) - Number(industry.change)) + Number.EPSILON >= threshold) {
       return true;
     }
   }
