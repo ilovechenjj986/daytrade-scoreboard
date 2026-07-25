@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const { chromium } = require('playwright');
 
 const root = path.resolve(__dirname, '..');
@@ -72,6 +73,18 @@ function parseListText(text) {
   return industries;
 }
 
+function contentHash(views) {
+  const comparable = views.map(view => ({
+    id: view.id,
+    industries: view.industries.map(industry => ({
+      name: industry.name,
+      companies: industry.companies,
+      change: industry.change
+    }))
+  }));
+  return crypto.createHash('sha256').update(JSON.stringify(comparable)).digest('hex');
+}
+
 function readManifest() {
   if (!fs.existsSync(manifestFile)) return { snapshots: [] };
   return JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
@@ -127,14 +140,6 @@ async function main() {
   }
   if (!fs.existsSync(authStateFile)) throw new Error('找不到 AISTOCKMAP_AUTH_STATE_FILE');
 
-  const manifest = readManifest();
-  if (manifest.snapshots.some(item => item.date === expectedDate && item.file) && process.env.FORCE_CAPTURE !== 'true') {
-    writeStatus('skipped', `${expectedDate} 已有結構化資料，不重複擷取`);
-    console.log(`SKIPPED ${expectedDate}`);
-    return;
-  }
-
-  writeStatus('running', '正在讀取網站條列資料');
   const browser = await chromium.launch({ headless: true });
   try {
     const context = await browser.newContext({
@@ -171,17 +176,33 @@ async function main() {
       return;
     }
 
+    const latestManifest = readManifest();
+    const latestSnapshot = latestManifest.snapshots
+      .filter(item => item.file)
+      .sort((left, right) => Date.parse(right.capturedAt) - Date.parse(left.capturedAt))[0];
+    const hash = contentHash(views);
+    if (latestSnapshot) {
+      const latestFile = path.join(outputDir, latestSnapshot.file);
+      if (fs.existsSync(latestFile)) {
+        const latestData = JSON.parse(fs.readFileSync(latestFile, 'utf8'));
+        const latestHash = latestData.contentHash || contentHash(latestData.views);
+        if (hash === latestHash) {
+          console.log(`SKIPPED UNCHANGED ${latestSnapshot.date}`);
+          return;
+        }
+      }
+    }
+
     const slot = slotFor(date);
     const filename = `data/slot-${String(slot).padStart(2, '0')}.json`;
     writeJson(path.join(outputDir, filename), {
       date,
       capturedAt: completedAt.toISOString(),
       sourceUrl: targetUrl,
+      contentHash: hash,
       views
     });
 
-    const latestManifest = readManifest();
-    const legacy = latestManifest.snapshots.filter(item => Array.isArray(item.images));
     const structured = latestManifest.snapshots.filter(
       item => item.file && item.slot !== slot && item.date !== date
     );
@@ -191,11 +212,12 @@ async function main() {
       capturedAt: completedAt.toISOString(),
       sourceUrl: targetUrl,
       file: filename,
+      contentHash: hash,
       counts: Object.fromEntries(views.map(view => [view.id, view.industries.length]))
     });
     structured.sort((left, right) => right.date.localeCompare(left.date));
     writeJson(manifestFile, {
-      snapshots: [...structured.slice(0, 30), ...legacy]
+      snapshots: structured.slice(0, 30)
         .sort((left, right) => Date.parse(right.capturedAt) - Date.parse(left.capturedAt))
     });
     writeStatus('success', `已保存 ${date} 的三組條列資料`);
@@ -206,7 +228,7 @@ async function main() {
   }
 }
 
-module.exports = { captureDate, weekdayForDate, parseListText, slotFor };
+module.exports = { captureDate, weekdayForDate, parseListText, slotFor, contentHash };
 
 if (require.main === module) {
   main().catch(error => {
