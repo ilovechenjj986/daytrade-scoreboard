@@ -2,14 +2,16 @@ name: Capture AI Stock Map data
 
 on:
   schedule:
-    # 18:05 Asia/Taipei = 10:05 UTC, Monday-Saturday.
-    - cron: '5 10 * * 1-6'
-    # 18:09 Asia/Taipei backup. The collector skips if the evening capture already succeeded.
-    - cron: '9 10 * * 1-6'
+    # 18:05-23:05 Asia/Taipei, Monday-Saturday.
+    - cron: '5 10-15 * * 1-6'
+    # 00:05-07:05 Asia/Taipei, Tuesday-Sunday (still belongs to the previous capture date).
+    - cron: '5 16-23 * * 1-6'
+    # 08:05-17:05 Asia/Taipei, Tuesday-Sunday (still belongs to the previous capture date).
+    - cron: '5 0-9 * * 0,2-6'
   workflow_dispatch:
     inputs:
       force:
-        description: Replace today's snapshot even if it already exists
+        description: Run even if all three views for the capture date are complete
         required: false
         default: false
         type: boolean
@@ -35,17 +37,26 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Check whether this date still needs views
+        id: gate
+        env:
+          FORCE_CAPTURE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && 'true' || 'false' }}
+        run: node scripts/aistockmap-capture-gate.cjs
+
       - uses: actions/setup-node@v4
+        if: steps.gate.outputs.run == 'true'
         with:
           node-version: 22
           cache: npm
 
       - name: Install browser dependencies
+        if: steps.gate.outputs.run == 'true'
         run: |
           npm ci
           npx playwright install --with-deps chromium
 
       - name: Restore encrypted login state
+        if: steps.gate.outputs.run == 'true'
         shell: bash
         env:
           AUTH_STATE_B64: ${{ secrets.AISTOCKMAP_AUTH_STATE_B64 }}
@@ -54,6 +65,7 @@ jobs:
           printf '%s' "$AUTH_STATE_B64" | base64 --decode > "$RUNNER_TEMP/auth-state.json"
 
       - name: Capture structured list data
+        if: steps.gate.outputs.run == 'true'
         env:
           AISTOCKMAP_AUTH_STATE_FILE: ${{ runner.temp }}/auth-state.json
           FORCE_CAPTURE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && 'true' || 'false' }}
