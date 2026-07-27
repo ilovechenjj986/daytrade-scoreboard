@@ -3,22 +3,22 @@
     {
       "date": "2026-07-27",
       "slot": 21,
-      "capturedAt": "2026-07-27T13:18:02.058Z",
+      "capturedAt": "2026-07-27T17:50:53.905Z",
       "sourceUrl": "https://aistockmap.com/?topic=niche-memory&activeTab=heatmap",
       "file": "data/slot-21.json",
-      "contentHash": "5c11f612a668d5fc3c00ca5679130b2fee248ed07903007a50d3fa7a1063cc35",
+      "contentHash": "b9f857b788125ffa2b33ca45c6c1ea6ccd502a377ff9919527ac96d4a1aac69f",
       "changeThreshold": 1,
-      "complete": false,
+      "complete": true,
       "availableViewIds": [
         "tw-week",
-        "tw-month"
-      ],
-      "pendingViewIds": [
+        "tw-month",
         "us-day"
       ],
+      "pendingViewIds": [],
       "counts": {
         "tw-week": 89,
-        "tw-month": 89
+        "tw-month": 89,
+        "us-day": 55
       }
     },
     {
