@@ -1,0 +1,27 @@
+{
+  "date": "2026-07-28",
+  "capturedAt": "2026-07-28T12:15:21.095Z",
+  "sourceUrl": "https://chengwaye.com/daily",
+  "stocks": [
+    {
+      "code": "3018",
+      "name": "隆銘綠能",
+      "group": "綠能"
+    },
+    {
+      "code": "4577",
+      "name": "達航科技",
+      "group": "自行車"
+    },
+    {
+      "code": "6226",
+      "name": "光鼎",
+      "group": "面板光電"
+    },
+    {
+      "code": "6733",
+      "name": "博晟生醫",
+      "group": "生技醫療"
+    }
+  ]
+}
