@@ -1,0 +1,32 @@
+{
+  "date": "2026-07-30",
+  "capturedAt": "2026-07-30T12:04:51.021Z",
+  "sourceUrl": "https://chengwaye.com/daily",
+  "stocks": [
+    {
+      "code": "1796",
+      "name": "金穎生技",
+      "group": "生技醫療"
+    },
+    {
+      "code": "3520",
+      "name": "華盈",
+      "group": "汽車"
+    },
+    {
+      "code": "3529",
+      "name": "力旺",
+      "group": "IC設計"
+    },
+    {
+      "code": "3543",
+      "name": "州巧",
+      "group": "精密零組件"
+    },
+    {
+      "code": "6620",
+      "name": "漢達",
+      "group": "生技醫療"
+    }
+  ]
+}
