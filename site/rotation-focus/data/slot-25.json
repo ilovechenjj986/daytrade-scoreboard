@@ -1,0 +1,1501 @@
+{
+  "date": "2026-07-31",
+  "latestDate": "7/31",
+  "rankDate": "7/30",
+  "recentDays": 14,
+  "latestTotal": 202,
+  "latestGroups": [
+    {
+      "name": "IC設計",
+      "count": 22
+    },
+    {
+      "name": "被動元件",
+      "count": 19
+    },
+    {
+      "name": "PCB",
+      "count": 17
+    },
+    {
+      "name": "半導體設備",
+      "count": 13
+    },
+    {
+      "name": "記憶體",
+      "count": 12
+    },
+    {
+      "name": "光通訊",
+      "count": 11
+    },
+    {
+      "name": "封測",
+      "count": 11
+    },
+    {
+      "name": "機械",
+      "count": 8
+    },
+    {
+      "name": "面板光電",
+      "count": 7
+    },
+    {
+      "name": "連接器",
+      "count": 6
+    },
+    {
+      "name": "AI伺服器",
+      "count": 6
+    },
+    {
+      "name": "半導體材料",
+      "count": 5
+    }
+  ],
+  "focus": [
+    {
+      "name": "精密零組件",
+      "today": 4,
+      "rankReturn": 9.98,
+      "recentCount": 10,
+      "activeDays": 5,
+      "avgReturn": 2.308333333333333,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 3,
+          "return": 2.59
+        },
+        {
+          "date": "7/15",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/16",
+          "count": 1,
+          "return": 0
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/21",
+          "count": 1,
+          "return": -3.9
+        },
+        {
+          "date": "7/22",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/23",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/24",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/27",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/30",
+          "count": 1,
+          "return": 9.98
+        },
+        {
+          "date": "7/31",
+          "count": 4,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "IC設計",
+      "today": 22,
+      "rankReturn": 8.08,
+      "recentCount": 50,
+      "activeDays": 12,
+      "avgReturn": 3.5164285714285706,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 3,
+          "return": 9.96
+        },
+        {
+          "date": "7/15",
+          "count": 6,
+          "return": 4.51
+        },
+        {
+          "date": "7/16",
+          "count": 2,
+          "return": 8.76
+        },
+        {
+          "date": "7/17",
+          "count": 1,
+          "return": 9.94
+        },
+        {
+          "date": "7/20",
+          "count": 4,
+          "return": -2.76
+        },
+        {
+          "date": "7/21",
+          "count": 6,
+          "return": 2.71
+        },
+        {
+          "date": "7/22",
+          "count": 2,
+          "return": -1.73
+        },
+        {
+          "date": "7/23",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/24",
+          "count": 1,
+          "return": -5.75
+        },
+        {
+          "date": "7/27",
+          "count": 1,
+          "return": 9.24
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 1,
+          "return": 0.73
+        },
+        {
+          "date": "7/30",
+          "count": 1,
+          "return": 8.08
+        },
+        {
+          "date": "7/31",
+          "count": 22,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "汽車",
+      "today": 2,
+      "rankReturn": 3.07,
+      "recentCount": 10,
+      "activeDays": 8,
+      "avgReturn": 5.49125,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 2,
+          "return": 8.02
+        },
+        {
+          "date": "7/15",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/16",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 1,
+          "return": 3.6
+        },
+        {
+          "date": "7/21",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/22",
+          "count": 1,
+          "return": 9.93
+        },
+        {
+          "date": "7/23",
+          "count": 1,
+          "return": 9.96
+        },
+        {
+          "date": "7/24",
+          "count": 1,
+          "return": 9.9
+        },
+        {
+          "date": "7/27",
+          "count": 1,
+          "return": -8.57
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/30",
+          "count": 1,
+          "return": 3.07
+        },
+        {
+          "date": "7/31",
+          "count": 2,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "生技醫療",
+      "today": 0,
+      "rankReturn": -5.41,
+      "recentCount": 18,
+      "activeDays": 11,
+      "avgReturn": 1.3455555555555558,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 1,
+          "return": 9.97
+        },
+        {
+          "date": "7/15",
+          "count": 5,
+          "return": 2.34
+        },
+        {
+          "date": "7/16",
+          "count": 1,
+          "return": 9.99
+        },
+        {
+          "date": "7/17",
+          "count": 3,
+          "return": 1.81
+        },
+        {
+          "date": "7/20",
+          "count": 1,
+          "return": -0.65
+        },
+        {
+          "date": "7/21",
+          "count": 1,
+          "return": -1.96
+        },
+        {
+          "date": "7/22",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/23",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/24",
+          "count": 1,
+          "return": 9.93
+        },
+        {
+          "date": "7/27",
+          "count": 1,
+          "return": -9.92
+        },
+        {
+          "date": "7/28",
+          "count": 1,
+          "return": 9.89
+        },
+        {
+          "date": "7/29",
+          "count": 1,
+          "return": -9.34
+        },
+        {
+          "date": "7/30",
+          "count": 2,
+          "return": -5.41
+        },
+        {
+          "date": "7/31",
+          "count": 0,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "PCB",
+      "today": 17,
+      "rankReturn": null,
+      "recentCount": 42,
+      "activeDays": 9,
+      "avgReturn": 2.2136,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/15",
+          "count": 4,
+          "return": 1.21
+        },
+        {
+          "date": "7/16",
+          "count": 4,
+          "return": -1.47
+        },
+        {
+          "date": "7/17",
+          "count": 1,
+          "return": 9.98
+        },
+        {
+          "date": "7/20",
+          "count": 2,
+          "return": 9.98
+        },
+        {
+          "date": "7/21",
+          "count": 7,
+          "return": 6.18
+        },
+        {
+          "date": "7/22",
+          "count": 5,
+          "return": -1.61
+        },
+        {
+          "date": "7/23",
+          "count": 1,
+          "return": -9
+        },
+        {
+          "date": "7/24",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/27",
+          "count": 1,
+          "return": 0.23
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/30",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/31",
+          "count": 17,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "被動元件",
+      "today": 19,
+      "rankReturn": null,
+      "recentCount": 33,
+      "activeDays": 7,
+      "avgReturn": -2.745,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 1,
+          "return": 9.99
+        },
+        {
+          "date": "7/15",
+          "count": 2,
+          "return": 0.63
+        },
+        {
+          "date": "7/16",
+          "count": 2,
+          "return": -9.92
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/21",
+          "count": 1,
+          "return": 9.95
+        },
+        {
+          "date": "7/22",
+          "count": 7,
+          "return": -4.43
+        },
+        {
+          "date": "7/23",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/24",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/27",
+          "count": 1,
+          "return": -8.78
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/30",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/31",
+          "count": 19,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "半導體設備",
+      "today": 13,
+      "rankReturn": null,
+      "recentCount": 26,
+      "activeDays": 5,
+      "avgReturn": -1.3876923076923076,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/15",
+          "count": 6,
+          "return": -0.83
+        },
+        {
+          "date": "7/16",
+          "count": 1,
+          "return": -6.76
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/21",
+          "count": 4,
+          "return": 1.58
+        },
+        {
+          "date": "7/22",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/23",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/24",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/27",
+          "count": 2,
+          "return": -6.31
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/30",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/31",
+          "count": 13,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "光通訊",
+      "today": 11,
+      "rankReturn": null,
+      "recentCount": 23,
+      "activeDays": 7,
+      "avgReturn": 3.634166666666666,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/15",
+          "count": 1,
+          "return": -2.85
+        },
+        {
+          "date": "7/16",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/21",
+          "count": 3,
+          "return": 6.42
+        },
+        {
+          "date": "7/22",
+          "count": 5,
+          "return": 3.46
+        },
+        {
+          "date": "7/23",
+          "count": 1,
+          "return": -3.83
+        },
+        {
+          "date": "7/24",
+          "count": 1,
+          "return": 9.94
+        },
+        {
+          "date": "7/27",
+          "count": 1,
+          "return": 3.79
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/30",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/31",
+          "count": 11,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "記憶體",
+      "today": 12,
+      "rankReturn": null,
+      "recentCount": 21,
+      "activeDays": 4,
+      "avgReturn": -3.1744444444444446,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/15",
+          "count": 4,
+          "return": -5.7
+        },
+        {
+          "date": "7/16",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/21",
+          "count": 2,
+          "return": 4.27
+        },
+        {
+          "date": "7/22",
+          "count": 3,
+          "return": -4.77
+        },
+        {
+          "date": "7/23",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/24",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/27",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/30",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/31",
+          "count": 12,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "封測",
+      "today": 11,
+      "rankReturn": null,
+      "recentCount": 17,
+      "activeDays": 4,
+      "avgReturn": 0.22166666666666668,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/15",
+          "count": 3,
+          "return": 0.85
+        },
+        {
+          "date": "7/16",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/21",
+          "count": 1,
+          "return": 10
+        },
+        {
+          "date": "7/22",
+          "count": 2,
+          "return": -5.61
+        },
+        {
+          "date": "7/23",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/24",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/27",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/30",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/31",
+          "count": 11,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "面板光電",
+      "today": 7,
+      "rankReturn": null,
+      "recentCount": 20,
+      "activeDays": 9,
+      "avgReturn": 2.0700000000000007,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 1,
+          "return": -4.2
+        },
+        {
+          "date": "7/15",
+          "count": 1,
+          "return": 4.76
+        },
+        {
+          "date": "7/16",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/21",
+          "count": 2,
+          "return": 0.81
+        },
+        {
+          "date": "7/22",
+          "count": 3,
+          "return": 5.9
+        },
+        {
+          "date": "7/23",
+          "count": 3,
+          "return": 5.48
+        },
+        {
+          "date": "7/24",
+          "count": 1,
+          "return": -9.43
+        },
+        {
+          "date": "7/27",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/28",
+          "count": 1,
+          "return": 10
+        },
+        {
+          "date": "7/29",
+          "count": 1,
+          "return": -9.98
+        },
+        {
+          "date": "7/30",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/31",
+          "count": 7,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "機械",
+      "today": 8,
+      "rankReturn": null,
+      "recentCount": 16,
+      "activeDays": 6,
+      "avgReturn": 2.8950000000000005,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 1,
+          "return": 9.83
+        },
+        {
+          "date": "7/15",
+          "count": 2,
+          "return": 3.32
+        },
+        {
+          "date": "7/16",
+          "count": 1,
+          "return": -1.53
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/21",
+          "count": 2,
+          "return": 8.13
+        },
+        {
+          "date": "7/22",
+          "count": 2,
+          "return": -4.02
+        },
+        {
+          "date": "7/23",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/24",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/27",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/30",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/31",
+          "count": 8,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "綠能",
+      "today": 5,
+      "rankReturn": null,
+      "recentCount": 13,
+      "activeDays": 9,
+      "avgReturn": 4.6175,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/15",
+          "count": 1,
+          "return": -2.76
+        },
+        {
+          "date": "7/16",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 1,
+          "return": 3.54
+        },
+        {
+          "date": "7/21",
+          "count": 1,
+          "return": 9.89
+        },
+        {
+          "date": "7/22",
+          "count": 1,
+          "return": 3.86
+        },
+        {
+          "date": "7/23",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/24",
+          "count": 1,
+          "return": 10
+        },
+        {
+          "date": "7/27",
+          "count": 1,
+          "return": 9.79
+        },
+        {
+          "date": "7/28",
+          "count": 1,
+          "return": 9.87
+        },
+        {
+          "date": "7/29",
+          "count": 1,
+          "return": -7.25
+        },
+        {
+          "date": "7/30",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/31",
+          "count": 5,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "連接器",
+      "today": 6,
+      "rankReturn": null,
+      "recentCount": 12,
+      "activeDays": 5,
+      "avgReturn": 1.3149999999999997,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/15",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/16",
+          "count": 1,
+          "return": -4.87
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/21",
+          "count": 2,
+          "return": 7.85
+        },
+        {
+          "date": "7/22",
+          "count": 2,
+          "return": -1.35
+        },
+        {
+          "date": "7/23",
+          "count": 1,
+          "return": -0.24
+        },
+        {
+          "date": "7/24",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/27",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/30",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/31",
+          "count": 6,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "消費內需",
+      "today": 2,
+      "rankReturn": null,
+      "recentCount": 15,
+      "activeDays": 9,
+      "avgReturn": 2.6838461538461544,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 1,
+          "return": 9.98
+        },
+        {
+          "date": "7/15",
+          "count": 1,
+          "return": -10
+        },
+        {
+          "date": "7/16",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 2,
+          "return": 9.88
+        },
+        {
+          "date": "7/21",
+          "count": 2,
+          "return": 0.5
+        },
+        {
+          "date": "7/22",
+          "count": 2,
+          "return": 9.9
+        },
+        {
+          "date": "7/23",
+          "count": 2,
+          "return": 7.92
+        },
+        {
+          "date": "7/24",
+          "count": 1,
+          "return": -9.99
+        },
+        {
+          "date": "7/27",
+          "count": 2,
+          "return": -5.75
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/30",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/31",
+          "count": 2,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "光學鏡頭",
+      "today": 5,
+      "rankReturn": null,
+      "recentCount": 12,
+      "activeDays": 3,
+      "avgReturn": -4.718571428571429,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/15",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/16",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/21",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/22",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/23",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/24",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/27",
+          "count": 3,
+          "return": 1.95
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 4,
+          "return": -9.72
+        },
+        {
+          "date": "7/30",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/31",
+          "count": 5,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "AI伺服器",
+      "today": 6,
+      "rankReturn": null,
+      "recentCount": 9,
+      "activeDays": 2,
+      "avgReturn": 0.7200000000000001,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/15",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/16",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/21",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/22",
+          "count": 3,
+          "return": 0.72
+        },
+        {
+          "date": "7/23",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/24",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/27",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/30",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/31",
+          "count": 6,
+          "return": null
+        }
+      ]
+    },
+    {
+      "name": "半導體材料",
+      "today": 5,
+      "rankReturn": null,
+      "recentCount": 8,
+      "activeDays": 4,
+      "avgReturn": 2.7566666666666664,
+      "cells": [
+        {
+          "date": "7/14",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/15",
+          "count": 1,
+          "return": -1.89
+        },
+        {
+          "date": "7/16",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/17",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/20",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/21",
+          "count": 1,
+          "return": 3.84
+        },
+        {
+          "date": "7/22",
+          "count": 1,
+          "return": 6.32
+        },
+        {
+          "date": "7/23",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/24",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/27",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/28",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/29",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/30",
+          "count": 0,
+          "return": null
+        },
+        {
+          "date": "7/31",
+          "count": 5,
+          "return": null
+        }
+      ]
+    }
+  ],
+  "capturedAt": "2026-07-31T12:31:00.050Z",
+  "sourceUrl": "https://chengwaye.com/stats"
+}
