@@ -1,6 +1,13 @@
 {
   "snapshots": [
     {
+      "date": "2026-08-06",
+      "slot": 1,
+      "capturedAt": "2026-08-06T12:28:41.811Z",
+      "count": 18,
+      "file": "data/slot-01.json"
+    },
+    {
       "date": "2026-08-05",
       "slot": 0,
       "capturedAt": "2026-08-05T12:25:43.435Z",
