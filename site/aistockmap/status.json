@@ -1,5 +1,5 @@
 {
-  "status": "success",
-  "detail": "已保存 2026-09-12，三個檢視皆已更新",
-  "updatedAt": "2026-09-13T03:31:19.973Z"
+  "status": "skipped",
+  "detail": "週日不執行擷取",
+  "updatedAt": "2026-09-13T13:46:37.487Z"
 }
