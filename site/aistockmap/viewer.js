@@ -10,6 +10,46 @@
     { id: 'us-day', title: '美股單日' }
   ];
 
+  const formatChange = value => `${value >= 0 ? '+' : ''}${Number(value).toFixed(2)}%`;
+
+  const buildChangeMaps = views => Object.fromEntries(
+    ['tw-day', 'tw-week', 'tw-month'].map(id => [
+      id,
+      new Map((views.get(id)?.industries || []).map(industry => [industry.name, Number(industry.change)]))
+    ])
+  );
+
+  const starDetailsFor = (viewId, industryName, changes) => {
+    const daily = changes['tw-day'].get(industryName);
+    const weekly = changes['tw-week'].get(industryName);
+    const monthly = changes['tw-month'].get(industryName);
+    if (viewId === 'tw-day' && daily < 0) {
+      return [
+        weekly > 0 && {
+          title: `台股單週上漲 ${formatChange(weekly)}`,
+          label: '台股單週上漲'
+        },
+        monthly > 0 && {
+          title: `台股單月上漲 ${formatChange(monthly)}`,
+          label: '台股單月上漲'
+        }
+      ].filter(Boolean);
+    }
+    if (viewId === 'tw-week' && daily > 0 && weekly < 0) {
+      return [{
+        title: `台股單日上漲 ${formatChange(daily)}；台股單週下跌 ${formatChange(weekly)}`,
+        label: '台股單日上漲、單週下跌'
+      }];
+    }
+    if (viewId === 'tw-month' && daily > 0 && monthly < 0) {
+      return [{
+        title: `台股單日上漲 ${formatChange(daily)}；台股單月下跌 ${formatChange(monthly)}`,
+        label: '台股單日上漲、單月下跌'
+      }];
+    }
+    return [];
+  };
+
   const renderData = async snapshot => {
     status.textContent = '載入條列資料中…';
     const response = await fetch(`${snapshot.file}?v=${encodeURIComponent(snapshot.capturedAt)}`, { cache: 'no-store' });
@@ -19,14 +59,10 @@
     if (!views.has('tw-day') && data.signalSourceView?.id === 'tw-day') {
       views.set('tw-day', data.signalSourceView);
     }
-    const signal = data.signals?.twDayUpPeriodDown;
-    const legacyNames = data.signals?.twDayUpWeekMonthDown?.industryNames || [];
-    const starredByView = {
-      'tw-day': new Set(data.signals?.twDayDownPeriodUp?.industryNames || []),
-      'tw-week': new Set(signal?.byView?.['tw-week'] || legacyNames),
-      'tw-month': new Set(signal?.byView?.['tw-month'] || legacyNames)
-    };
-    const starredIndustries = new Set(signal?.industryNames || legacyNames);
+    const changes = buildChangeMaps(views);
+    let dailyStarCount = 0;
+    let dailyStarredIndustryCount = 0;
+    const periodStarredIndustryNames = new Set();
     screens.replaceChildren(...expectedViews.map(expectedView => {
       const view = views.get(expectedView.id);
       const card = document.createElement('section');
@@ -58,25 +94,31 @@
       for (const industry of view.industries) {
         const row = document.createElement('tr');
         const name = document.createElement('td');
-        const shouldStar = starredByView[view.id]?.has(industry.name) || false;
-        if (shouldStar) {
+        const starDetails = starDetailsFor(view.id, industry.name, changes);
+        if (starDetails.length) {
           row.classList.add('starred-industry');
-          const star = document.createElement('span');
-          star.className = 'signal-star';
-          star.textContent = '★';
-          const starDescription = view.id === 'tw-day'
-            ? '台股單日下跌、單週或單月上漲'
-            : `台股單日上漲、${view.title}下跌`;
-          star.title = starDescription;
-          star.setAttribute('aria-label', starDescription);
-          name.append(star, document.createTextNode(` ${industry.name}`));
+          if (view.id === 'tw-day') {
+            dailyStarCount += starDetails.length;
+            dailyStarredIndustryCount += 1;
+          } else {
+            periodStarredIndustryNames.add(industry.name);
+          }
+          for (const detail of starDetails) {
+            const star = document.createElement('span');
+            star.className = 'signal-star';
+            star.textContent = '★';
+            star.title = detail.title;
+            star.setAttribute('aria-label', detail.label);
+            name.append(star);
+          }
+          name.append(document.createTextNode(` ${industry.name}`));
         } else {
           name.textContent = industry.name;
         }
         const companies = document.createElement('td');
         companies.textContent = `${industry.companies}家`;
         const change = document.createElement('td');
-        change.textContent = `${industry.change >= 0 ? '+' : ''}${Number(industry.change).toFixed(2)}%`;
+        change.textContent = formatChange(industry.change);
         change.className = industry.change >= 0 ? 'positive' : 'negative';
         row.append(name, companies, change);
         tbody.append(row);
@@ -90,10 +132,9 @@
       return card;
     }));
     const pending = expectedViews.filter(expectedView => !views.has(expectedView.id));
-    const dailyStarCount = starredByView['tw-day'].size;
     const signalSummary = [
-      starredIndustries.size ? `★ 週月表 ${starredIndustries.size} 個` : '',
-      dailyStarCount ? `★ 單日表 ${dailyStarCount} 個` : ''
+      periodStarredIndustryNames.size ? `★ 週月表 ${periodStarredIndustryNames.size} 個` : '',
+      dailyStarredIndustryCount ? `★ 單日表 ${dailyStarredIndustryCount} 個族群／${dailyStarCount} 顆` : ''
     ].filter(Boolean).join('；');
     status.textContent = pending.length
       ? `已保存 ${expectedViews.length - pending.length}/4；未保存：${pending.map(item => item.title).join('、')}`
