@@ -15,6 +15,9 @@
     if (!response.ok) throw new Error('無法載入 AI Stock Map 條列資料');
     const data = await response.json();
     const views = new Map((data.views || []).map(view => [view.id, view]));
+    const starredIndustries = new Set(
+      data.signals?.twDayUpWeekMonthDown?.industryNames || []
+    );
     screens.replaceChildren(...expectedViews.map(expectedView => {
       const view = views.get(expectedView.id);
       const card = document.createElement('section');
@@ -43,7 +46,19 @@
       for (const industry of view.industries) {
         const row = document.createElement('tr');
         const name = document.createElement('td');
-        name.textContent = industry.name;
+        const shouldStar = ['tw-week', 'tw-month'].includes(view.id)
+          && starredIndustries.has(industry.name);
+        if (shouldStar) {
+          row.classList.add('starred-industry');
+          const star = document.createElement('span');
+          star.className = 'signal-star';
+          star.textContent = '★';
+          star.title = '台股單日上漲、單週與單月下跌';
+          star.setAttribute('aria-label', '台股單日上漲、單週與單月下跌');
+          name.append(star, document.createTextNode(` ${industry.name}`));
+        } else {
+          name.textContent = industry.name;
+        }
         const companies = document.createElement('td');
         companies.textContent = `${industry.companies}家`;
         const change = document.createElement('td');
@@ -63,7 +78,7 @@
     const pending = expectedViews.filter(expectedView => !views.has(expectedView.id));
     status.textContent = pending.length
       ? `已更新 ${expectedViews.length - pending.length}/3；等待：${pending.map(item => item.title).join('、')}`
-      : '三個檢視皆已更新';
+      : `三個檢視皆已更新${starredIndustries.size ? `；★ ${starredIndustries.size} 個族群符合單日漲、週月跌` : ''}`;
   };
 
   function showError(error) {
