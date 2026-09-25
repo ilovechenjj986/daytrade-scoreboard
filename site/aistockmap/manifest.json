@@ -3,10 +3,10 @@
     {
       "date": "2026-09-24",
       "slot": 20,
-      "capturedAt": "2026-09-24T14:08:27.052Z",
-      "sourceUrl": "https://aistockmap.com/?topic=niche-memory&activeTab=heatmap",
+      "capturedAt": "2026-09-25T07:48:06.013Z",
+      "sourceUrl": "https://aistockmap.com/?activeTab=heatmap&view=network&network=ai-datacenter&focus=cowos-advanced-packaging",
       "file": "data/slot-20.json",
-      "contentHash": "ef28211fb834b14961285b27d39124e0e3d8218b3625809e066635cdeb076fe9",
+      "contentHash": "d1dc0849af0f56619efdc813238747e21b54584e4beb8d4f3713e59315152b48",
       "changeThreshold": 1,
       "complete": true,
       "availableViewIds": [
@@ -15,6 +15,7 @@
         "us-day"
       ],
       "pendingViewIds": [],
+      "starredIndustryCount": 4,
       "counts": {
         "tw-week": 91,
         "tw-month": 91,
