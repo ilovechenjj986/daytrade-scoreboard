@@ -4,6 +4,7 @@
   const meta = document.querySelector('#meta');
   const screens = document.querySelector('#screens');
   const expectedViews = [
+    { id: 'tw-day', title: '台股單日' },
     { id: 'tw-week', title: '台股單週' },
     { id: 'tw-month', title: '台股單月' },
     { id: 'us-day', title: '美股單日' }
@@ -15,9 +16,13 @@
     if (!response.ok) throw new Error('無法載入 AI Stock Map 條列資料');
     const data = await response.json();
     const views = new Map((data.views || []).map(view => [view.id, view]));
+    if (!views.has('tw-day') && data.signalSourceView?.id === 'tw-day') {
+      views.set('tw-day', data.signalSourceView);
+    }
     const signal = data.signals?.twDayUpPeriodDown;
     const legacyNames = data.signals?.twDayUpWeekMonthDown?.industryNames || [];
     const starredByView = {
+      'tw-day': new Set(data.signals?.twDayDownPeriodUp?.industryNames || []),
       'tw-week': new Set(signal?.byView?.['tw-week'] || legacyNames),
       'tw-month': new Set(signal?.byView?.['tw-month'] || legacyNames)
     };
@@ -37,7 +42,10 @@
         card.classList.add('pending-card');
         const waiting = document.createElement('div');
         waiting.className = 'pending-message';
-        waiting.innerHTML = '<strong>等待來源網站更新</strong><span>更新後會自動補入這個日期，不會建立另一筆紀錄。</span>';
+        const isPending = snapshot.pendingViewIds?.includes(expectedView.id);
+        waiting.innerHTML = isPending
+          ? '<strong>等待來源網站更新</strong><span>更新後會自動補入這個日期，不會建立另一筆紀錄。</span>'
+          : '<strong>此日期未保存這項資料</strong><span>台股單日列表從新功能上線後開始保存。</span>';
         card.append(heading, waiting);
         return card;
       }
@@ -56,8 +64,11 @@
           const star = document.createElement('span');
           star.className = 'signal-star';
           star.textContent = '★';
-          star.title = `台股單日上漲、${view.title}下跌`;
-          star.setAttribute('aria-label', `台股單日上漲、${view.title}下跌`);
+          const starDescription = view.id === 'tw-day'
+            ? '台股單日下跌、單週或單月上漲'
+            : `台股單日上漲、${view.title}下跌`;
+          star.title = starDescription;
+          star.setAttribute('aria-label', starDescription);
           name.append(star, document.createTextNode(` ${industry.name}`));
         } else {
           name.textContent = industry.name;
@@ -79,9 +90,14 @@
       return card;
     }));
     const pending = expectedViews.filter(expectedView => !views.has(expectedView.id));
+    const dailyStarCount = starredByView['tw-day'].size;
+    const signalSummary = [
+      starredIndustries.size ? `★ 週月表 ${starredIndustries.size} 個` : '',
+      dailyStarCount ? `★ 單日表 ${dailyStarCount} 個` : ''
+    ].filter(Boolean).join('；');
     status.textContent = pending.length
-      ? `已更新 ${expectedViews.length - pending.length}/3；等待：${pending.map(item => item.title).join('、')}`
-      : `三個檢視皆已更新${starredIndustries.size ? `；★ ${starredIndustries.size} 個族群符合單日漲、單週或單月跌` : ''}`;
+      ? `已保存 ${expectedViews.length - pending.length}/4；未保存：${pending.map(item => item.title).join('、')}`
+      : `四個檢視皆已更新${signalSummary ? `；${signalSummary}` : ''}`;
   };
 
   function showError(error) {

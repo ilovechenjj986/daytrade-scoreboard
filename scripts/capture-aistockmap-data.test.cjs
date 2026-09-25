@@ -4,6 +4,7 @@ const {
   contentHash,
   viewHasMaterialChange,
   findDailyUpPeriodDown,
+  findDailyDownPeriodUp,
   sameNames,
   sameSignalGroups,
   isSnapshotComplete
@@ -57,7 +58,7 @@ assert.equal(viewHasMaterialChange(baseline, { ...baseline, industries: [
   { name: '機器人', companies: 8, change: 2.1 }
 ]}), true, 'added or removed industries are material');
 assert.equal(isSnapshotComplete({
-  counts: { 'tw-week': 1, 'tw-month': 1, 'us-day': 1 },
+  counts: { 'tw-day': 1, 'tw-week': 1, 'tw-month': 1, 'us-day': 1 },
   starredIndustryCount: 0
 }), true);
 assert.equal(isSnapshotComplete({ counts: { 'tw-week': 1, 'tw-month': 1, 'us-day': 1 } }), false);
@@ -83,6 +84,11 @@ assert.deepEqual(findDailyUpPeriodDown(signalViews), {
   'tw-week': ['先進封裝'],
   'tw-month': ['先進封裝']
 });
+assert.deepEqual(findDailyDownPeriodUp(signalViews), []);
+signalViews[0].industries.push({ name: '成熟製程', companies: 9, change: -1.2 });
+signalViews[1].industries.push({ name: '成熟製程', companies: 9, change: 2.5 });
+signalViews[2].industries.push({ name: '成熟製程', companies: 9, change: -3.5 });
+assert.deepEqual(findDailyDownPeriodUp(signalViews), ['成熟製程']);
 signalViews[2].industries[0].change = 0.5;
 assert.deepEqual(findDailyUpPeriodDown(signalViews), {
   'tw-week': ['先進封裝'],

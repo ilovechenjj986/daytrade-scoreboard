@@ -7,15 +7,16 @@ const outputDir = path.join(root, 'site', 'aistockmap');
 const manifestFile = path.join(outputDir, 'manifest.json');
 const statusFile = path.join(outputDir, 'status.json');
 const authStateFile = process.env.AISTOCKMAP_AUTH_STATE_FILE || path.join(root, 'auth-state.json');
-const targetUrl = 'https://aistockmap.com/?activeTab=heatmap&view=network&network=ai-datacenter&focus=cowos-advanced-packaging';
+const targetUrl = 'https://aistockmap.com/?activeTab=heatmap';
 const changeThreshold = 1;
 const displayDefinitions = [
+  { id: 'tw-day', title: '台股單日', market: '台股', period: '單日' },
   { id: 'tw-week', title: '台股單週', market: '台股', period: '單週' },
   { id: 'tw-month', title: '台股單月', market: '台股', period: '單月' },
   { id: 'us-day', title: '美股單日', market: '美股', period: '單日' }
 ];
-const signalDefinition = { id: 'tw-day', title: '台股單日', market: '台股', period: '單日' };
-const scrapeDefinitions = [signalDefinition, ...displayDefinitions];
+const signalDefinition = displayDefinitions[0];
+const scrapeDefinitions = displayDefinitions;
 
 function taipeiDate(date = new Date()) {
   return new Intl.DateTimeFormat('en-CA', {
@@ -124,6 +125,24 @@ function findDailyUpPeriodDown(views) {
     'tw-week': downNames(weekly),
     'tw-month': downNames(monthly)
   };
+}
+
+function findDailyDownPeriodUp(views) {
+  const byId = new Map(views.map(view => [view.id, view]));
+  const daily = byId.get('tw-day');
+  const weekly = byId.get('tw-week');
+  const monthly = byId.get('tw-month');
+  if (!daily || !weekly || !monthly) return [];
+  const weeklyByName = new Map(weekly.industries.map(industry => [industry.name, industry]));
+  const monthlyByName = new Map(monthly.industries.map(industry => [industry.name, industry]));
+  return daily.industries
+    .filter(industry => {
+      const week = weeklyByName.get(industry.name);
+      const month = monthlyByName.get(industry.name);
+      return industry.change < 0 && (week?.change > 0 || month?.change > 0);
+    })
+    .map(industry => industry.name)
+    .sort((left, right) => left.localeCompare(right, 'zh-Hant'));
 }
 
 function sameNames(left = [], right = []) {
@@ -250,6 +269,7 @@ async function main() {
       ...signalGroups['tw-week'],
       ...signalGroups['tw-month']
     ])].sort((left, right) => left.localeCompare(right, 'zh-Hant'));
+    const dailyDownPeriodUpNames = findDailyDownPeriodUp(scrapedViews);
 
     const completedAt = new Date();
     const date = captureDate(completedAt);
@@ -273,8 +293,10 @@ async function main() {
       'tw-week': legacySignalNames,
       'tw-month': legacySignalNames
     };
+    const previousDailyDownPeriodUpNames = previousSignal.twDayDownPeriodUp?.industryNames || [];
     const previousSignalSource = targetData?.signalSourceView || baselineData?.signalSourceView || null;
-    const signalNamesChanged = !sameSignalGroups(previousSignalGroups, signalGroups);
+    const signalNamesChanged = !sameSignalGroups(previousSignalGroups, signalGroups)
+      || !sameNames(previousDailyDownPeriodUpNames, dailyDownPeriodUpNames);
     const signalSourceChanged = !previousSignalSource
       || viewHasMaterialChange(previousSignalSource, signalSourceView);
 
@@ -325,6 +347,10 @@ async function main() {
           byView: signalGroups,
           industryNames: signalIndustryNames,
           rule: 'tw-day > 0 && selected period < 0'
+        },
+        twDayDownPeriodUp: {
+          industryNames: dailyDownPeriodUpNames,
+          rule: 'tw-day < 0 && (tw-week > 0 || tw-month > 0)'
         }
       },
       signalSourceView,
@@ -346,6 +372,7 @@ async function main() {
       availableViewIds,
       pendingViewIds,
       starredIndustryCount: signalIndustryNames.length,
+      dailyStarredIndustryCount: dailyDownPeriodUpNames.length,
       counts: Object.fromEntries(mergedViews.map(view => [view.id, view.industries.length]))
     });
     structured.sort((left, right) => right.date.localeCompare(left.date));
@@ -379,6 +406,7 @@ module.exports = {
   contentHash,
   viewHasMaterialChange,
   findDailyUpPeriodDown,
+  findDailyDownPeriodUp,
   sameNames,
   sameSignalGroups,
   isSnapshotComplete
