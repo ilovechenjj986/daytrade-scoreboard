@@ -39,9 +39,12 @@ function captureDate(date = new Date()) {
 
 function isComplete(snapshot) {
   if (!snapshot) return false;
-  if (snapshot.complete === true) return true;
   if (snapshot.complete === false) return false;
-  return expectedViewIds.every(id => Number.isFinite(Number(snapshot.counts?.[id])));
+  const viewsComplete = expectedViewIds.every(
+    id => Number.isFinite(Number(snapshot.counts?.[id]))
+  );
+  const signalComplete = Number.isFinite(Number(snapshot.starredIndustryCount));
+  return viewsComplete && signalComplete;
 }
 
 const date = captureDate();

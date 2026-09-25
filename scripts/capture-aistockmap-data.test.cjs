@@ -3,6 +3,8 @@ const {
   parseListText,
   contentHash,
   viewHasMaterialChange,
+  findDailyUpWeeklyMonthlyDown,
+  sameNames,
   isSnapshotComplete
 } = require('./capture-aistockmap.cjs');
 
@@ -53,6 +55,30 @@ assert.equal(viewHasMaterialChange(baseline, { ...baseline, industries: [
   ...baseline.industries,
   { name: '機器人', companies: 8, change: 2.1 }
 ]}), true, 'added or removed industries are material');
-assert.equal(isSnapshotComplete({ counts: { 'tw-week': 1, 'tw-month': 1, 'us-day': 1 } }), true);
+assert.equal(isSnapshotComplete({
+  counts: { 'tw-week': 1, 'tw-month': 1, 'us-day': 1 },
+  starredIndustryCount: 0
+}), true);
+assert.equal(isSnapshotComplete({ counts: { 'tw-week': 1, 'tw-month': 1, 'us-day': 1 } }), false);
 assert.equal(isSnapshotComplete({ complete: false, counts: { 'tw-week': 1, 'tw-month': 1, 'us-day': 1 } }), false);
+const signalViews = [
+  { id: 'tw-day', industries: [
+    { name: '先進封裝', companies: 5, change: 1.2 },
+    { name: 'AI 伺服器', companies: 8, change: -0.1 },
+    { name: '散熱', companies: 6, change: 0 }
+  ] },
+  { id: 'tw-week', industries: [
+    { name: '先進封裝', companies: 5, change: -2.1 },
+    { name: 'AI 伺服器', companies: 8, change: -3.2 },
+    { name: '散熱', companies: 6, change: -1.3 }
+  ] },
+  { id: 'tw-month', industries: [
+    { name: '先進封裝', companies: 5, change: -4.1 },
+    { name: 'AI 伺服器', companies: 8, change: -5.2 },
+    { name: '散熱', companies: 6, change: -2.3 }
+  ] }
+];
+assert.deepEqual(findDailyUpWeeklyMonthlyDown(signalViews), ['先進封裝']);
+assert.equal(sameNames(['先進封裝'], ['先進封裝']), true);
+assert.equal(sameNames(['先進封裝'], ['散熱']), false);
 console.log('AI Stock Map list parser tests passed');

@@ -7,13 +7,15 @@ const outputDir = path.join(root, 'site', 'aistockmap');
 const manifestFile = path.join(outputDir, 'manifest.json');
 const statusFile = path.join(outputDir, 'status.json');
 const authStateFile = process.env.AISTOCKMAP_AUTH_STATE_FILE || path.join(root, 'auth-state.json');
-const targetUrl = 'https://aistockmap.com/?topic=niche-memory&activeTab=heatmap';
+const targetUrl = 'https://aistockmap.com/?activeTab=heatmap&view=network&network=ai-datacenter&focus=cowos-advanced-packaging';
 const changeThreshold = 1;
-const definitions = [
+const displayDefinitions = [
   { id: 'tw-week', title: '台股單週', market: '台股', period: '單週' },
   { id: 'tw-month', title: '台股單月', market: '台股', period: '單月' },
   { id: 'us-day', title: '美股單日', market: '美股', period: '單日' }
 ];
+const signalDefinition = { id: 'tw-day', title: '台股單日', market: '台股', period: '單日' };
+const scrapeDefinitions = [signalDefinition, ...displayDefinitions];
 
 function taipeiDate(date = new Date()) {
   return new Intl.DateTimeFormat('en-CA', {
@@ -105,11 +107,36 @@ function viewHasMaterialChange(previousView, nextView, threshold = changeThresho
   return false;
 }
 
+function findDailyUpWeeklyMonthlyDown(views) {
+  const byId = new Map(views.map(view => [view.id, view]));
+  const daily = byId.get('tw-day');
+  const weekly = byId.get('tw-week');
+  const monthly = byId.get('tw-month');
+  if (!daily || !weekly || !monthly) return [];
+  const weeklyByName = new Map(weekly.industries.map(industry => [industry.name, industry]));
+  const monthlyByName = new Map(monthly.industries.map(industry => [industry.name, industry]));
+  return daily.industries
+    .filter(industry => {
+      const week = weeklyByName.get(industry.name);
+      const month = monthlyByName.get(industry.name);
+      return industry.change > 0 && week?.change < 0 && month?.change < 0;
+    })
+    .map(industry => industry.name)
+    .sort((left, right) => left.localeCompare(right, 'zh-Hant'));
+}
+
+function sameNames(left = [], right = []) {
+  return left.length === right.length && left.every((name, index) => name === right[index]);
+}
+
 function isSnapshotComplete(snapshot) {
   if (!snapshot) return false;
-  if (snapshot.complete === true) return true;
   if (snapshot.complete === false) return false;
-  return definitions.every(definition => Number.isFinite(Number(snapshot.counts?.[definition.id])));
+  const viewsComplete = displayDefinitions.every(
+    definition => Number.isFinite(Number(snapshot.counts?.[definition.id]))
+  );
+  const signalComplete = Number.isFinite(Number(snapshot.starredIndustryCount));
+  return viewsComplete && signalComplete;
 }
 
 function readSnapshot(snapshot) {
@@ -207,8 +234,12 @@ async function main() {
     }
     await page.waitForTimeout(2000);
 
-    const views = [];
-    for (const definition of definitions) views.push(await scrapeView(page, definition));
+    const scrapedViews = [];
+    for (const definition of scrapeDefinitions) scrapedViews.push(await scrapeView(page, definition));
+    const currentViews = new Map(scrapedViews.map(view => [view.id, view]));
+    const views = displayDefinitions.map(definition => currentViews.get(definition.id));
+    const signalSourceView = currentViews.get(signalDefinition.id);
+    const signalIndustryNames = findDailyUpWeeklyMonthlyDown(scrapedViews);
 
     const completedAt = new Date();
     const date = captureDate(completedAt);
@@ -226,6 +257,13 @@ async function main() {
     const targetViews = new Map((targetData?.views || []).map(view => [view.id, view]));
     const baselineViews = new Map((baselineData?.views || []).map(view => [view.id, view]));
     const acceptedViewIds = [];
+    const previousSignalNames = targetData?.signals?.twDayUpWeekMonthDown?.industryNames
+      || baselineData?.signals?.twDayUpWeekMonthDown?.industryNames
+      || [];
+    const previousSignalSource = targetData?.signalSourceView || baselineData?.signalSourceView || null;
+    const signalNamesChanged = !sameNames(previousSignalNames, signalIndustryNames);
+    const signalSourceChanged = !previousSignalSource
+      || viewHasMaterialChange(previousSignalSource, signalSourceView);
 
     for (const view of views) {
       const savedView = targetViews.get(view.id);
@@ -236,20 +274,27 @@ async function main() {
       }
     }
 
-    if (!acceptedViewIds.length) {
+    if (signalNamesChanged || signalSourceChanged) {
+      for (const id of ['tw-week', 'tw-month']) {
+        targetViews.set(id, currentViews.get(id));
+        if (!acceptedViewIds.includes(id)) acceptedViewIds.push(id);
+      }
+    }
+
+    if (!acceptedViewIds.length && !signalNamesChanged && !signalSourceChanged) {
       console.log(`SKIPPED UNCHANGED ${baselineSnapshot?.date || 'no-baseline'}`);
       return;
     }
 
-    const mergedViews = definitions
+    const mergedViews = displayDefinitions
       .map(definition => targetViews.get(definition.id))
       .filter(Boolean);
     const availableViewIds = mergedViews.map(view => view.id);
-    const pendingViewIds = definitions
+    const pendingViewIds = displayDefinitions
       .map(definition => definition.id)
       .filter(id => !targetViews.has(id));
     const complete = pendingViewIds.length === 0;
-    const hash = contentHash(mergedViews);
+    const hash = contentHash([...mergedViews, signalSourceView]);
 
     const slot = slotFor(date);
     const filename = `data/slot-${String(slot).padStart(2, '0')}.json`;
@@ -262,6 +307,13 @@ async function main() {
       complete,
       availableViewIds,
       pendingViewIds,
+      signals: {
+        twDayUpWeekMonthDown: {
+          industryNames: signalIndustryNames,
+          rule: 'tw-day > 0 && tw-week < 0 && tw-month < 0'
+        }
+      },
+      signalSourceView,
       views: mergedViews
     });
 
@@ -279,6 +331,7 @@ async function main() {
       complete,
       availableViewIds,
       pendingViewIds,
+      starredIndustryCount: signalIndustryNames.length,
       counts: Object.fromEntries(mergedViews.map(view => [view.id, view.industries.length]))
     });
     structured.sort((left, right) => right.date.localeCompare(left.date));
@@ -286,7 +339,7 @@ async function main() {
       snapshots: structured.slice(0, 30)
         .sort((left, right) => Date.parse(right.capturedAt) - Date.parse(left.capturedAt))
     });
-    const pendingTitles = definitions
+    const pendingTitles = displayDefinitions
       .filter(definition => pendingViewIds.includes(definition.id))
       .map(definition => definition.title);
     writeStatus(
@@ -311,6 +364,8 @@ module.exports = {
   slotFor,
   contentHash,
   viewHasMaterialChange,
+  findDailyUpWeeklyMonthlyDown,
+  sameNames,
   isSnapshotComplete
 };
 
