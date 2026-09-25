@@ -3,8 +3,9 @@ const {
   parseListText,
   contentHash,
   viewHasMaterialChange,
-  findDailyUpWeeklyMonthlyDown,
+  findDailyUpPeriodDown,
   sameNames,
+  sameSignalGroups,
   isSnapshotComplete
 } = require('./capture-aistockmap.cjs');
 
@@ -78,7 +79,23 @@ const signalViews = [
     { name: '散熱', companies: 6, change: -2.3 }
   ] }
 ];
-assert.deepEqual(findDailyUpWeeklyMonthlyDown(signalViews), ['先進封裝']);
+assert.deepEqual(findDailyUpPeriodDown(signalViews), {
+  'tw-week': ['先進封裝'],
+  'tw-month': ['先進封裝']
+});
+signalViews[2].industries[0].change = 0.5;
+assert.deepEqual(findDailyUpPeriodDown(signalViews), {
+  'tw-week': ['先進封裝'],
+  'tw-month': []
+});
 assert.equal(sameNames(['先進封裝'], ['先進封裝']), true);
 assert.equal(sameNames(['先進封裝'], ['散熱']), false);
+assert.equal(sameSignalGroups(
+  { 'tw-week': ['先進封裝'], 'tw-month': [] },
+  { 'tw-week': ['先進封裝'], 'tw-month': [] }
+), true);
+assert.equal(sameSignalGroups(
+  { 'tw-week': ['先進封裝'], 'tw-month': [] },
+  { 'tw-week': [], 'tw-month': ['先進封裝'] }
+), false);
 console.log('AI Stock Map list parser tests passed');

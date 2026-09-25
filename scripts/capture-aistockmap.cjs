@@ -107,26 +107,32 @@ function viewHasMaterialChange(previousView, nextView, threshold = changeThresho
   return false;
 }
 
-function findDailyUpWeeklyMonthlyDown(views) {
+function findDailyUpPeriodDown(views) {
   const byId = new Map(views.map(view => [view.id, view]));
   const daily = byId.get('tw-day');
   const weekly = byId.get('tw-week');
   const monthly = byId.get('tw-month');
-  if (!daily || !weekly || !monthly) return [];
-  const weeklyByName = new Map(weekly.industries.map(industry => [industry.name, industry]));
-  const monthlyByName = new Map(monthly.industries.map(industry => [industry.name, industry]));
-  return daily.industries
-    .filter(industry => {
-      const week = weeklyByName.get(industry.name);
-      const month = monthlyByName.get(industry.name);
-      return industry.change > 0 && week?.change < 0 && month?.change < 0;
-    })
+  if (!daily || !weekly || !monthly) return { 'tw-week': [], 'tw-month': [] };
+  const dailyUp = new Set(
+    daily.industries.filter(industry => industry.change > 0).map(industry => industry.name)
+  );
+  const downNames = view => view.industries
+    .filter(industry => industry.change < 0 && dailyUp.has(industry.name))
     .map(industry => industry.name)
     .sort((left, right) => left.localeCompare(right, 'zh-Hant'));
+  return {
+    'tw-week': downNames(weekly),
+    'tw-month': downNames(monthly)
+  };
 }
 
 function sameNames(left = [], right = []) {
   return left.length === right.length && left.every((name, index) => name === right[index]);
+}
+
+function sameSignalGroups(left, right) {
+  return sameNames(left?.['tw-week'], right?.['tw-week'])
+    && sameNames(left?.['tw-month'], right?.['tw-month']);
 }
 
 function isSnapshotComplete(snapshot) {
@@ -239,7 +245,11 @@ async function main() {
     const currentViews = new Map(scrapedViews.map(view => [view.id, view]));
     const views = displayDefinitions.map(definition => currentViews.get(definition.id));
     const signalSourceView = currentViews.get(signalDefinition.id);
-    const signalIndustryNames = findDailyUpWeeklyMonthlyDown(scrapedViews);
+    const signalGroups = findDailyUpPeriodDown(scrapedViews);
+    const signalIndustryNames = [...new Set([
+      ...signalGroups['tw-week'],
+      ...signalGroups['tw-month']
+    ])].sort((left, right) => left.localeCompare(right, 'zh-Hant'));
 
     const completedAt = new Date();
     const date = captureDate(completedAt);
@@ -257,11 +267,14 @@ async function main() {
     const targetViews = new Map((targetData?.views || []).map(view => [view.id, view]));
     const baselineViews = new Map((baselineData?.views || []).map(view => [view.id, view]));
     const acceptedViewIds = [];
-    const previousSignalNames = targetData?.signals?.twDayUpWeekMonthDown?.industryNames
-      || baselineData?.signals?.twDayUpWeekMonthDown?.industryNames
-      || [];
+    const previousSignal = targetData?.signals || baselineData?.signals || {};
+    const legacySignalNames = previousSignal.twDayUpWeekMonthDown?.industryNames || [];
+    const previousSignalGroups = previousSignal.twDayUpPeriodDown?.byView || {
+      'tw-week': legacySignalNames,
+      'tw-month': legacySignalNames
+    };
     const previousSignalSource = targetData?.signalSourceView || baselineData?.signalSourceView || null;
-    const signalNamesChanged = !sameNames(previousSignalNames, signalIndustryNames);
+    const signalNamesChanged = !sameSignalGroups(previousSignalGroups, signalGroups);
     const signalSourceChanged = !previousSignalSource
       || viewHasMaterialChange(previousSignalSource, signalSourceView);
 
@@ -308,9 +321,10 @@ async function main() {
       availableViewIds,
       pendingViewIds,
       signals: {
-        twDayUpWeekMonthDown: {
+        twDayUpPeriodDown: {
+          byView: signalGroups,
           industryNames: signalIndustryNames,
-          rule: 'tw-day > 0 && tw-week < 0 && tw-month < 0'
+          rule: 'tw-day > 0 && selected period < 0'
         }
       },
       signalSourceView,
@@ -364,8 +378,9 @@ module.exports = {
   slotFor,
   contentHash,
   viewHasMaterialChange,
-  findDailyUpWeeklyMonthlyDown,
+  findDailyUpPeriodDown,
   sameNames,
+  sameSignalGroups,
   isSnapshotComplete
 };
 
