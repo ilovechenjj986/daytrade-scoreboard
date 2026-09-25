@@ -386,7 +386,7 @@ async function main() {
     writeStatus(
       'success',
       complete
-        ? `已保存 ${date}，三個檢視皆已更新`
+        ? `已保存 ${date}，四個檢視皆已更新`
         : `已保存 ${date} 的部分更新；等待：${pendingTitles.join('、')}`
     );
     console.log(
