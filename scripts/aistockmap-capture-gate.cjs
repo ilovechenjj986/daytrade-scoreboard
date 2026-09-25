@@ -3,7 +3,7 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 const manifestFile = path.join(root, 'site', 'aistockmap', 'manifest.json');
-const expectedViewIds = ['tw-week', 'tw-month', 'us-day'];
+const expectedViewIds = ['tw-day', 'tw-week', 'tw-month', 'us-day'];
 
 function taipeiDate(date = new Date()) {
   return new Intl.DateTimeFormat('en-CA', {
