@@ -27,24 +27,28 @@
       return [
         weekly > 0 && {
           title: `台股單週上漲 ${formatChange(weekly)}`,
-          label: '台股單週上漲'
+          label: '台股單週上漲',
+          period: 'week'
         },
         monthly > 0 && {
           title: `台股單月上漲 ${formatChange(monthly)}`,
-          label: '台股單月上漲'
+          label: '台股單月上漲',
+          period: 'month'
         }
       ].filter(Boolean);
     }
     if (viewId === 'tw-week' && daily > 0 && weekly < 0) {
       return [{
         title: `台股單日上漲 ${formatChange(daily)}；台股單週下跌 ${formatChange(weekly)}`,
-        label: '台股單日上漲、單週下跌'
+        label: '台股單日上漲、單週下跌',
+        period: 'week'
       }];
     }
     if (viewId === 'tw-month' && daily > 0 && monthly < 0) {
       return [{
         title: `台股單日上漲 ${formatChange(daily)}；台股單月下跌 ${formatChange(monthly)}`,
-        label: '台股單日上漲、單月下跌'
+        label: '台股單日上漲、單月下跌',
+        period: 'month'
       }];
     }
     return [];
@@ -105,7 +109,7 @@
           }
           for (const detail of starDetails) {
             const star = document.createElement('span');
-            star.className = 'signal-star';
+            star.className = `signal-star signal-star-${detail.period}`;
             star.textContent = '★';
             star.title = detail.title;
             star.setAttribute('aria-label', detail.label);
