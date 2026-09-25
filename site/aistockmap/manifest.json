@@ -3,20 +3,23 @@
     {
       "date": "2026-09-24",
       "slot": 20,
-      "capturedAt": "2026-09-25T09:07:50.134Z",
-      "sourceUrl": "https://aistockmap.com/?activeTab=heatmap&view=network&network=ai-datacenter&focus=cowos-advanced-packaging",
+      "capturedAt": "2026-09-25T10:01:12.444Z",
+      "sourceUrl": "https://aistockmap.com/?activeTab=heatmap",
       "file": "data/slot-20.json",
-      "contentHash": "d1dc0849af0f56619efdc813238747e21b54584e4beb8d4f3713e59315152b48",
+      "contentHash": "e86f24550a07c5615e8b21438538e7f81bafbc5cc2dab8260dec8d8a80d39992",
       "changeThreshold": 1,
       "complete": true,
       "availableViewIds": [
+        "tw-day",
         "tw-week",
         "tw-month",
         "us-day"
       ],
       "pendingViewIds": [],
       "starredIndustryCount": 11,
+      "dailyStarredIndustryCount": 36,
       "counts": {
+        "tw-day": 91,
         "tw-week": 91,
         "tw-month": 91,
         "us-day": 75
