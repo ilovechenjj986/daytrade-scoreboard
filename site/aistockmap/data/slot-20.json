@@ -1,6 +1,6 @@
 {
   "date": "2026-09-24",
-  "capturedAt": "2026-09-25T07:48:06.013Z",
+  "capturedAt": "2026-09-25T09:07:50.134Z",
   "sourceUrl": "https://aistockmap.com/?activeTab=heatmap&view=network&network=ai-datacenter&focus=cowos-advanced-packaging",
   "contentHash": "d1dc0849af0f56619efdc813238747e21b54584e4beb8d4f3713e59315152b48",
   "changeThreshold": 1,
@@ -12,14 +12,42 @@
   ],
   "pendingViewIds": [],
   "signals": {
-    "twDayUpWeekMonthDown": {
+    "twDayUpPeriodDown": {
+      "byView": {
+        "tw-week": [
+          "系統整合",
+          "封裝材料",
+          "國防軍工",
+          "貨櫃航運",
+          "散裝航運",
+          "新藥研發",
+          "電器電纜"
+        ],
+        "tw-month": [
+          "汽車精密件",
+          "封裝材料",
+          "國防軍工",
+          "貨櫃航運",
+          "新藥研發",
+          "鋼鐵與特鋼",
+          "CNC 工具機",
+          "EMS 電子代工"
+        ]
+      },
       "industryNames": [
+        "汽車精密件",
+        "系統整合",
         "封裝材料",
         "國防軍工",
         "貨櫃航運",
-        "新藥研發"
+        "散裝航運",
+        "新藥研發",
+        "電器電纜",
+        "鋼鐵與特鋼",
+        "CNC 工具機",
+        "EMS 電子代工"
       ],
-      "rule": "tw-day > 0 && tw-week < 0 && tw-month < 0"
+      "rule": "tw-day > 0 && selected period < 0"
     }
   },
   "signalSourceView": {
