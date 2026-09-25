@@ -15,9 +15,13 @@
     if (!response.ok) throw new Error('無法載入 AI Stock Map 條列資料');
     const data = await response.json();
     const views = new Map((data.views || []).map(view => [view.id, view]));
-    const starredIndustries = new Set(
-      data.signals?.twDayUpWeekMonthDown?.industryNames || []
-    );
+    const signal = data.signals?.twDayUpPeriodDown;
+    const legacyNames = data.signals?.twDayUpWeekMonthDown?.industryNames || [];
+    const starredByView = {
+      'tw-week': new Set(signal?.byView?.['tw-week'] || legacyNames),
+      'tw-month': new Set(signal?.byView?.['tw-month'] || legacyNames)
+    };
+    const starredIndustries = new Set(signal?.industryNames || legacyNames);
     screens.replaceChildren(...expectedViews.map(expectedView => {
       const view = views.get(expectedView.id);
       const card = document.createElement('section');
@@ -46,15 +50,14 @@
       for (const industry of view.industries) {
         const row = document.createElement('tr');
         const name = document.createElement('td');
-        const shouldStar = ['tw-week', 'tw-month'].includes(view.id)
-          && starredIndustries.has(industry.name);
+        const shouldStar = starredByView[view.id]?.has(industry.name) || false;
         if (shouldStar) {
           row.classList.add('starred-industry');
           const star = document.createElement('span');
           star.className = 'signal-star';
           star.textContent = '★';
-          star.title = '台股單日上漲、單週與單月下跌';
-          star.setAttribute('aria-label', '台股單日上漲、單週與單月下跌');
+          star.title = `台股單日上漲、${view.title}下跌`;
+          star.setAttribute('aria-label', `台股單日上漲、${view.title}下跌`);
           name.append(star, document.createTextNode(` ${industry.name}`));
         } else {
           name.textContent = industry.name;
@@ -78,7 +81,7 @@
     const pending = expectedViews.filter(expectedView => !views.has(expectedView.id));
     status.textContent = pending.length
       ? `已更新 ${expectedViews.length - pending.length}/3；等待：${pending.map(item => item.title).join('、')}`
-      : `三個檢視皆已更新${starredIndustries.size ? `；★ ${starredIndustries.size} 個族群符合單日漲、週月跌` : ''}`;
+      : `三個檢視皆已更新${starredIndustries.size ? `；★ ${starredIndustries.size} 個族群符合單日漲、單週或單月跌` : ''}`;
   };
 
   function showError(error) {
