@@ -27,9 +27,12 @@ td:first-child{font-weight:650}
 .positive{color:#ff3159;font-weight:800}
 .negative{color:#22d37f;font-weight:800}
 .starred-industry{background:rgba(250,204,21,.07)}
-.signal-star{font-size:1.05em}
-.signal-star-week{color:#a78bfa;text-shadow:0 0 10px rgba(167,139,250,.45)}
-.signal-star-month{color:#fb7185;text-shadow:0 0 10px rgba(251,113,133,.45)}
+.signal-marker{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1;margin-right:3px;white-space:nowrap}
+.signal-value{font-size:10px;font-weight:800;letter-spacing:-.04em;margin-bottom:1px}
+.signal-star{font-size:1.55em;line-height:.86}
+.signal-marker-week{color:#a78bfa;text-shadow:0 0 10px rgba(167,139,250,.45)}
+.signal-marker-month{color:#fb7185;text-shadow:0 0 10px rgba(251,113,133,.45)}
+.signal-marker-default{color:#facc15;text-shadow:0 0 10px rgba(250,204,21,.45)}
 .source-updated{margin:0;padding:9px 12px;font-size:12px}
 .pending-card{border-style:dashed}
 .pending-message{min-height:180px;display:grid;place-content:center;gap:8px;padding:28px;text-align:center;color:var(--muted)}
