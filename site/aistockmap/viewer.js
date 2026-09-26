@@ -28,12 +28,14 @@
         weekly > 0 && {
           title: `台股單週上漲 ${formatChange(weekly)}`,
           label: '台股單週上漲',
-          period: 'week'
+          period: 'week',
+          valueLabel: `週 ${formatChange(weekly)}`
         },
         monthly > 0 && {
           title: `台股單月上漲 ${formatChange(monthly)}`,
           label: '台股單月上漲',
-          period: 'month'
+          period: 'month',
+          valueLabel: `月 ${formatChange(monthly)}`
         }
       ].filter(Boolean);
     }
@@ -41,14 +43,16 @@
       return [{
         title: `台股單日上漲 ${formatChange(daily)}；台股單週下跌 ${formatChange(weekly)}`,
         label: '台股單日上漲、單週下跌',
-        period: 'week'
+        period: 'week',
+        valueLabel: `日 ${formatChange(daily)}`
       }];
     }
     if (viewId === 'tw-month' && daily > 0 && monthly < 0) {
       return [{
         title: `台股單日上漲 ${formatChange(daily)}；台股單月下跌 ${formatChange(monthly)}`,
         label: '台股單日上漲、單月下跌',
-        period: 'month'
+        period: 'month',
+        valueLabel: `日 ${formatChange(daily)}`
       }];
     }
     return [];
@@ -108,12 +112,18 @@
             periodStarredIndustryNames.add(industry.name);
           }
           for (const detail of starDetails) {
+            const marker = document.createElement('span');
+            marker.className = `signal-marker signal-marker-${view.id === 'tw-day' ? detail.period : 'default'}`;
+            marker.title = detail.title;
+            marker.setAttribute('aria-label', detail.label);
+            const value = document.createElement('span');
+            value.className = 'signal-value';
+            value.textContent = detail.valueLabel;
             const star = document.createElement('span');
-            star.className = `signal-star signal-star-${detail.period}`;
+            star.className = 'signal-star';
             star.textContent = '★';
-            star.title = detail.title;
-            star.setAttribute('aria-label', detail.label);
-            name.append(star);
+            marker.append(value, star);
+            name.append(marker);
           }
           name.append(document.createTextNode(` ${industry.name}`));
         } else {
