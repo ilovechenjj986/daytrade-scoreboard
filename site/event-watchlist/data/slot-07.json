@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-11",
+  "capturedAt": "2026-10-10T16:09:28.635Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 3,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "2492",
+      "name": "華新科",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "5228",
+      "name": "鈺鎧",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "8111",
+      "name": "立碁",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
