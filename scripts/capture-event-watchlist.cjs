@@ -9,6 +9,20 @@ const statusFile = path.join(outputDir, 'status.json');
 const lineUrl = process.env.EVENT_LINE_SOURCE_URL || 'https://chengwaye.com/';
 const eventsUrl = process.env.EVENTS_SOURCE_URL || 'https://chengwaye.com/realtime-events';
 
+// Taiwan Stock Exchange non-trading dates for 2026, from its official holiday schedule.
+// Update this list when TWSE publishes a new annual schedule.
+const NON_TRADING_DATES = new Set([
+  '2026-01-01',
+  '2026-02-12', '2026-02-13', '2026-02-14', '2026-02-15', '2026-02-16',
+  '2026-02-17', '2026-02-18', '2026-02-19', '2026-02-20',
+  '2026-02-27', '2026-02-28',
+  '2026-04-03', '2026-04-04', '2026-04-05', '2026-04-06',
+  '2026-05-01', '2026-06-19',
+  '2026-09-25', '2026-09-28',
+  '2026-10-09', '2026-10-10', '2026-10-25', '2026-10-26',
+  '2026-12-25'
+]);
+
 function decodeHtml(value) {
   return String(value)
     .replace(/&#(\d+);/g, (_, number) => String.fromCodePoint(Number(number)))
@@ -61,7 +75,31 @@ function eventLabel(type) {
   return null;
 }
 
-function parseEventsHtml(html, date) {
+function dateMatches(dateText, targetDate) {
+  const match = dateText.match(/(?:(\d{4})[/-])?(\d{1,2})\/(\d{1,2})/);
+  if (!match) return false;
+  const [, year, month, day] = match;
+  const target = targetDate.split('-');
+  return (!year || year === target[0])
+    && Number(month) === Number(target[1])
+    && Number(day) === Number(target[2]);
+}
+
+function nextTradingDate(date) {
+  const candidate = new Date(`${date}T00:00:00Z`);
+  if (Number.isNaN(candidate.getTime()) || candidate.toISOString().slice(0, 10) !== date) {
+    throw new Error(`日期格式錯誤：${date}`);
+  }
+  for (let offset = 0; offset < 31; offset += 1) {
+    candidate.setUTCDate(candidate.getUTCDate() + 1);
+    const day = candidate.getUTCDay();
+    const nextDate = candidate.toISOString().slice(0, 10);
+    if (day !== 0 && day !== 6 && !NON_TRADING_DATES.has(nextDate)) return nextDate;
+  }
+  throw new Error(`找不到 ${date} 之後的下一個交易日`);
+}
+
+function parseEventsHtml(html, date, exDate = nextTradingDate(date)) {
   const headers = [...String(html).matchAll(/<th\b[^>]*>([\s\S]*?)<\/th>/gi)].map(match => stripCell(match[1]));
   const pageText = htmlText(html);
   if (!headers.some(value => value.includes('預定')) || !headers.some(value => value.includes('代號'))
@@ -69,22 +107,19 @@ function parseEventsHtml(html, date) {
     throw new Error('事件頁資料表格式不符');
   }
 
-  const target = date.slice(5);
   const stocks = [];
   const rows = String(html).match(/<tr\b[^>]*>[\s\S]*?<\/tr>/gi) || [];
   for (const row of rows) {
     const cells = [...row.matchAll(/<t[dh]\b[^>]*>([\s\S]*?)<\/t[dh]>/gi)].map(match => stripCell(match[1]));
     if (cells.length < 4) continue;
     const dateText = cells[0].replace(/\s+/g, '');
-    const firstDate = dateText.match(/(?:\d{4}[/-])?(\d{1,2})\/(\d{1,2})/);
-    if (!firstDate) continue;
-    const rowDate = `${String(Number(firstDate[1])).padStart(2, '0')}-${String(Number(firstDate[2])).padStart(2, '0')}`;
-    if (rowDate !== target) continue;
-
     const event = eventLabel(cells[1]);
+    if (!event) continue;
+    const targetDate = event === '法說' ? date : exDate;
+    if (!dateMatches(dateText, targetDate)) continue;
+
     const code = cells[2];
     const name = cells[3];
-    if (!event) continue;
     if (!/^\d{4,6}$/.test(code) || !name) throw new Error(`事件資料欄位不完整：${JSON.stringify(cells.slice(0, 4))}`);
     stocks.push({ code, name, event });
   }
@@ -182,7 +217,7 @@ async function main() {
   console.log(`SUCCESS ${date} ${stocks.length} disposal=${eventCounts['進處置']} presentation=${eventCounts['法說']} ex=${eventCounts['除權息']}`);
 }
 
-module.exports = { parseDisposalStocks, parseEventsHtml, mergeStocks, slotFor, htmlText };
+module.exports = { parseDisposalStocks, parseEventsHtml, mergeStocks, nextTradingDate, slotFor, htmlText };
 
 if (require.main === module) {
   main().catch(error => {
@@ -190,4 +225,3 @@ if (require.main === module) {
     process.exitCode = 1;
   });
 }
-
