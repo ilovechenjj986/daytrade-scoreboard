@@ -4,9 +4,11 @@ on:
   push:
     branches: [main]
   schedule:
-    # 18:40 main run; retry every 30 minutes from 19:10 through 23:40 Taipei time.
-    - cron: '40 10 * * 1-6'
-    - cron: '10,40 11-15 * * 1-6'
+    # 18:40 Asia/Taipei start, then retry every 10 minutes through 14:30 the next day.
+    - cron: '40,50 10 * * 1-6'
+    - cron: '*/10 11-23 * * 1-6'
+    - cron: '*/10 0-5 * * 0,2-6'
+    - cron: '0,10,20,30 6 * * 0,2-6'
   workflow_dispatch:
     inputs:
       force:
