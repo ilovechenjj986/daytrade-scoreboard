@@ -1,10 +1,6 @@
 name: Capture Chengwaye rotation focus
 
 on:
-  schedule:
-    # 18:37 and 18:47 Asia/Taipei, Monday-Saturday.
-    - cron: '37 10 * * 1-6'
-    - cron: '47 10 * * 1-6'
   workflow_dispatch:
     inputs:
       force:
@@ -33,13 +29,16 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+
       - name: Capture rotation focus
         env:
           FORCE_CAPTURE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && 'true' || 'false' }}
         run: npm run capture:rotation-focus
+
       - name: Commit records
         id: commit
         shell: bash
@@ -56,6 +55,7 @@ jobs:
           git pull --rebase origin main
           git push origin HEAD:main
           echo 'changed=true' >> "$GITHUB_OUTPUT"
+
       - if: steps.commit.outputs.changed == 'true'
         uses: actions/configure-pages@v5
       - if: steps.commit.outputs.changed == 'true'

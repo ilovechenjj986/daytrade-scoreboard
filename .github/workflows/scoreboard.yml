@@ -1,12 +1,18 @@
-name: Monitor and deploy scoreboard
+name: Update scoreboard, limit-up, and rotation focus
 
 on:
   push:
     branches: [main]
   schedule:
-    # 18:07 Asia/Taipei = 10:07 UTC, Monday-Friday. Avoid GitHub Actions top-of-hour schedule drops.
-    - cron: '7 10 * * 1-5'
+    # 23:40 Asia/Taipei = 15:40 UTC, Monday-Saturday.
+    - cron: '40 15 * * 1-6'
   workflow_dispatch:
+    inputs:
+      force:
+        description: Refresh the latest source data even if the date is unchanged
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -20,80 +26,113 @@ concurrency:
 jobs:
   update-and-deploy:
     runs-on: windows-latest
-    timeout-minutes: 355
+    timeout-minutes: 15
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Monitor date-specific Chengwaye page
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Capture scoreboard when source data changed
+        id: scoreboard
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        id: monitor
+        continue-on-error: true
         shell: pwsh
+        env:
+          FORCE_CAPTURE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && 'true' || 'false' }}
         run: |
           $ErrorActionPreference = 'Stop'
           $taipeiDate = [DateTime]::UtcNow.AddHours(8).ToString('yyyyMMdd')
           $sourceUrl = "https://chengwaye.com/nextday-performance-$taipeiDate"
           $jsonPath = Join-Path $PWD 'site/sector_scoreboard.json'
           $baseline = ''
+          $baselineStocks = ''
           if (Test-Path $jsonPath) {
             $baselineJson = (Get-Content -Raw -Encoding UTF8 $jsonPath).TrimStart([char]0xFEFF) | ConvertFrom-Json
             $baseline = $baselineJson.nextDate
+            $baselineStocks = ConvertTo-Json -InputObject @($baselineJson.stocks) -Depth 10 -Compress
           }
 
-          $deadline = (Get-Date).AddMinutes(345)
-          Write-Host "Target URL: $sourceUrl"
-          Write-Host "Current deployed nextDate: $baseline"
+          $probeDir = Join-Path $env:RUNNER_TEMP 'scoreboard-probe'
+          & ./update_sector_scoreboard.ps1 -Url $sourceUrl -OutputDirectory $probeDir
+          $probeJsonPath = Join-Path $probeDir 'sector_scoreboard.json'
+          $probeJson = (Get-Content -Raw -Encoding UTF8 $probeJsonPath).TrimStart([char]0xFEFF) | ConvertFrom-Json
+          $sourceStocks = ConvertTo-Json -InputObject @($probeJson.stocks) -Depth 10 -Compress
+          $changed = ($probeJson.nextDate -ne $baseline) -or ($sourceStocks -ne $baselineStocks) -or ($env:FORCE_CAPTURE -eq 'true')
 
-          while ((Get-Date) -lt $deadline) {
-            try {
-              $probeDir = Join-Path $PWD 'probe_site'
-              & ./update_sector_scoreboard.ps1 -Url $sourceUrl -OutputDirectory $probeDir
-              $probeJsonPath = Join-Path $probeDir 'sector_scoreboard.json'
-              $probeJson = (Get-Content -Raw -Encoding UTF8 $probeJsonPath).TrimStart([char]0xFEFF) | ConvertFrom-Json
-              $sourceDate = $probeJson.nextDate
-              Write-Host "$(Get-Date -Format 'HH:mm:ss') source nextDate: $sourceDate"
-
-              if ([string]::IsNullOrWhiteSpace($baseline) -or $sourceDate -ne $baseline) {
-                & ./update_sector_scoreboard.ps1 -Url $sourceUrl -OutputDirectory (Join-Path $PWD 'site')
-                Copy-Item (Join-Path $PWD 'site/sector_scoreboard.html') (Join-Path $PWD 'site/index.html') -Force
-
-                $updated = (Get-Content -Raw -Encoding UTF8 $jsonPath).TrimStart([char]0xFEFF) | ConvertFrom-Json
-                if ($updated.nextDate -ne $sourceDate) {
-                  throw "Update verification failed: json=$($updated.nextDate), source=$sourceDate"
-                }
-                "changed=true" >> $env:GITHUB_OUTPUT
-                "source_date=$sourceDate" >> $env:GITHUB_OUTPUT
-                Write-Host 'Update completed. Stop monitoring for today.'
-                break
-              }
-            } catch {
-              Write-Warning "Check failed: $($_.Exception.Message). Retry after 5 minutes."
-            }
-            Start-Sleep -Seconds 300
-          }
-
-          if ((Get-Date) -ge $deadline) {
-            Write-Warning 'No new source data was detected within this monitoring window.'
+          if (-not $changed) {
             "changed=false" >> $env:GITHUB_OUTPUT
+            Write-Host "No scoreboard data change for $($probeJson.nextDate); keeping the published files."
+            exit 0
           }
 
-      - name: Commit updated scoreboard
-        if: steps.monitor.outputs.changed == 'true'
-        shell: pwsh
+          & ./update_sector_scoreboard.ps1 -Url $sourceUrl -OutputDirectory (Join-Path $PWD 'site')
+          Copy-Item (Join-Path $PWD 'site/sector_scoreboard.html') (Join-Path $PWD 'site/index.html') -Force
+          $updated = (Get-Content -Raw -Encoding UTF8 $jsonPath).TrimStart([char]0xFEFF) | ConvertFrom-Json
+          if ($updated.nextDate -ne $probeJson.nextDate) {
+            throw "Update verification failed: json=$($updated.nextDate), source=$($probeJson.nextDate)"
+          }
+          "changed=true" >> $env:GITHUB_OUTPUT
+          "source_date=$($updated.nextDate)" >> $env:GITHUB_OUTPUT
+
+      - name: Capture limit-up records
+        id: limit_up
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          FORCE_CAPTURE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && 'true' || 'false' }}
+        run: npm run capture:limit-up
+
+      - name: Capture rotation focus
+        id: rotation_focus
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          FORCE_CAPTURE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && 'true' || 'false' }}
+        run: npm run capture:rotation-focus
+
+      - name: Report capture results
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        shell: bash
         run: |
+          {
+            echo "## Daily data capture"
+            echo "- Scoreboard: ${{ steps.scoreboard.outcome }} (changed: ${{ steps.scoreboard.outputs.changed || 'false' }})"
+            echo "- Limit-up: ${{ steps.limit_up.outcome }}"
+            echo "- Rotation focus: ${{ steps.rotation_focus.outcome }}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit changed data
+        id: commit
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        shell: bash
+        run: |
+          if git diff --quiet -- site/sector_scoreboard.json site/sector_scoreboard.csv site/sector_scoreboard.html site/index.html site/history site/limit-up site/rotation-focus; then
+            echo 'No target data changes.'
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add site
-          git commit -m "Update scoreboard ${{ steps.monitor.outputs.source_date }}"
+          git add site/sector_scoreboard.json site/sector_scoreboard.csv site/sector_scoreboard.html site/index.html site/history site/limit-up site/rotation-focus
+          git commit -m "Update daily market data $(TZ=Asia/Taipei date +%F)"
           git pull --rebase origin main
-          git push
+          git push origin HEAD:main
+          echo 'changed=true' >> "$GITHUB_OUTPUT"
 
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - if: github.event_name == 'push' || steps.commit.outputs.changed == 'true'
+        uses: actions/configure-pages@v5
+      - if: github.event_name == 'push' || steps.commit.outputs.changed == 'true'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: site
       - name: Deploy GitHub Pages
+        if: github.event_name == 'push' || steps.commit.outputs.changed == 'true'
         id: deployment
         uses: actions/deploy-pages@v4

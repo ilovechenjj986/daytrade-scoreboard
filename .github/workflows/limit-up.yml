@@ -1,10 +1,6 @@
 name: Capture Chengwaye limit-up records
 
 on:
-  schedule:
-    # 18:17 and 18:27 Asia/Taipei, Monday-Saturday.
-    - cron: '17 10 * * 1-6'
-    - cron: '27 10 * * 1-6'
   workflow_dispatch:
     inputs:
       force:

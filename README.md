@@ -8,7 +8,7 @@
 - 開高走低：-1
 - 直接跌：-2
 
-GitHub Actions 於台北時間週一至週五 18:00 開始監控，每 5 分鐘檢查一次；發現來源日期更新後，重新產生記分板、提交資料並部署至 GitHub Pages，然後停止當日監控。
+GitHub Actions 於台北時間每週一至週六 23:40 執行一次，依序更新記分板、漲停紀錄與族群輪動焦點。只有來源資料變更時才提交並部署；單一來源失敗不會阻止其他資料完成。
 
 線上記分板：https://ilovechenjj986.github.io/daytrade-scoreboard/
 
@@ -22,14 +22,14 @@ GitHub Actions 於台北時間週一至週五 18:00 開始監控，每 5 分鐘�
 
 ## 每日漲停紀錄
 
-週一至週六台北時間 18:17 擷取 [Chengwaye 當日頁面](https://chengwaye.com/daily) 的漲停區塊，只保存代號、名稱與族群。18:27 設有備援觸發；同一交易日期成功後不會重複寫入。資料使用 30 個循環日期槽，提供最近 30 個已保存交易日查詢。
+由每日總工作於台北時間 23:40 擷取 [Chengwaye 當日頁面](https://chengwaye.com/daily) 的漲停區塊，只保存代號、名稱與族群。同一交易日期已保存時不會重複寫入。資料使用 30 個循環日期槽，提供最近 30 個已保存交易日查詢。
 
 漲停紀錄：https://ilovechenjj986.github.io/daytrade-scoreboard/limit-up/
 
 ## 族群輪動焦點
 
 - 來源：`https://chengwaye.com/stats`
-- 每週一至週六台北時間 18:37 擷取，18:47 備援。
+- 由每日總工作於台北時間 23:40 擷取。
 - 保存來源網站焦點排序的 18 個族群卡片，保留最近 30 個保存日期。
 
 族群輪動焦點：https://ilovechenjj986.github.io/daytrade-scoreboard/rotation-focus/
