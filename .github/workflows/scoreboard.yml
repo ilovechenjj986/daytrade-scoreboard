@@ -1,4 +1,4 @@
-name: Update scoreboard, limit-up, and rotation focus
+name: Update scoreboard, limit-up, rotation focus, and event watchlist
 
 on:
   push:
@@ -97,6 +97,14 @@ jobs:
           FORCE_CAPTURE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && 'true' || 'false' }}
         run: npm run capture:rotation-focus
 
+      - name: Capture event watchlist
+        id: event_watchlist
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          FORCE_CAPTURE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && 'true' || 'false' }}
+        run: npm run capture:event-watchlist
+
       - name: Report capture results
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         shell: bash
@@ -106,6 +114,7 @@ jobs:
             echo "- Scoreboard: ${{ steps.scoreboard.outcome }} (changed: ${{ steps.scoreboard.outputs.changed || 'false' }})"
             echo "- Limit-up: ${{ steps.limit_up.outcome }}"
             echo "- Rotation focus: ${{ steps.rotation_focus.outcome }}"
+            echo "- Event watchlist: ${{ steps.event_watchlist.outcome }}"
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit changed data
@@ -113,14 +122,14 @@ jobs:
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         shell: bash
         run: |
-          if git diff --quiet -- site/sector_scoreboard.json site/sector_scoreboard.csv site/sector_scoreboard.html site/index.html site/history site/limit-up site/rotation-focus; then
+          if git diff --quiet -- site/sector_scoreboard.json site/sector_scoreboard.csv site/sector_scoreboard.html site/index.html site/history site/limit-up site/rotation-focus site/event-watchlist; then
             echo 'No target data changes.'
             echo 'changed=false' >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add site/sector_scoreboard.json site/sector_scoreboard.csv site/sector_scoreboard.html site/index.html site/history site/limit-up site/rotation-focus
+          git add site/sector_scoreboard.json site/sector_scoreboard.csv site/sector_scoreboard.html site/index.html site/history site/limit-up site/rotation-focus site/event-watchlist
           git commit -m "Update daily market data $(TZ=Asia/Taipei date +%F)"
           git pull --rebase origin main
           git push origin HEAD:main

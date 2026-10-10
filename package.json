@@ -8,7 +8,9 @@
     "test:aistockmap-data": "node scripts/capture-aistockmap-data.test.cjs",
     "test:capture-window": "node scripts/capture-window.test.cjs",
     "test:limit-up": "node scripts/capture-limit-up.test.cjs",
-    "test:rotation-focus": "node scripts/capture-rotation-focus.test.cjs"
+    "test:rotation-focus": "node scripts/capture-rotation-focus.test.cjs",
+    "capture:event-watchlist": "node scripts/capture-event-watchlist.cjs",
+    "test:event-watchlist": "node scripts/capture-event-watchlist.test.cjs"
   },
   "dependencies": {
     "playwright": "1.61.1"

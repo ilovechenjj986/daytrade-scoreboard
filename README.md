@@ -33,3 +33,10 @@ GitHub Actions 於台北時間每週一至週六 23:40 執行一次，依序更�
 - 保存來源網站焦點排序的 18 個族群卡片，保留最近 30 個保存日期。
 
 族群輪動焦點：https://ilovechenjj986.github.io/daytrade-scoreboard/rotation-focus/
+
+
+## 事件型自選標的
+
+每日總工作於台北時間 23:40 擷取 [盤前 LINE 轉貼版](https://chengwaye.com/)「處置預測」中的「第 1 次」標的，並從 [Chengwaye 事件頁](https://chengwaye.com/realtime-events)擷取當日法說、除權與除息標的。法說日期為區間時只採用起始日；財報不納入。相同股票會合併事件標籤，保留最近 30 個日期。
+
+事件型自選標的：https://ilovechenjj986.github.io/daytrade-scoreboard/event-watchlist/
