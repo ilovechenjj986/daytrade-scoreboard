@@ -40,3 +40,7 @@ GitHub Actions 於台北時間每週一至週六 18:40 開始更新記分板、�
 每日總工作自台北時間 18:40 起每 10 分鐘檢查並重試至隔天 14:30，擷取 [盤前 LINE 轉貼版](https://chengwaye.com/)「處置預測」中的「第 1 次」標的，並從 [Chengwaye 事件頁](https://chengwaye.com/realtime-events)擷取當日法說、除權與除息標的。法說日期為區間時只採用起始日；財報不納入。相同股票會合併事件標籤，保留最近 30 個日期。
 
 事件型自選標的：https://ilovechenjj986.github.io/daytrade-scoreboard/event-watchlist/
+
+## LINE 資料更新通知
+
+族群記分板、AI Stock Map、漲停紀錄、族群輪動焦點或事件型自選標的的資料更新並成功部署後，會推播對應頁面的 LINE 訊息。請在 GitHub 專案 **Settings → Secrets and variables → Actions** 設定 `LINE_CHANNEL_ACCESS_TOKEN` 和 `LINE_USER_ID` 兩個 Repository secrets，並先將 LINE Official Account 加為好友。

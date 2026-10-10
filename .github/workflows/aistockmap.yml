@@ -104,3 +104,11 @@ jobs:
         if: github.ref == 'refs/heads/main' && steps.commit.outputs.changed == 'true'
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Notify LINE
+        if: github.ref == 'refs/heads/main' && steps.commit.outputs.changed == 'true'
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+          LINE_AISTOCKMAP_CHANGED: 'true'
+        run: node scripts/send-line-notification.cjs
