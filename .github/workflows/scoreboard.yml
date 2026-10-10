@@ -48,8 +48,7 @@ jobs:
           FORCE_CAPTURE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && 'true' || 'false' }}
         run: |
           $ErrorActionPreference = 'Stop'
-          $taipeiDate = [DateTime]::UtcNow.AddHours(8).ToString('yyyyMMdd')
-          $sourceUrl = "https://chengwaye.com/nextday-performance-$taipeiDate"
+          $sourceUrl = 'https://chengwaye.com/nextday-performance'
           $jsonPath = Join-Path $PWD 'site/sector_scoreboard.json'
           $baseline = ''
           $baselineStocks = ''
