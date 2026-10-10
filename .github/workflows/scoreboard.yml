@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
   schedule:
-    # 23:40 Asia/Taipei = 15:40 UTC, Monday-Saturday.
-    - cron: '40 15 * * 1-6'
+    # 18:40 Asia/Taipei = 10:40 UTC, Monday-Saturday.
+    - cron: '40 10 * * 1-6'
   workflow_dispatch:
     inputs:
       force:
