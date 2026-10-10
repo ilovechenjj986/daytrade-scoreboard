@@ -119,6 +119,44 @@ jobs:
             echo "- Event watchlist: ${{ steps.event_watchlist.outcome }}"
           } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Detect updated data pages
+        id: pages
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_BEFORE: ${{ github.event.before }}
+          EVENT_SHA: ${{ github.sha }}
+        run: |
+          has_changes() {
+            if [[ "$EVENT_NAME" == 'push' ]]; then
+              if [[ -n "$EVENT_BEFORE" && ! "$EVENT_BEFORE" =~ ^0+$ ]]; then
+                git diff --quiet "$EVENT_BEFORE" "$EVENT_SHA" -- "$@"
+              else
+                git diff --quiet "${EVENT_SHA}^" "$EVENT_SHA" -- "$@"
+              fi
+            else
+              git diff --quiet -- "$@"
+            fi
+          }
+
+          set_page_output() {
+            local name="$1"
+            shift
+            if has_changes "$@"; then
+              printf '%s=false\n' "$name" >> "$GITHUB_OUTPUT"
+            else
+              printf '%s=true\n' "$name" >> "$GITHUB_OUTPUT"
+              any=true
+            fi
+          }
+
+          any=false
+          set_page_output scoreboard site/sector_scoreboard.json site/sector_scoreboard.csv site/history
+          set_page_output limit_up site/limit-up/data site/limit-up/index.json
+          set_page_output rotation_focus site/rotation-focus/data site/rotation-focus/index.json
+          set_page_output event_watchlist site/event-watchlist/data site/event-watchlist/index.json
+          printf 'any=%s\n' "$any" >> "$GITHUB_OUTPUT"
+
       - name: Commit changed data
         id: commit
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
@@ -147,3 +185,14 @@ jobs:
         if: github.event_name == 'push' || steps.commit.outputs.changed == 'true'
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Notify LINE
+        if: steps.pages.outputs.any == 'true' && (github.event_name == 'push' || steps.commit.outputs.changed == 'true')
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+          LINE_SCOREBOARD_CHANGED: ${{ steps.pages.outputs.scoreboard }}
+          LINE_LIMIT_UP_CHANGED: ${{ steps.pages.outputs.limit_up }}
+          LINE_ROTATION_FOCUS_CHANGED: ${{ steps.pages.outputs.rotation_focus }}
+          LINE_EVENT_WATCHLIST_CHANGED: ${{ steps.pages.outputs.event_watchlist }}
+        run: node scripts/send-line-notification.cjs
