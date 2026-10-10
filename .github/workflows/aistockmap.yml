@@ -22,7 +22,7 @@ permissions:
 
 concurrency:
   group: sector-scoreboard-pages
-  cancel-in-progress: false
+  queue: max
 
 jobs:
   capture:
