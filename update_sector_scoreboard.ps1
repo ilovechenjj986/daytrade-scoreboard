@@ -193,7 +193,7 @@ $dashboard = @"
 <footer>資料來源：<a href="$sourceEscaped">Chengwaye 漲停隔日</a>。本頁僅為資料整理，不構成投資建議。JSON 與 CSV 會和此頁同步更新。</footer>
 </main>
 <dialog class="sector-dialog" id="sector-dialog"><div class="dialog-head"><h3 id="dialog-title"></h3><button type="button" class="dialog-close" aria-label="關閉">關閉</button></div><div class="stock-list" id="stock-list"></div></dialog>
-<script>document.write('<script src="'+(location.pathname.includes('/history/')?'../':'')+'history-selector.js"><\/script>')</script>
+<script>document.write('<script src="'+(location.pathname.includes('/history/')?'../':'')+'history-selector.js?v=2"><\/script>')</script>
 <script>
 const stocks=$stocksJson;
 const dialog=document.getElementById('sector-dialog');
