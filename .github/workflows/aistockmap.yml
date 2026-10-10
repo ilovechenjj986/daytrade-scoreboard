@@ -2,12 +2,11 @@ name: Capture AI Stock Map data
 
 on:
   schedule:
-    # 18:05-23:05 Asia/Taipei, Monday-Saturday.
-    - cron: '5 10-15 * * 1-6'
-    # 00:05-07:05 Asia/Taipei, Tuesday-Sunday (still belongs to the previous capture date).
-    - cron: '5 16-23 * * 1-6'
-    # 08:05-17:05 Asia/Taipei, Tuesday-Sunday (still belongs to the previous capture date).
-    - cron: '5 0-9 * * 0,2-6'
+    # Start at 18:40 Asia/Taipei, then retry every 10 minutes through 14:30 the next day.
+    - cron: '40,50 10 * * 1-6'
+    - cron: '*/10 11-23 * * 1-6'
+    - cron: '*/10 0-5 * * 0,2-6'
+    - cron: '0,10,20,30 6 * * 0,2-6'
   workflow_dispatch:
     inputs:
       force:
