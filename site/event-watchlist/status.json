@@ -1,6 +1,5 @@
 {
-  "status": "pending",
-  "detail": "等待每日擷取流程建立第一筆資料",
-  "updatedAt": null
+  "status": "success",
+  "detail": "已保存 2026-10-10 的 3 檔標的",
+  "updatedAt": "2026-10-10T07:55:23.610Z"
 }
-
