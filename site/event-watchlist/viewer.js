@@ -51,7 +51,7 @@
     status.textContent = `保存時間：${new Date(data.capturedAt).toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' })}`;
   };
 
-  exportButton.addEventListener('click', () => {
+  exportButton.addEventListener('click', async () => {
     try {
       if (!selectedSnapshot || !selectedData) throw new Error('尚無可匯出的事件資料');
       const headlineDate = getHeadlineDate(selectedSnapshot, selectedData);
@@ -71,17 +71,25 @@
       const rows = stocks.map((stock, index) => [eventRow[index], stock.code, stock.name]);
       const content = '\uFEFF' + rows.map(row => row.map(csvCell).join(',')).join('\r\n') + '\r\n';
       const filename = '特殊事件' + headlineDate + '.csv';
-      const url = URL.createObjectURL(new Blob([content], { type: 'text/csv;charset=utf-8' }));
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = filename;
-      document.body.append(link);
-      link.click();
-      link.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-      status.textContent = '已匯出：' + filename;
+      if (typeof window.showSaveFilePicker !== 'function') {
+        throw new Error('此瀏覽器不支援選擇儲存位置，請使用支援另存新檔的桌面版 Chrome 或 Edge。');
+      }
+      status.textContent = '請在另存新檔視窗選擇指定資料夾';
+      const fileHandle = await window.showSaveFilePicker({
+        suggestedName: filename,
+        types: [{ description: 'CSV 檔案', accept: { 'text/csv': ['.csv'] } }]
+      });
+      const writable = await fileHandle.createWritable();
+      await writable.write(content);
+      await writable.close();
+      status.textContent = '已儲存：' + filename;
       status.className = '';
     } catch (error) {
+      if (error && error.name === 'AbortError') {
+        status.textContent = '已取消匯出';
+        status.className = '';
+        return;
+      }
       showError(error);
     }
   });
