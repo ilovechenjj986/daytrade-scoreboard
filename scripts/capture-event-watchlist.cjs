@@ -46,6 +46,16 @@ function htmlText(html) {
     .replace(/\n\s+/g, '\n');
 }
 
+function parseSourceHeadline(html) {
+  const match = String(html).match(/<([a-z][a-z0-9]*)\b(?=[^>]*\bid=["']home-line-share-title["'])[^>]*>([\s\S]*?)<\/\1>/i);
+  if (!match) throw new Error('找不到盤前 LINE 轉貼版文字區塊上方的完整標題');
+  const title = htmlText(match[2]).replace(/\s+/g, ' ').trim();
+  if (!/^盤前\s+LINE\s+轉貼版\s+\d{1,2}\/\d{1,2}$/.test(title)) {
+    throw new Error(`盤前 LINE 轉貼版標題格式不符：${title}`);
+  }
+  return title;
+}
+
 function parseDisposalStocks(html) {
   const text = htmlText(html);
   const heading = /[【〖]\s*處置預測\s*[】〗]/.exec(text);
@@ -185,10 +195,6 @@ async function fetchHtml(url) {
 async function main() {
   const date = process.env.EVENT_CAPTURE_DATE || taipeiDate();
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error(`日期格式錯誤：${date}`);
-  const [lineHtml, eventHtml] = await Promise.all([fetchHtml(lineUrl), fetchHtml(eventsUrl)]);
-  const disposalStocks = parseDisposalStocks(lineHtml);
-  const eventStocks = parseEventsHtml(eventHtml, date);
-  const stocks = mergeStocks(disposalStocks, eventStocks);
   const current = readIndex();
   const force = process.env.FORCE_CAPTURE === 'true';
   if (current.snapshots.some(snapshot => snapshot.date === date) && !force) {
@@ -196,15 +202,20 @@ async function main() {
     return;
   }
 
+  const [lineHtml, eventHtml] = await Promise.all([fetchHtml(lineUrl), fetchHtml(eventsUrl)]);
+  const headlineTitle = parseSourceHeadline(lineHtml);
+  const disposalStocks = parseDisposalStocks(lineHtml);
+  const eventStocks = parseEventsHtml(eventHtml, date);
+  const stocks = mergeStocks(disposalStocks, eventStocks);
   const capturedAt = new Date().toISOString();
   const slot = slotFor(date);
   const filename = `slot-${String(slot).padStart(2, '0')}.json`;
   const eventCounts = { '進處置': 0, '法說': 0, '除權息': 0 };
   for (const stock of stocks) for (const event of stock.events) eventCounts[event] += 1;
   writeJson(path.join(dataDir, filename), {
-    date, capturedAt, sources: { line: lineUrl, events: eventsUrl }, eventCounts, stocks
+    date, headlineTitle, capturedAt, sources: { line: lineUrl, events: eventsUrl }, eventCounts, stocks
   });
-  const snapshot = { date, slot, capturedAt, count: stocks.length, file: `data/${filename}` };
+  const snapshot = { date, headlineTitle, slot, capturedAt, count: stocks.length, file: `data/${filename}` };
   const snapshots = current.snapshots.filter(item => item.slot !== slot && item.date !== date);
   snapshots.push(snapshot);
   snapshots.sort((left, right) => right.date.localeCompare(left.date));
@@ -217,7 +228,7 @@ async function main() {
   console.log(`SUCCESS ${date} ${stocks.length} disposal=${eventCounts['進處置']} presentation=${eventCounts['法說']} ex=${eventCounts['除權息']}`);
 }
 
-module.exports = { parseDisposalStocks, parseEventsHtml, mergeStocks, nextTradingDate, slotFor, htmlText };
+module.exports = { parseSourceHeadline, parseDisposalStocks, parseEventsHtml, mergeStocks, nextTradingDate, slotFor, htmlText };
 
 if (require.main === module) {
   main().catch(error => {

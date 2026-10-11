@@ -6,6 +6,7 @@
   const summaryDate = document.querySelector('#summary-date');
   const summaryCount = document.querySelector('#summary-count');
   const summaryEvents = document.querySelector('#summary-events');
+  const sourceHeadline = document.querySelector('#source-headline');
   const badgeClass = { '進處置': 'disposal', '法說': 'presentation', '除權息': 'ex' };
 
   const render = async snapshot => {
@@ -15,6 +16,7 @@
     const data = await response.json();
     const stocks = Array.isArray(data.stocks) ? data.stocks : [];
     const eventCounts = data.eventCounts || {};
+    sourceHeadline.textContent = data.headlineTitle || snapshot.headlineTitle || '來源標題未保存';
     summaryDate.textContent = data.date;
     summaryCount.textContent = `${stocks.length} 檔`;
     summaryEvents.textContent = `${Object.values(eventCounts).reduce((sum, count) => sum + Number(count || 0), 0)} 項`;

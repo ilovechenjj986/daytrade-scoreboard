@@ -35,3 +35,5 @@ tbody tr:last-child td{border-bottom:0}
 .source{text-align:right;color:var(--muted);font-size:13px;margin-top:18px}.source a{color:#5eead4}
 @media(max-width:650px){main{padding:20px 14px 50px}.summary{grid-template-columns:1fr}.table-heading{align-items:flex-start;flex-direction:column}th,td{padding:11px 12px}}
 
+
+.source-headline{margin:8px 0 10px;padding:10px 14px;border-left:3px solid #2dd4bf;border-radius:0 8px 8px 0;background:#111b2a;color:#5eead4;font-size:clamp(17px,2.5vw,22px);font-weight:800;letter-spacing:.01em}
