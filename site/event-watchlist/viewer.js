@@ -68,7 +68,7 @@
         const text = String(value ?? '');
         return /[",\r\n]/.test(text) ? '"' + text.replace(/"/g, '""') + '"' : text;
       };
-      const rows = [eventRow, stocks.map(stock => stock.code), stocks.map(stock => stock.name)];
+      const rows = stocks.map((stock, index) => [eventRow[index], stock.code, stock.name]);
       const content = '\uFEFF' + rows.map(row => row.map(csvCell).join(',')).join('\r\n') + '\r\n';
       const filename = '特殊事件' + headlineDate + '.csv';
       const url = URL.createObjectURL(new Blob([content], { type: 'text/csv;charset=utf-8' }));
