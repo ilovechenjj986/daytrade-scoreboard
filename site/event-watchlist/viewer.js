@@ -72,7 +72,7 @@
       const content = '\uFEFF' + rows.map(row => row.map(csvCell).join(',')).join('\r\n') + '\r\n';
       const filename = '特殊事件' + headlineDate + '.csv';
       status.textContent = '正在寫入指定的 D 槽資料夾…';
-      const endpoint = new URL('http://127.0.0.1:8787/api/event-watchlist/export');
+      const endpoint = new URL('http://127.0.0.1:8788/api/event-watchlist/export');
       endpoint.searchParams.set('filename', filename);
       let response;
       try {
