@@ -71,25 +71,26 @@
       const rows = stocks.map((stock, index) => [eventRow[index], stock.code, stock.name]);
       const content = '\uFEFF' + rows.map(row => row.map(csvCell).join(',')).join('\r\n') + '\r\n';
       const filename = '特殊事件' + headlineDate + '.csv';
-      if (typeof window.showSaveFilePicker !== 'function') {
-        throw new Error('此瀏覽器不支援選擇儲存位置，請使用支援另存新檔的桌面版 Chrome 或 Edge。');
+      status.textContent = '正在寫入指定的 D 槽資料夾…';
+      const endpoint = new URL('http://127.0.0.1:8787/api/event-watchlist/export');
+      endpoint.searchParams.set('filename', filename);
+      let response;
+      try {
+        response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/csv;charset=utf-8' },
+          body: content
+        });
+      } catch (error) {
+        throw new Error('無法連線本機匯出服務。請先啟動 D:\\daytrade_tool\\run_daytrade_tool.cmd，再匯出。');
       }
-      status.textContent = '請在另存新檔視窗選擇指定資料夾';
-      const fileHandle = await window.showSaveFilePicker({
-        suggestedName: filename,
-        types: [{ description: 'CSV 檔案', accept: { 'text/csv': ['.csv'] } }]
-      });
-      const writable = await fileHandle.createWritable();
-      await writable.write(content);
-      await writable.close();
-      status.textContent = '已儲存：' + filename;
+      if (!response.ok) {
+        const detail = await response.text();
+        throw new Error('CSV 儲存失敗：' + detail);
+      }
+      status.textContent = '已儲存至 D:\\daytrade_tool\\自選股\\進處置+除權息+自結公告+法會\\' + filename;
       status.className = '';
     } catch (error) {
-      if (error && error.name === 'AbortError') {
-        status.textContent = '已取消匯出';
-        status.className = '';
-        return;
-      }
       showError(error);
     }
   });
