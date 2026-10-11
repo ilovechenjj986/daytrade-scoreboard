@@ -37,3 +37,5 @@ tbody tr:last-child td{border-bottom:0}
 
 
 .source-headline{margin:8px 0 10px;padding:10px 14px;border-left:3px solid #2dd4bf;border-radius:0 8px 8px 0;background:#111b2a;color:#5eead4;font-size:clamp(17px,2.5vw,22px);font-weight:800;letter-spacing:.01em}
+
+#export-csv{min-height:40px;padding:7px 14px;border:1px solid #2dd4bf;border-radius:8px;background:#0f766e;color:#fff;font:inherit;font-weight:700;cursor:pointer}#export-csv:hover:not(:disabled){background:#115e59}#export-csv:disabled{opacity:.5;cursor:not-allowed}
