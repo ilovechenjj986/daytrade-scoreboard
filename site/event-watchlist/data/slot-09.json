@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-13",
+  "headlineTitle": "盤前 LINE 轉貼版 10/13",
+  "capturedAt": "2026-10-12T19:59:50.588Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 3,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "3265",
+      "name": "台星科",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "3597",
+      "name": "映興",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "9103",
+      "name": "美德醫療-DR",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
