@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-14",
+  "headlineTitle": "盤前 LINE 轉貼版 10/14",
+  "capturedAt": "2026-10-13T17:48:00.634Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 1,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "3564",
+      "name": "其陽",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
