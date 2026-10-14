@@ -1,6 +1,31 @@
 {
   "snapshots": [
     {
+      "date": "2026-10-14",
+      "slot": 10,
+      "capturedAt": "2026-10-14T11:27:53.141Z",
+      "sourceUrl": "https://aistockmap.com/?activeTab=heatmap",
+      "file": "data/slot-10.json",
+      "contentHash": "d45dc4602d1b10611022767e6a8fe500b5005a83bbb5477b9891595c038b29ea",
+      "changeThreshold": 1,
+      "complete": true,
+      "availableViewIds": [
+        "tw-day",
+        "tw-week",
+        "tw-month",
+        "us-day"
+      ],
+      "pendingViewIds": [],
+      "starredIndustryCount": 51,
+      "dailyStarredIndustryCount": 5,
+      "counts": {
+        "tw-day": 94,
+        "tw-week": 94,
+        "tw-month": 94,
+        "us-day": 76
+      }
+    },
+    {
       "date": "2026-10-13",
       "slot": 9,
       "capturedAt": "2026-10-13T12:47:47.226Z",
@@ -551,27 +576,6 @@
       "sourceUrl": "https://aistockmap.com/?topic=niche-memory&activeTab=heatmap",
       "file": "data/slot-11.json",
       "contentHash": "b55402df246adc19c13f9d350110b1c864ec053a617b76f8362f18ae7ccc253c",
-      "changeThreshold": 1,
-      "complete": true,
-      "availableViewIds": [
-        "tw-week",
-        "tw-month",
-        "us-day"
-      ],
-      "pendingViewIds": [],
-      "counts": {
-        "tw-week": 91,
-        "tw-month": 91,
-        "us-day": 75
-      }
-    },
-    {
-      "date": "2026-09-14",
-      "slot": 10,
-      "capturedAt": "2026-09-14T22:06:27.217Z",
-      "sourceUrl": "https://aistockmap.com/?topic=niche-memory&activeTab=heatmap",
-      "file": "data/slot-10.json",
-      "contentHash": "6574eeebef3d80f2025facd0b030cc207d57b40f40a2c1f8904ade54df4680d7",
       "changeThreshold": 1,
       "complete": true,
       "availableViewIds": [
