@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-15",
+  "headlineTitle": "盤前 LINE 轉貼版 10/15",
+  "capturedAt": "2026-10-14T19:45:42.264Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 2,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "2424",
+      "name": "隴華",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "8111",
+      "name": "立碁",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
