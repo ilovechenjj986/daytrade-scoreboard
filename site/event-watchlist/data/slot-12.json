@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-16",
+  "headlineTitle": "盤前 LINE 轉貼版 10/16",
+  "capturedAt": "2026-10-15T19:23:06.196Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 4,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "2059",
+      "name": "川湖",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "3230",
+      "name": "錦明",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "3287",
+      "name": "廣寰科",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6278",
+      "name": "台表科",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
