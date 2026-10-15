@@ -1,102 +1,42 @@
 {
-  "date": "2026-09-15",
-  "capturedAt": "2026-09-15T15:02:06.248Z",
+  "date": "2026-10-15",
+  "capturedAt": "2026-10-15T10:42:50.664Z",
   "sourceUrl": "https://chengwaye.com/daily",
   "stocks": [
     {
-      "code": "2468",
-      "name": "華經",
-      "group": "軟體"
+      "code": "2033",
+      "name": "佳大",
+      "group": "鋼鐵"
     },
     {
-      "code": "3021",
-      "name": "鴻名",
+      "code": "2380",
+      "name": "虹光",
       "group": "電腦週邊"
     },
     {
-      "code": "3232",
-      "name": "昱捷",
-      "group": "電腦週邊"
+      "code": "2424",
+      "name": "隴華",
+      "group": "低軌衛星"
     },
     {
-      "code": "3297",
-      "name": "杭特",
-      "group": "電腦週邊"
+      "code": "3354",
+      "name": "律勝",
+      "group": "軟板FPC"
     },
     {
-      "code": "3434",
-      "name": "哲固",
-      "group": "PCB"
-    },
-    {
-      "code": "3467",
-      "name": "台灣精材",
-      "group": "封測"
-    },
-    {
-      "code": "3523",
-      "name": "迎輝",
-      "group": "面板光電"
-    },
-    {
-      "code": "3664",
-      "name": "安瑞-KY",
-      "group": "網通"
-    },
-    {
-      "code": "4807",
-      "name": "日成-KY",
-      "group": "汽車"
+      "code": "3485",
+      "name": "敘豐",
+      "group": "PCB設備"
     },
     {
       "code": "4924",
       "name": "欣厚-KY",
-      "group": "精密零組件"
+      "group": "電腦週邊"
     },
     {
-      "code": "5202",
-      "name": "力新",
-      "group": "軟體"
-    },
-    {
-      "code": "5251",
-      "name": "天鉞電",
-      "group": "網通"
-    },
-    {
-      "code": "5355",
-      "name": "佳總",
+      "code": "6269",
+      "name": "台郡",
       "group": "軟板FPC"
-    },
-    {
-      "code": "6140",
-      "name": "訊達",
-      "group": "軟體"
-    },
-    {
-      "code": "6148",
-      "name": "驊宏資",
-      "group": "軟體"
-    },
-    {
-      "code": "6218",
-      "name": "豪勉",
-      "group": "網通"
-    },
-    {
-      "code": "6221",
-      "name": "晉泰",
-      "group": "網通"
-    },
-    {
-      "code": "6226",
-      "name": "光鼎",
-      "group": "面板光電"
-    },
-    {
-      "code": "6590",
-      "name": "普鴻",
-      "group": "軟體"
     },
     {
       "code": "6925",
@@ -104,19 +44,9 @@
       "group": "軟體"
     },
     {
-      "code": "6945",
-      "name": "圓祥生技",
-      "group": "生技醫療"
-    },
-    {
-      "code": "8038",
-      "name": "長園科",
-      "group": "綠能"
-    },
-    {
-      "code": "8045",
-      "name": "達運光電",
-      "group": "5G通訊"
+      "code": "8437",
+      "name": "大地-KY",
+      "group": "教育服務"
     }
   ]
 }
