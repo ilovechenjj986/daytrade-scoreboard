@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-18",
+  "headlineTitle": "盤前 LINE 轉貼版 10/19",
+  "capturedAt": "2026-10-17T17:08:16.332Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 2,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "6217",
+      "name": "中探針",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6716",
+      "name": "應廣",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
