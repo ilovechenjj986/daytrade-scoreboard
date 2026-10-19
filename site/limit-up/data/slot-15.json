@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-19",
+  "capturedAt": "2026-10-19T17:09:42.375Z",
+  "sourceUrl": "https://chengwaye.com/daily",
+  "stocks": [
+    {
+      "code": "1526",
+      "name": "日馳",
+      "group": "自行車"
+    },
+    {
+      "code": "1815",
+      "name": "富喬",
+      "group": "玻纖"
+    },
+    {
+      "code": "2033",
+      "name": "佳大",
+      "group": "鋼鐵"
+    },
+    {
+      "code": "3287",
+      "name": "廣寰科",
+      "group": "電腦週邊"
+    },
+    {
+      "code": "3354",
+      "name": "律勝",
+      "group": "軟板FPC"
+    },
+    {
+      "code": "4542",
+      "name": "科嶠",
+      "group": "PCB設備"
+    },
+    {
+      "code": "4577",
+      "name": "達航科技",
+      "group": "PCB設備"
+    },
+    {
+      "code": "4706",
+      "name": "大恭",
+      "group": "特用化學"
+    },
+    {
+      "code": "4960",
+      "name": "誠美材",
+      "group": "面板光電"
+    },
+    {
+      "code": "5498",
+      "name": "凱崴",
+      "group": "設備耗材"
+    },
+    {
+      "code": "6141",
+      "name": "柏承",
+      "group": "PCB"
+    },
+    {
+      "code": "6418",
+      "name": "詠昇",
+      "group": "連接器"
+    },
+    {
+      "code": "6609",
+      "name": "瀧澤科",
+      "group": "機械"
+    },
+    {
+      "code": "6708",
+      "name": "天擎",
+      "group": "IC設計"
+    },
+    {
+      "code": "6751",
+      "name": "智聯服務",
+      "group": "軟體"
+    },
+    {
+      "code": "6756",
+      "name": "威鋒電子",
+      "group": "IC設計"
+    },
+    {
+      "code": "7786",
+      "name": "東方風能",
+      "group": "綠能"
+    },
+    {
+      "code": "8074",
+      "name": "鉅橡",
+      "group": "PCB"
+    },
+    {
+      "code": "8089",
+      "name": "康全電訊",
+      "group": "網通"
+    }
+  ]
+}

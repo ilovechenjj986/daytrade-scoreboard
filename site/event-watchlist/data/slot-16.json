@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-20",
+  "headlineTitle": "盤前 LINE 轉貼版 10/20",
+  "capturedAt": "2026-10-19T17:09:45.576Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 1,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "3354",
+      "name": "律勝",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
