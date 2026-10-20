@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-21",
+  "headlineTitle": "盤前 LINE 轉貼版 10/21",
+  "capturedAt": "2026-10-20T19:35:21.063Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 1,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "8291",
+      "name": "尚茂",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
