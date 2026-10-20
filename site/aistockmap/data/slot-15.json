@@ -1,18 +1,17 @@
 {
   "date": "2026-10-19",
-  "capturedAt": "2026-10-19T17:11:27.638Z",
+  "capturedAt": "2026-10-20T00:44:45.024Z",
   "sourceUrl": "https://aistockmap.com/?activeTab=heatmap",
-  "contentHash": "96bd5fcb74747fee796b099f8ddd0b7ab9649c15d5934cdc3b61e1c578acb54f",
+  "contentHash": "5ab4f47a7918d2a025feede9b8ac161aed737f97af9b5f48be4935002d601353",
   "changeThreshold": 1,
-  "complete": false,
+  "complete": true,
   "availableViewIds": [
     "tw-day",
     "tw-week",
-    "tw-month"
-  ],
-  "pendingViewIds": [
+    "tw-month",
     "us-day"
   ],
+  "pendingViewIds": [],
   "signals": {
     "twDayUpPeriodDown": {
       "byView": {
@@ -1981,6 +1980,395 @@
           "name": "利基記憶體",
           "companies": 6,
           "change": -12.83
+        }
+      ]
+    },
+    {
+      "id": "us-day",
+      "title": "美股單日",
+      "market": "美股",
+      "period": "單日",
+      "sourceUpdatedAt": null,
+      "industries": [
+        {
+          "name": "半導體測試",
+          "companies": 5,
+          "change": 4.83
+        },
+        {
+          "name": "HBM 與 NAND",
+          "companies": 7,
+          "change": 4.1
+        },
+        {
+          "name": "資料平台",
+          "companies": 8,
+          "change": 2.97
+        },
+        {
+          "name": "先進封裝",
+          "companies": 4,
+          "change": 2.61
+        },
+        {
+          "name": "光通訊與互連",
+          "companies": 11,
+          "change": 2.3
+        },
+        {
+          "name": "AI 生技製藥",
+          "companies": 16,
+          "change": 2.28
+        },
+        {
+          "name": "被動與保護元件",
+          "companies": 8,
+          "change": 2.16
+        },
+        {
+          "name": "ASIC 與矽智財",
+          "companies": 3,
+          "change": 1.98
+        },
+        {
+          "name": "晶圓代工廠",
+          "companies": 4,
+          "change": 1.9
+        },
+        {
+          "name": "GPU 與加速器",
+          "companies": 6,
+          "change": 1.85
+        },
+        {
+          "name": "GPU 雲租賃",
+          "companies": 8,
+          "change": 1.82
+        },
+        {
+          "name": "FPGA 與邊緣 AI",
+          "companies": 7,
+          "change": 1.81
+        },
+        {
+          "name": "SiC/GaN 基板與功率",
+          "companies": 6,
+          "change": 1.71
+        },
+        {
+          "name": "AI 乙太網路",
+          "companies": 8,
+          "change": 1.68
+        },
+        {
+          "name": "高速連接器",
+          "companies": 3,
+          "change": 1.6
+        },
+        {
+          "name": "玻璃基板",
+          "companies": 9,
+          "change": 1.58
+        },
+        {
+          "name": "遊戲與電競",
+          "companies": 7,
+          "change": 1.43
+        },
+        {
+          "name": "IT 服務",
+          "companies": 12,
+          "change": 1.39
+        },
+        {
+          "name": "半導體材料",
+          "companies": 7,
+          "change": 1.38
+        },
+        {
+          "name": "AI CPU",
+          "companies": 6,
+          "change": 1.37
+        },
+        {
+          "name": "電源管理 IC",
+          "companies": 4,
+          "change": 1.32
+        },
+        {
+          "name": "IC 通路",
+          "companies": 8,
+          "change": 1.22
+        },
+        {
+          "name": "射頻前端",
+          "companies": 6,
+          "change": 1.16
+        },
+        {
+          "name": "人形機器人",
+          "companies": 8,
+          "change": 1.14
+        },
+        {
+          "name": "鋼鐵與銅鋁",
+          "companies": 20,
+          "change": 1.13
+        },
+        {
+          "name": "企業軟體",
+          "companies": 12,
+          "change": 1.12
+        },
+        {
+          "name": "工廠自動化",
+          "companies": 6,
+          "change": 1.05
+        },
+        {
+          "name": "社群媒體",
+          "companies": 6,
+          "change": 1.01
+        },
+        {
+          "name": "企業資安",
+          "companies": 14,
+          "change": 1.01
+        },
+        {
+          "name": "工業與車用 IC",
+          "companies": 11,
+          "change": 0.96
+        },
+        {
+          "name": "晶圓廠設備",
+          "companies": 7,
+          "change": 0.95
+        },
+        {
+          "name": "超大型雲端",
+          "companies": 5,
+          "change": 0.95
+        },
+        {
+          "name": "數位廣告",
+          "companies": 8,
+          "change": 0.89
+        },
+        {
+          "name": "AI PC 裝置",
+          "companies": 9,
+          "change": 0.81
+        },
+        {
+          "name": "PCB 與代工",
+          "companies": 6,
+          "change": 0.66
+        },
+        {
+          "name": "AI 伺服器與代工",
+          "companies": 7,
+          "change": 0.57
+        },
+        {
+          "name": "機房供電",
+          "companies": 4,
+          "change": 0.45
+        },
+        {
+          "name": "量子運算",
+          "companies": 7,
+          "change": 0.43
+        },
+        {
+          "name": "資料中心散熱",
+          "companies": 10,
+          "change": 0.4
+        },
+        {
+          "name": "旅遊訂房與住宿",
+          "companies": 4,
+          "change": 0.36
+        },
+        {
+          "name": "醫療器材",
+          "companies": 8,
+          "change": 0.34
+        },
+        {
+          "name": "資料中心營建",
+          "companies": 13,
+          "change": 0.28
+        },
+        {
+          "name": "EDA 工具",
+          "companies": 4,
+          "change": 0.09
+        },
+        {
+          "name": "電動車與自駕",
+          "companies": 15,
+          "change": 0.01
+        },
+        {
+          "name": "太空與衛星",
+          "companies": 20,
+          "change": -0.07
+        },
+        {
+          "name": "GLP-1 減肥藥",
+          "companies": 10,
+          "change": -0.12
+        },
+        {
+          "name": "另類資產",
+          "companies": 17,
+          "change": -0.12
+        },
+        {
+          "name": "智慧電網",
+          "companies": 10,
+          "change": -0.13
+        },
+        {
+          "name": "醫保與給付",
+          "companies": 18,
+          "change": -0.19
+        },
+        {
+          "name": "化工材料",
+          "companies": 18,
+          "change": -0.24
+        },
+        {
+          "name": "零售通路",
+          "companies": 20,
+          "change": -0.29
+        },
+        {
+          "name": "生技工具與外包",
+          "companies": 17,
+          "change": -0.32
+        },
+        {
+          "name": "金融科技",
+          "companies": 13,
+          "change": -0.41
+        },
+        {
+          "name": "串流娛樂",
+          "companies": 4,
+          "change": -0.42
+        },
+        {
+          "name": "保險與再保",
+          "companies": 9,
+          "change": -0.49
+        },
+        {
+          "name": "航太製造",
+          "companies": 10,
+          "change": -0.59
+        },
+        {
+          "name": "能源油氣",
+          "companies": 12,
+          "change": -0.6
+        },
+        {
+          "name": "國防科技",
+          "companies": 15,
+          "change": -0.69
+        },
+        {
+          "name": "必需消費",
+          "companies": 16,
+          "change": -0.72
+        },
+        {
+          "name": "天然氣與 LNG",
+          "companies": 13,
+          "change": -0.75
+        },
+        {
+          "name": "加密幣生態",
+          "companies": 9,
+          "change": -0.81
+        },
+        {
+          "name": "水資源與水處理",
+          "companies": 13,
+          "change": -0.82
+        },
+        {
+          "name": "貨運與物流",
+          "companies": 18,
+          "change": -0.86
+        },
+        {
+          "name": "廢棄物處理",
+          "companies": 3,
+          "change": -0.87
+        },
+        {
+          "name": "重工機械",
+          "companies": 14,
+          "change": -0.89
+        },
+        {
+          "name": "大型製藥",
+          "companies": 17,
+          "change": -0.91
+        },
+        {
+          "name": "交易所與金融資料",
+          "companies": 14,
+          "change": -0.96
+        },
+        {
+          "name": "資料中心 REIT",
+          "companies": 15,
+          "change": -1.04
+        },
+        {
+          "name": "航空客運",
+          "companies": 13,
+          "change": -1.11
+        },
+        {
+          "name": "美國房市",
+          "companies": 17,
+          "change": -1.4
+        },
+        {
+          "name": "銀行與券商",
+          "companies": 9,
+          "change": -1.52
+        },
+        {
+          "name": "電信服務",
+          "companies": 10,
+          "change": -1.59
+        },
+        {
+          "name": "核能與 SMR",
+          "companies": 16,
+          "change": -1.68
+        },
+        {
+          "name": "公用事業與 IPP",
+          "companies": 13,
+          "change": -1.91
+        },
+        {
+          "name": "太陽能與儲能",
+          "companies": 8,
+          "change": -2.03
+        },
+        {
+          "name": "關鍵礦產",
+          "companies": 8,
+          "change": -2.45
         }
       ]
     }
