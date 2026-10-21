@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-22",
+  "headlineTitle": "盤前 LINE 轉貼版 10/22",
+  "capturedAt": "2026-10-21T16:03:01.855Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 2,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "6269",
+      "name": "台郡",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "8437",
+      "name": "大地-KY",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
