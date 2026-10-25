@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-25",
+  "headlineTitle": "盤前 LINE 轉貼版 10/27",
+  "capturedAt": "2026-10-25T07:47:44.784Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 2,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "6751",
+      "name": "智聯服務",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6925",
+      "name": "意藍",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
