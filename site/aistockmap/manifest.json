@@ -3,23 +3,24 @@
     {
       "date": "2026-10-26",
       "slot": 22,
-      "capturedAt": "2026-10-27T00:51:50.330Z",
+      "capturedAt": "2026-10-27T03:33:15.962Z",
       "sourceUrl": "https://aistockmap.com/?activeTab=heatmap",
       "file": "data/slot-22.json",
-      "contentHash": "0f3e8bc7c9b9c3b1ecaa3a3b245f3f2320c51814ca37acb9f0240f33d9364ae2",
+      "contentHash": "7cab8d3856a6d379dbf2fb05426fb30bd2f67a453ae87c9ff896791bd1281932",
       "changeThreshold": 1,
       "complete": false,
       "availableViewIds": [
+        "tw-month",
         "us-day"
       ],
       "pendingViewIds": [
         "tw-day",
-        "tw-week",
-        "tw-month"
+        "tw-week"
       ],
       "starredIndustryCount": 3,
       "dailyStarredIndustryCount": 24,
       "counts": {
+        "tw-month": 94,
         "us-day": 78
       }
     },
