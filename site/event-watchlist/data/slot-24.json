@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-28",
+  "headlineTitle": "盤前 LINE 轉貼版 10/29",
+  "capturedAt": "2026-10-28T11:57:50.857Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 3,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "4526",
+      "name": "東台",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "4577",
+      "name": "達航科技",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6418",
+      "name": "詠昇",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
