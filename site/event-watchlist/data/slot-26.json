@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-30",
+  "headlineTitle": "盤前 LINE 轉貼版 10/30",
+  "capturedAt": "2026-10-29T17:04:28.389Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 4,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "3691",
+      "name": "碩禾",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "4741",
+      "name": "泓瀚",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6870",
+      "name": "騰雲",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "8099",
+      "name": "大世科",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
