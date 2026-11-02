@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-03",
+  "headlineTitle": "盤前 LINE 轉貼版 11/3",
+  "capturedAt": "2026-11-02T20:30:16.491Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 1,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "7704",
+      "name": "明遠精密",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
