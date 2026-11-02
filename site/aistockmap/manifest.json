@@ -1,6 +1,31 @@
 {
   "snapshots": [
     {
+      "date": "2026-11-02",
+      "slot": 29,
+      "capturedAt": "2026-11-02T20:31:48.202Z",
+      "sourceUrl": "https://aistockmap.com/?activeTab=heatmap",
+      "file": "data/slot-29.json",
+      "contentHash": "90ec045d38697a1516d18a0c1f0aad7d020b90e2a916b53292558e530d7b5d9e",
+      "changeThreshold": 1,
+      "complete": true,
+      "availableViewIds": [
+        "tw-day",
+        "tw-week",
+        "tw-month",
+        "us-day"
+      ],
+      "pendingViewIds": [],
+      "starredIndustryCount": 40,
+      "dailyStarredIndustryCount": 5,
+      "counts": {
+        "tw-day": 94,
+        "tw-week": 94,
+        "tw-month": 94,
+        "us-day": 78
+      }
+    },
+    {
       "date": "2026-10-31",
       "slot": 27,
       "capturedAt": "2026-10-31T15:53:12.741Z",
@@ -562,31 +587,6 @@
       "pendingViewIds": [],
       "starredIndustryCount": 4,
       "dailyStarredIndustryCount": 38,
-      "counts": {
-        "tw-day": 91,
-        "tw-week": 91,
-        "tw-month": 91,
-        "us-day": 75
-      }
-    },
-    {
-      "date": "2026-10-03",
-      "slot": 29,
-      "capturedAt": "2026-10-03T14:41:04.122Z",
-      "sourceUrl": "https://aistockmap.com/?activeTab=heatmap",
-      "file": "data/slot-29.json",
-      "contentHash": "ceca100c97b825877607a6f807795127e1344a046b28fbd254c466f09b20b6ca",
-      "changeThreshold": 1,
-      "complete": true,
-      "availableViewIds": [
-        "tw-day",
-        "tw-week",
-        "tw-month",
-        "us-day"
-      ],
-      "pendingViewIds": [],
-      "starredIndustryCount": 19,
-      "dailyStarredIndustryCount": 17,
       "counts": {
         "tw-day": 91,
         "tw-week": 91,
