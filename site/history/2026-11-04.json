@@ -1,0 +1,216 @@
+{
+  "source": "https://chengwaye.com/nextday-performance",
+  "generatedAt": "2026-11-04 12:02:42 +00:00",
+  "limitDate": "2026/11/03",
+  "nextDate": "2026/11/04",
+  "stockCount": 13,
+  "sectorCount": 8,
+  "scoring": {
+    "續漲停": 2,
+    "強續漲": 1,
+    "弱續漲": 0,
+    "開高走低": -1,
+    "直接跌": -2
+  },
+  "stocks": [
+    {
+      "code": "3287",
+      "name": "廣寰科",
+      "label": "續漲停",
+      "sector": "電腦週邊",
+      "score": 2
+    },
+    {
+      "code": "5202",
+      "name": "力新",
+      "label": "續漲停",
+      "sector": "軟體",
+      "score": 2
+    },
+    {
+      "code": "7819",
+      "name": "精誠金融",
+      "label": "續漲停",
+      "sector": "電子支付",
+      "score": 2
+    },
+    {
+      "code": "6938",
+      "name": "藍新資訊",
+      "label": "強續漲",
+      "sector": "軟體",
+      "score": 1
+    },
+    {
+      "code": "7767",
+      "name": "仁大資訊",
+      "label": "續漲停",
+      "sector": "資訊服務",
+      "score": 2
+    },
+    {
+      "code": "8437",
+      "name": "大地-KY",
+      "label": "續漲停",
+      "sector": "教育服務",
+      "score": 2
+    },
+    {
+      "code": "8099",
+      "name": "大世科",
+      "label": "強續漲",
+      "sector": "軟體",
+      "score": 1
+    },
+    {
+      "code": "6467",
+      "name": "泰合",
+      "label": "強續漲",
+      "sector": "生技醫療",
+      "score": 1
+    },
+    {
+      "code": "5013",
+      "name": "強新",
+      "label": "開高走低",
+      "sector": "鋼鐵",
+      "score": -1
+    },
+    {
+      "code": "6898",
+      "name": "程曦資訊",
+      "label": "直接跌",
+      "sector": "資訊服務",
+      "score": -2
+    },
+    {
+      "code": "8272",
+      "name": "全景軟體",
+      "label": "強續漲",
+      "sector": "軟體",
+      "score": 1
+    },
+    {
+      "code": "6431",
+      "name": "光麗-KY",
+      "label": "直接跌",
+      "sector": "消費內需",
+      "score": -2
+    },
+    {
+      "code": "6865",
+      "name": "偉康科技",
+      "label": "直接跌",
+      "sector": "軟體",
+      "score": -2
+    }
+  ],
+  "nonNegative": [
+    {
+      "sector": "教育服務",
+      "average": 2.0,
+      "total": 2,
+      "count": 1,
+      "counts": {
+        "續漲停": 1,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "電子支付",
+      "average": 2.0,
+      "total": 2,
+      "count": 1,
+      "counts": {
+        "續漲停": 1,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "電腦週邊",
+      "average": 2.0,
+      "total": 2,
+      "count": 1,
+      "counts": {
+        "續漲停": 1,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "生技醫療",
+      "average": 1.0,
+      "total": 1,
+      "count": 1,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 1,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "軟體",
+      "average": 0.6,
+      "total": 3,
+      "count": 5,
+      "counts": {
+        "續漲停": 1,
+        "強續漲": 3,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 1
+      }
+    },
+    {
+      "sector": "資訊服務",
+      "average": 0.0,
+      "total": 0,
+      "count": 2,
+      "counts": {
+        "續漲停": 1,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 1
+      }
+    }
+  ],
+  "negative": [
+    {
+      "sector": "鋼鐵",
+      "average": -1.0,
+      "total": -1,
+      "count": 1,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 1,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "消費內需",
+      "average": -2.0,
+      "total": -2,
+      "count": 1,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 1
+      }
+    }
+  ]
+}
