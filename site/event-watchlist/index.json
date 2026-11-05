@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "date": "2026-11-05",
+      "headlineTitle": "盤前 LINE 轉貼版 11/6",
+      "slot": 2,
+      "capturedAt": "2026-11-05T12:40:05.767Z",
+      "count": 2,
+      "file": "data/slot-02.json"
+    },
+    {
       "date": "2026-11-04",
       "headlineTitle": "盤前 LINE 轉貼版 11/4",
       "slot": 1,
