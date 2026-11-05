@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-06",
+  "headlineTitle": "盤前 LINE 轉貼版 11/6",
+  "capturedAt": "2026-11-05T18:16:52.905Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 2,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "2360",
+      "name": "致茂",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "3532",
+      "name": "台勝科",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
