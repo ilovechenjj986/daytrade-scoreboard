@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-08",
+  "headlineTitle": "盤前 LINE 轉貼版 11/9",
+  "capturedAt": "2026-11-07T16:37:25.122Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 6,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "3189",
+      "name": "景碩",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "4919",
+      "name": "新唐",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "5284",
+      "name": "jpp-KY",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6217",
+      "name": "中探針",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6451",
+      "name": "訊芯-KY",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6488",
+      "name": "環球晶",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
