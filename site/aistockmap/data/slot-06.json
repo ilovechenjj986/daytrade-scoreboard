@@ -1,17 +1,1263 @@
 {
-  "date": "2026-09-10",
-  "capturedAt": "2026-09-10T13:21:32.687Z",
-  "sourceUrl": "https://aistockmap.com/?topic=niche-memory&activeTab=heatmap",
-  "contentHash": "97dd2d8d0b1ec2a25595d87eb13546484bcf68a4a54e6d12934b26dbdb3dd7d5",
+  "date": "2026-11-09",
+  "capturedAt": "2026-11-09T21:06:07.792Z",
+  "sourceUrl": "https://aistockmap.com/?activeTab=heatmap",
+  "contentHash": "01f5027bee5d9c0b517ac945bd2beaf068ee9aae08daafbdfdc7ee239856f251",
   "changeThreshold": 1,
-  "complete": true,
+  "complete": false,
   "availableViewIds": [
+    "tw-day",
     "tw-week",
-    "tw-month",
+    "tw-month"
+  ],
+  "pendingViewIds": [
     "us-day"
   ],
-  "pendingViewIds": [],
+  "signals": {
+    "twDayUpPeriodDown": {
+      "byView": {
+        "tw-week": [
+          "工業自動化",
+          "水資源工程",
+          "功率電感",
+          "功率離散元件",
+          "石化與塑橡膠",
+          "石英元件",
+          "交換器與網通",
+          "企業 SaaS",
+          "光學感測",
+          "光學鏡頭",
+          "自行車與電輔車",
+          "低軌衛星",
+          "利基記憶體",
+          "汽車精密件",
+          "系統整合",
+          "車用連接器",
+          "車用電子",
+          "矽光子與 CPO",
+          "矽晶圓",
+          "前段製程材料",
+          "封測代工",
+          "封裝材料",
+          "封裝量測",
+          "封裝製程機台",
+          "玻璃基板",
+          "玻纖布",
+          "面板產業",
+          "氣冷散熱",
+          "記憶體模組",
+          "高速光模組",
+          "國防軍工",
+          "液冷散熱",
+          "第三代半導體",
+          "貨櫃航運",
+          "軟板",
+          "連接器",
+          "散裝航運",
+          "晶圓代工",
+          "晶圓廠設備",
+          "智慧型手機",
+          "雲端與 MSP",
+          "新藥研發",
+          "資安防護",
+          "電子廢料回收",
+          "電池材料",
+          "電芯與模組",
+          "電阻與保護",
+          "電信與媒體",
+          "電容器",
+          "電商零售",
+          "電源供應器",
+          "電器電纜",
+          "碳化矽基板",
+          "精密機構件",
+          "銀行金融",
+          "導線架",
+          "廠務工程",
+          "機殼與滑軌",
+          "鋼鐵與特鋼",
+          "儲能系統",
+          "營建資產",
+          "醫療耗材",
+          "醫療電子",
+          "離岸風電",
+          "類比與功率 IC",
+          "顯示驅動 IC",
+          "體外診斷 IVD",
+          "AI 互連元件",
+          "AI 先進封裝",
+          "AI 伺服器組裝",
+          "AI 機器人",
+          "AI CPU",
+          "AR/VR/XR 光學",
+          "ASIC 與矽智財",
+          "BBU 電池備援",
+          "CDMO 與原料藥",
+          "CNC 工具機",
+          "CXL 技術",
+          "Edge AI",
+          "EMS 電子代工",
+          "HBM",
+          "HPC 與網通 IC",
+          "IC 通路",
+          "IC 測試",
+          "IC 載板",
+          "MCU 嵌入式 IC",
+          "MicroLED",
+          "PC 與平板",
+          "PCB 硬板"
+        ],
+        "tw-month": [
+          "工業自動化",
+          "太陽能",
+          "水資源工程",
+          "功率電感",
+          "功率離散元件",
+          "石化與塑橡膠",
+          "石英元件",
+          "交換器與網通",
+          "企業 SaaS",
+          "光學感測",
+          "光學鏡頭",
+          "自行車與電輔車",
+          "低軌衛星",
+          "利基記憶體",
+          "汽車精密件",
+          "系統整合",
+          "車用連接器",
+          "車用電子",
+          "矽光子與 CPO",
+          "矽晶圓",
+          "前段製程材料",
+          "封測代工",
+          "封裝材料",
+          "封裝量測",
+          "封裝製程機台",
+          "玻璃基板",
+          "玻纖布",
+          "面板產業",
+          "氣冷散熱",
+          "記憶體模組",
+          "高速光模組",
+          "國防軍工",
+          "液冷散熱",
+          "第三代半導體",
+          "貨櫃航運",
+          "軟板",
+          "連接器",
+          "散裝航運",
+          "晶圓代工",
+          "晶圓廠設備",
+          "智慧型手機",
+          "新藥研發",
+          "電子廢料回收",
+          "電池材料",
+          "電芯與模組",
+          "電阻與保護",
+          "電信與媒體",
+          "電容器",
+          "電商零售",
+          "電源供應器",
+          "電器電纜",
+          "碳化矽基板",
+          "精密機構件",
+          "銀行金融",
+          "導線架",
+          "廠務工程",
+          "學名與相似藥",
+          "機殼與滑軌",
+          "鋼鐵與特鋼",
+          "儲能系統",
+          "營建資產",
+          "醫療耗材",
+          "醫療電子",
+          "離岸風電",
+          "類比與功率 IC",
+          "顯示驅動 IC",
+          "體外診斷 IVD",
+          "AI 互連元件",
+          "AI 先進封裝",
+          "AI 伺服器組裝",
+          "AI 機器人",
+          "AI CPU",
+          "AR/VR/XR 光學",
+          "ASIC 與矽智財",
+          "BBU 電池備援",
+          "CDMO 與原料藥",
+          "CNC 工具機",
+          "CXL 技術",
+          "Edge AI",
+          "EMS 電子代工",
+          "HBM",
+          "HPC 與網通 IC",
+          "IC 通路",
+          "IC 測試",
+          "IC 載板",
+          "MCU 嵌入式 IC",
+          "MicroLED",
+          "PC 與平板",
+          "PCB 硬板"
+        ]
+      },
+      "industryNames": [
+        "工業自動化",
+        "太陽能",
+        "水資源工程",
+        "功率電感",
+        "功率離散元件",
+        "石化與塑橡膠",
+        "石英元件",
+        "交換器與網通",
+        "企業 SaaS",
+        "光學感測",
+        "光學鏡頭",
+        "自行車與電輔車",
+        "低軌衛星",
+        "利基記憶體",
+        "汽車精密件",
+        "系統整合",
+        "車用連接器",
+        "車用電子",
+        "矽光子與 CPO",
+        "矽晶圓",
+        "前段製程材料",
+        "封測代工",
+        "封裝材料",
+        "封裝量測",
+        "封裝製程機台",
+        "玻璃基板",
+        "玻纖布",
+        "面板產業",
+        "氣冷散熱",
+        "記憶體模組",
+        "高速光模組",
+        "國防軍工",
+        "液冷散熱",
+        "第三代半導體",
+        "貨櫃航運",
+        "軟板",
+        "連接器",
+        "散裝航運",
+        "晶圓代工",
+        "晶圓廠設備",
+        "智慧型手機",
+        "雲端與 MSP",
+        "新藥研發",
+        "資安防護",
+        "電子廢料回收",
+        "電池材料",
+        "電芯與模組",
+        "電阻與保護",
+        "電信與媒體",
+        "電容器",
+        "電商零售",
+        "電源供應器",
+        "電器電纜",
+        "碳化矽基板",
+        "精密機構件",
+        "銀行金融",
+        "導線架",
+        "廠務工程",
+        "學名與相似藥",
+        "機殼與滑軌",
+        "鋼鐵與特鋼",
+        "儲能系統",
+        "營建資產",
+        "醫療耗材",
+        "醫療電子",
+        "離岸風電",
+        "類比與功率 IC",
+        "顯示驅動 IC",
+        "體外診斷 IVD",
+        "AI 互連元件",
+        "AI 先進封裝",
+        "AI 伺服器組裝",
+        "AI 機器人",
+        "AI CPU",
+        "AR/VR/XR 光學",
+        "ASIC 與矽智財",
+        "BBU 電池備援",
+        "CDMO 與原料藥",
+        "CNC 工具機",
+        "CXL 技術",
+        "Edge AI",
+        "EMS 電子代工",
+        "HBM",
+        "HPC 與網通 IC",
+        "IC 通路",
+        "IC 測試",
+        "IC 載板",
+        "MCU 嵌入式 IC",
+        "MicroLED",
+        "PC 與平板",
+        "PCB 硬板"
+      ],
+      "rule": "tw-day > 0 && selected period < 0"
+    },
+    "twDayDownPeriodUp": {
+      "industryNames": [],
+      "rule": "tw-day < 0 && (tw-week > 0 || tw-month > 0)"
+    }
+  },
+  "signalSourceView": {
+    "id": "tw-day",
+    "title": "台股單日",
+    "market": "台股",
+    "period": "單日",
+    "sourceUpdatedAt": null,
+    "industries": [
+      {
+        "name": "利基記憶體",
+        "companies": 6,
+        "change": 9.89
+      },
+      {
+        "name": "第三代半導體",
+        "companies": 10,
+        "change": 9.85
+      },
+      {
+        "name": "矽晶圓",
+        "companies": 8,
+        "change": 9.59
+      },
+      {
+        "name": "高速光模組",
+        "companies": 21,
+        "change": 9.39
+      },
+      {
+        "name": "石英元件",
+        "companies": 6,
+        "change": 9.35
+      },
+      {
+        "name": "晶圓廠設備",
+        "companies": 15,
+        "change": 9.14
+      },
+      {
+        "name": "封測代工",
+        "companies": 14,
+        "change": 9.1
+      },
+      {
+        "name": "功率離散元件",
+        "companies": 14,
+        "change": 9.09
+      },
+      {
+        "name": "功率電感",
+        "companies": 14,
+        "change": 8.82
+      },
+      {
+        "name": "碳化矽基板",
+        "companies": 4,
+        "change": 8.81
+      },
+      {
+        "name": "PCB 硬板",
+        "companies": 21,
+        "change": 8.73
+      },
+      {
+        "name": "封裝製程機台",
+        "companies": 17,
+        "change": 8.68
+      },
+      {
+        "name": "光學鏡頭",
+        "companies": 10,
+        "change": 8.54
+      },
+      {
+        "name": "玻纖布",
+        "companies": 11,
+        "change": 8.45
+      },
+      {
+        "name": "HBM",
+        "companies": 15,
+        "change": 8.42
+      },
+      {
+        "name": "晶圓代工",
+        "companies": 8,
+        "change": 8.24
+      },
+      {
+        "name": "AI 先進封裝",
+        "companies": 11,
+        "change": 8.11
+      },
+      {
+        "name": "封裝量測",
+        "companies": 16,
+        "change": 8.11
+      },
+      {
+        "name": "玻璃基板",
+        "companies": 13,
+        "change": 8.02
+      },
+      {
+        "name": "HPC 與網通 IC",
+        "companies": 14,
+        "change": 7.98
+      },
+      {
+        "name": "IC 測試",
+        "companies": 10,
+        "change": 7.94
+      },
+      {
+        "name": "ASIC 與矽智財",
+        "companies": 11,
+        "change": 7.86
+      },
+      {
+        "name": "矽光子與 CPO",
+        "companies": 20,
+        "change": 7.84
+      },
+      {
+        "name": "電容器",
+        "companies": 13,
+        "change": 7.8
+      },
+      {
+        "name": "BBU 電池備援",
+        "companies": 10,
+        "change": 7.79
+      },
+      {
+        "name": "低軌衛星",
+        "companies": 21,
+        "change": 7.64
+      },
+      {
+        "name": "前段製程材料",
+        "companies": 14,
+        "change": 7.29
+      },
+      {
+        "name": "液冷散熱",
+        "companies": 13,
+        "change": 7.28
+      },
+      {
+        "name": "導線架",
+        "companies": 3,
+        "change": 7.12
+      },
+      {
+        "name": "電阻與保護",
+        "companies": 12,
+        "change": 7.07
+      },
+      {
+        "name": "IC 載板",
+        "companies": 10,
+        "change": 7.03
+      },
+      {
+        "name": "光學感測",
+        "companies": 16,
+        "change": 6.92
+      },
+      {
+        "name": "EMS 電子代工",
+        "companies": 7,
+        "change": 6.91
+      },
+      {
+        "name": "封裝材料",
+        "companies": 4,
+        "change": 6.88
+      },
+      {
+        "name": "機殼與滑軌",
+        "companies": 12,
+        "change": 6.87
+      },
+      {
+        "name": "顯示驅動 IC",
+        "companies": 13,
+        "change": 6.65
+      },
+      {
+        "name": "MicroLED",
+        "companies": 7,
+        "change": 6.6
+      },
+      {
+        "name": "交換器與網通",
+        "companies": 13,
+        "change": 6.59
+      },
+      {
+        "name": "工業自動化",
+        "companies": 21,
+        "change": 6.37
+      },
+      {
+        "name": "電源供應器",
+        "companies": 17,
+        "change": 6.37
+      },
+      {
+        "name": "精密機構件",
+        "companies": 7,
+        "change": 6.35
+      },
+      {
+        "name": "智慧型手機",
+        "companies": 9,
+        "change": 6.32
+      },
+      {
+        "name": "AI 機器人",
+        "companies": 18,
+        "change": 6.01
+      },
+      {
+        "name": "儲能系統",
+        "companies": 16,
+        "change": 5.95
+      },
+      {
+        "name": "軟板",
+        "companies": 10,
+        "change": 5.95
+      },
+      {
+        "name": "面板產業",
+        "companies": 14,
+        "change": 5.92
+      },
+      {
+        "name": "AI CPU",
+        "companies": 15,
+        "change": 5.73
+      },
+      {
+        "name": "電器電纜",
+        "companies": 19,
+        "change": 5.6
+      },
+      {
+        "name": "電芯與模組",
+        "companies": 12,
+        "change": 5.59
+      },
+      {
+        "name": "AI 互連元件",
+        "companies": 17,
+        "change": 5.58
+      },
+      {
+        "name": "類比與功率 IC",
+        "companies": 18,
+        "change": 5.56
+      },
+      {
+        "name": "國防軍工",
+        "companies": 21,
+        "change": 5.35
+      },
+      {
+        "name": "電子廢料回收",
+        "companies": 11,
+        "change": 5.28
+      },
+      {
+        "name": "廠務工程",
+        "companies": 18,
+        "change": 5.27
+      },
+      {
+        "name": "MCU 嵌入式 IC",
+        "companies": 13,
+        "change": 5.2
+      },
+      {
+        "name": "氣冷散熱",
+        "companies": 14,
+        "change": 5.15
+      },
+      {
+        "name": "CNC 工具機",
+        "companies": 11,
+        "change": 5.11
+      },
+      {
+        "name": "CXL 技術",
+        "companies": 7,
+        "change": 4.88
+      },
+      {
+        "name": "AI 伺服器組裝",
+        "companies": 14,
+        "change": 4.8
+      },
+      {
+        "name": "Edge AI",
+        "companies": 15,
+        "change": 4.6
+      },
+      {
+        "name": "AR/VR/XR 光學",
+        "companies": 10,
+        "change": 4.54
+      },
+      {
+        "name": "太陽能",
+        "companies": 16,
+        "change": 4.16
+      },
+      {
+        "name": "電池材料",
+        "companies": 6,
+        "change": 4.08
+      },
+      {
+        "name": "記憶體模組",
+        "companies": 11,
+        "change": 3.99
+      },
+      {
+        "name": "散裝航運",
+        "companies": 9,
+        "change": 3.46
+      },
+      {
+        "name": "PC 與平板",
+        "companies": 19,
+        "change": 3.37
+      },
+      {
+        "name": "IC 通路",
+        "companies": 19,
+        "change": 3.19
+      },
+      {
+        "name": "學名與相似藥",
+        "companies": 6,
+        "change": 3.18
+      },
+      {
+        "name": "電信與媒體",
+        "companies": 12,
+        "change": 3.04
+      },
+      {
+        "name": "汽車精密件",
+        "companies": 11,
+        "change": 2.89
+      },
+      {
+        "name": "離岸風電",
+        "companies": 13,
+        "change": 2.65
+      },
+      {
+        "name": "新藥研發",
+        "companies": 10,
+        "change": 2.6
+      },
+      {
+        "name": "企業 SaaS",
+        "companies": 10,
+        "change": 2.42
+      },
+      {
+        "name": "石化與塑橡膠",
+        "companies": 21,
+        "change": 2.34
+      },
+      {
+        "name": "CDMO 與原料藥",
+        "companies": 8,
+        "change": 2.2
+      },
+      {
+        "name": "連接器",
+        "companies": 17,
+        "change": 2.14
+      },
+      {
+        "name": "水資源工程",
+        "companies": 14,
+        "change": 2.13
+      },
+      {
+        "name": "車用電子",
+        "companies": 11,
+        "change": 2.06
+      },
+      {
+        "name": "醫療電子",
+        "companies": 12,
+        "change": 1.69
+      },
+      {
+        "name": "體外診斷 IVD",
+        "companies": 5,
+        "change": 1.67
+      },
+      {
+        "name": "航空客貨運",
+        "companies": 5,
+        "change": 1.66
+      },
+      {
+        "name": "車用連接器",
+        "companies": 8,
+        "change": 1.65
+      },
+      {
+        "name": "自行車與電輔車",
+        "companies": 4,
+        "change": 1.61
+      },
+      {
+        "name": "系統整合",
+        "companies": 10,
+        "change": 1.41
+      },
+      {
+        "name": "貨櫃航運",
+        "companies": 11,
+        "change": 1.38
+      },
+      {
+        "name": "醫療耗材",
+        "companies": 12,
+        "change": 1.26
+      },
+      {
+        "name": "資安防護",
+        "companies": 17,
+        "change": 1.19
+      },
+      {
+        "name": "鋼鐵與特鋼",
+        "companies": 15,
+        "change": 0.95
+      },
+      {
+        "name": "銀行金融",
+        "companies": 25,
+        "change": 0.94
+      },
+      {
+        "name": "電商零售",
+        "companies": 12,
+        "change": 0.63
+      },
+      {
+        "name": "雲端與 MSP",
+        "companies": 9,
+        "change": 0.45
+      },
+      {
+        "name": "營建資產",
+        "companies": 18,
+        "change": 0.27
+      },
+      {
+        "name": "運動鞋服代工",
+        "companies": 14,
+        "change": -0.41
+      },
+      {
+        "name": "食品與日常消費",
+        "companies": 7,
+        "change": -0.69
+      }
+    ]
+  },
   "views": [
+    {
+      "id": "tw-day",
+      "title": "台股單日",
+      "market": "台股",
+      "period": "單日",
+      "sourceUpdatedAt": null,
+      "industries": [
+        {
+          "name": "利基記憶體",
+          "companies": 6,
+          "change": 9.89
+        },
+        {
+          "name": "第三代半導體",
+          "companies": 10,
+          "change": 9.85
+        },
+        {
+          "name": "矽晶圓",
+          "companies": 8,
+          "change": 9.59
+        },
+        {
+          "name": "高速光模組",
+          "companies": 21,
+          "change": 9.39
+        },
+        {
+          "name": "石英元件",
+          "companies": 6,
+          "change": 9.35
+        },
+        {
+          "name": "晶圓廠設備",
+          "companies": 15,
+          "change": 9.14
+        },
+        {
+          "name": "封測代工",
+          "companies": 14,
+          "change": 9.1
+        },
+        {
+          "name": "功率離散元件",
+          "companies": 14,
+          "change": 9.09
+        },
+        {
+          "name": "功率電感",
+          "companies": 14,
+          "change": 8.82
+        },
+        {
+          "name": "碳化矽基板",
+          "companies": 4,
+          "change": 8.81
+        },
+        {
+          "name": "PCB 硬板",
+          "companies": 21,
+          "change": 8.73
+        },
+        {
+          "name": "封裝製程機台",
+          "companies": 17,
+          "change": 8.68
+        },
+        {
+          "name": "光學鏡頭",
+          "companies": 10,
+          "change": 8.54
+        },
+        {
+          "name": "玻纖布",
+          "companies": 11,
+          "change": 8.45
+        },
+        {
+          "name": "HBM",
+          "companies": 15,
+          "change": 8.42
+        },
+        {
+          "name": "晶圓代工",
+          "companies": 8,
+          "change": 8.24
+        },
+        {
+          "name": "AI 先進封裝",
+          "companies": 11,
+          "change": 8.11
+        },
+        {
+          "name": "封裝量測",
+          "companies": 16,
+          "change": 8.11
+        },
+        {
+          "name": "玻璃基板",
+          "companies": 13,
+          "change": 8.02
+        },
+        {
+          "name": "HPC 與網通 IC",
+          "companies": 14,
+          "change": 7.98
+        },
+        {
+          "name": "IC 測試",
+          "companies": 10,
+          "change": 7.94
+        },
+        {
+          "name": "ASIC 與矽智財",
+          "companies": 11,
+          "change": 7.86
+        },
+        {
+          "name": "矽光子與 CPO",
+          "companies": 20,
+          "change": 7.84
+        },
+        {
+          "name": "電容器",
+          "companies": 13,
+          "change": 7.8
+        },
+        {
+          "name": "BBU 電池備援",
+          "companies": 10,
+          "change": 7.79
+        },
+        {
+          "name": "低軌衛星",
+          "companies": 21,
+          "change": 7.64
+        },
+        {
+          "name": "前段製程材料",
+          "companies": 14,
+          "change": 7.29
+        },
+        {
+          "name": "液冷散熱",
+          "companies": 13,
+          "change": 7.28
+        },
+        {
+          "name": "導線架",
+          "companies": 3,
+          "change": 7.12
+        },
+        {
+          "name": "電阻與保護",
+          "companies": 12,
+          "change": 7.07
+        },
+        {
+          "name": "IC 載板",
+          "companies": 10,
+          "change": 7.03
+        },
+        {
+          "name": "光學感測",
+          "companies": 16,
+          "change": 6.92
+        },
+        {
+          "name": "EMS 電子代工",
+          "companies": 7,
+          "change": 6.91
+        },
+        {
+          "name": "封裝材料",
+          "companies": 4,
+          "change": 6.88
+        },
+        {
+          "name": "機殼與滑軌",
+          "companies": 12,
+          "change": 6.87
+        },
+        {
+          "name": "顯示驅動 IC",
+          "companies": 13,
+          "change": 6.65
+        },
+        {
+          "name": "MicroLED",
+          "companies": 7,
+          "change": 6.6
+        },
+        {
+          "name": "交換器與網通",
+          "companies": 13,
+          "change": 6.59
+        },
+        {
+          "name": "工業自動化",
+          "companies": 21,
+          "change": 6.37
+        },
+        {
+          "name": "電源供應器",
+          "companies": 17,
+          "change": 6.37
+        },
+        {
+          "name": "精密機構件",
+          "companies": 7,
+          "change": 6.35
+        },
+        {
+          "name": "智慧型手機",
+          "companies": 9,
+          "change": 6.32
+        },
+        {
+          "name": "AI 機器人",
+          "companies": 18,
+          "change": 6.01
+        },
+        {
+          "name": "儲能系統",
+          "companies": 16,
+          "change": 5.95
+        },
+        {
+          "name": "軟板",
+          "companies": 10,
+          "change": 5.95
+        },
+        {
+          "name": "面板產業",
+          "companies": 14,
+          "change": 5.92
+        },
+        {
+          "name": "AI CPU",
+          "companies": 15,
+          "change": 5.73
+        },
+        {
+          "name": "電器電纜",
+          "companies": 19,
+          "change": 5.6
+        },
+        {
+          "name": "電芯與模組",
+          "companies": 12,
+          "change": 5.59
+        },
+        {
+          "name": "AI 互連元件",
+          "companies": 17,
+          "change": 5.58
+        },
+        {
+          "name": "類比與功率 IC",
+          "companies": 18,
+          "change": 5.56
+        },
+        {
+          "name": "國防軍工",
+          "companies": 21,
+          "change": 5.35
+        },
+        {
+          "name": "電子廢料回收",
+          "companies": 11,
+          "change": 5.28
+        },
+        {
+          "name": "廠務工程",
+          "companies": 18,
+          "change": 5.27
+        },
+        {
+          "name": "MCU 嵌入式 IC",
+          "companies": 13,
+          "change": 5.2
+        },
+        {
+          "name": "氣冷散熱",
+          "companies": 14,
+          "change": 5.15
+        },
+        {
+          "name": "CNC 工具機",
+          "companies": 11,
+          "change": 5.11
+        },
+        {
+          "name": "CXL 技術",
+          "companies": 7,
+          "change": 4.88
+        },
+        {
+          "name": "AI 伺服器組裝",
+          "companies": 14,
+          "change": 4.8
+        },
+        {
+          "name": "Edge AI",
+          "companies": 15,
+          "change": 4.6
+        },
+        {
+          "name": "AR/VR/XR 光學",
+          "companies": 10,
+          "change": 4.54
+        },
+        {
+          "name": "太陽能",
+          "companies": 16,
+          "change": 4.16
+        },
+        {
+          "name": "電池材料",
+          "companies": 6,
+          "change": 4.08
+        },
+        {
+          "name": "記憶體模組",
+          "companies": 11,
+          "change": 3.99
+        },
+        {
+          "name": "散裝航運",
+          "companies": 9,
+          "change": 3.46
+        },
+        {
+          "name": "PC 與平板",
+          "companies": 19,
+          "change": 3.37
+        },
+        {
+          "name": "IC 通路",
+          "companies": 19,
+          "change": 3.19
+        },
+        {
+          "name": "學名與相似藥",
+          "companies": 6,
+          "change": 3.18
+        },
+        {
+          "name": "電信與媒體",
+          "companies": 12,
+          "change": 3.04
+        },
+        {
+          "name": "汽車精密件",
+          "companies": 11,
+          "change": 2.89
+        },
+        {
+          "name": "離岸風電",
+          "companies": 13,
+          "change": 2.65
+        },
+        {
+          "name": "新藥研發",
+          "companies": 10,
+          "change": 2.6
+        },
+        {
+          "name": "企業 SaaS",
+          "companies": 10,
+          "change": 2.42
+        },
+        {
+          "name": "石化與塑橡膠",
+          "companies": 21,
+          "change": 2.34
+        },
+        {
+          "name": "CDMO 與原料藥",
+          "companies": 8,
+          "change": 2.2
+        },
+        {
+          "name": "連接器",
+          "companies": 17,
+          "change": 2.14
+        },
+        {
+          "name": "水資源工程",
+          "companies": 14,
+          "change": 2.13
+        },
+        {
+          "name": "車用電子",
+          "companies": 11,
+          "change": 2.06
+        },
+        {
+          "name": "醫療電子",
+          "companies": 12,
+          "change": 1.69
+        },
+        {
+          "name": "體外診斷 IVD",
+          "companies": 5,
+          "change": 1.67
+        },
+        {
+          "name": "航空客貨運",
+          "companies": 5,
+          "change": 1.66
+        },
+        {
+          "name": "車用連接器",
+          "companies": 8,
+          "change": 1.65
+        },
+        {
+          "name": "自行車與電輔車",
+          "companies": 4,
+          "change": 1.61
+        },
+        {
+          "name": "系統整合",
+          "companies": 10,
+          "change": 1.41
+        },
+        {
+          "name": "貨櫃航運",
+          "companies": 11,
+          "change": 1.38
+        },
+        {
+          "name": "醫療耗材",
+          "companies": 12,
+          "change": 1.26
+        },
+        {
+          "name": "資安防護",
+          "companies": 17,
+          "change": 1.19
+        },
+        {
+          "name": "鋼鐵與特鋼",
+          "companies": 15,
+          "change": 0.95
+        },
+        {
+          "name": "銀行金融",
+          "companies": 25,
+          "change": 0.94
+        },
+        {
+          "name": "電商零售",
+          "companies": 12,
+          "change": 0.63
+        },
+        {
+          "name": "雲端與 MSP",
+          "companies": 9,
+          "change": 0.45
+        },
+        {
+          "name": "營建資產",
+          "companies": 18,
+          "change": 0.27
+        },
+        {
+          "name": "運動鞋服代工",
+          "companies": 14,
+          "change": -0.41
+        },
+        {
+          "name": "食品與日常消費",
+          "companies": 7,
+          "change": -0.69
+        }
+      ]
+    },
     {
       "id": "tw-week",
       "title": "台股單週",
@@ -20,449 +1266,474 @@
       "sourceUpdatedAt": null,
       "industries": [
         {
-          "name": "電容器",
-          "companies": 13,
-          "change": 13.73
-        },
-        {
-          "name": "電阻與保護",
-          "companies": 12,
-          "change": 12.98
-        },
-        {
-          "name": "功率電感",
-          "companies": 14,
-          "change": 12.69
-        },
-        {
-          "name": "MCU 嵌入式 IC",
-          "companies": 10,
-          "change": 11.1
-        },
-        {
-          "name": "顯示驅動 IC",
-          "companies": 13,
-          "change": 10.5
-        },
-        {
-          "name": "封測代工",
-          "companies": 14,
-          "change": 8.96
-        },
-        {
-          "name": "MicroLED",
-          "companies": 7,
-          "change": 7.78
-        },
-        {
-          "name": "封裝量測",
-          "companies": 14,
-          "change": 7.74
-        },
-        {
-          "name": "石化與塑橡膠",
-          "companies": 21,
-          "change": 7.64
-        },
-        {
-          "name": "HPC 與網通 IC",
-          "companies": 14,
-          "change": 7.55
-        },
-        {
-          "name": "Edge AI",
-          "companies": 12,
-          "change": 7.54
-        },
-        {
-          "name": "利基記憶體",
+          "name": "學名與相似藥",
           "companies": 6,
-          "change": 7.38
+          "change": 1.45
         },
         {
-          "name": "IC 測試",
-          "companies": 10,
-          "change": 6.75
-        },
-        {
-          "name": "ASIC 與矽智財",
-          "companies": 10,
-          "change": 6.71
-        },
-        {
-          "name": "第三代半導體",
-          "companies": 11,
-          "change": 6.19
-        },
-        {
-          "name": "功率離散元件",
-          "companies": 13,
-          "change": 5.53
-        },
-        {
-          "name": "玻纖布",
-          "companies": 10,
-          "change": 5.51
-        },
-        {
-          "name": "光學感測",
-          "companies": 15,
-          "change": 5.34
-        },
-        {
-          "name": "面板產業",
-          "companies": 13,
-          "change": 5.15
-        },
-        {
-          "name": "低軌衛星",
-          "companies": 23,
-          "change": 5.15
-        },
-        {
-          "name": "軟板",
-          "companies": 9,
-          "change": 4.67
-        },
-        {
-          "name": "廠務工程",
+          "name": "太陽能",
           "companies": 16,
-          "change": 4.17
+          "change": 0.39
         },
         {
-          "name": "IC 載板",
-          "companies": 10,
-          "change": 4.16
-        },
-        {
-          "name": "氣冷散熱",
-          "companies": 13,
-          "change": 3.75
-        },
-        {
-          "name": "類比與功率 IC",
-          "companies": 17,
-          "change": 3.75
-        },
-        {
-          "name": "AI 先進封裝",
-          "companies": 10,
-          "change": 3.58
-        },
-        {
-          "name": "矽光子與 CPO",
-          "companies": 19,
-          "change": 3.03
-        },
-        {
-          "name": "HBM",
-          "companies": 16,
-          "change": 3.01
-        },
-        {
-          "name": "晶圓代工",
+          "name": "航空客貨運",
           "companies": 5,
-          "change": 2.89
+          "change": 0.37
         },
         {
-          "name": "玻璃基板",
-          "companies": 13,
-          "change": 2.6
-        },
-        {
-          "name": "石英元件",
-          "companies": 6,
-          "change": 2.27
-        },
-        {
-          "name": "車用電子",
-          "companies": 9,
-          "change": 2.26
-        },
-        {
-          "name": "AI CPU",
-          "companies": 15,
-          "change": 2.02
-        },
-        {
-          "name": "雲端與 MSP",
+          "name": "CDMO 與原料藥",
           "companies": 8,
-          "change": 1.74
+          "change": -0.43
         },
         {
-          "name": "IC 通路",
-          "companies": 18,
-          "change": 1.57
-        },
-        {
-          "name": "矽晶圓",
-          "companies": 8,
-          "change": 1.52
-        },
-        {
-          "name": "導線架",
-          "companies": 3,
-          "change": 1.52
-        },
-        {
-          "name": "AR/VR/XR 光學",
-          "companies": 11,
-          "change": 1.51
-        },
-        {
-          "name": "PCB 硬板",
-          "companies": 19,
-          "change": 1.34
-        },
-        {
-          "name": "資安防護",
-          "companies": 17,
-          "change": 1.27
-        },
-        {
-          "name": "記憶體模組",
-          "companies": 10,
-          "change": 1.16
-        },
-        {
-          "name": "晶圓廠設備",
-          "companies": 15,
-          "change": 1.1
-        },
-        {
-          "name": "電芯與模組",
-          "companies": 13,
-          "change": 1.05
+          "name": "自行車與電輔車",
+          "companies": 4,
+          "change": -0.45
         },
         {
           "name": "系統整合",
           "companies": 10,
-          "change": 1.02
-        },
-        {
-          "name": "銀行金融",
-          "companies": 25,
-          "change": 1.02
-        },
-        {
-          "name": "AI 伺服器組裝",
-          "companies": 12,
-          "change": 1.01
-        },
-        {
-          "name": "電信與媒體",
-          "companies": 12,
-          "change": 0.92
-        },
-        {
-          "name": "封裝製程機台",
-          "companies": 16,
-          "change": 0.92
-        },
-        {
-          "name": "精密機構件",
-          "companies": 7,
-          "change": 0.86
-        },
-        {
-          "name": "水資源工程",
-          "companies": 14,
-          "change": 0.81
-        },
-        {
-          "name": "散裝航運",
-          "companies": 8,
-          "change": 0.73
-        },
-        {
-          "name": "碳化矽基板",
-          "companies": 5,
-          "change": 0.61
-        },
-        {
-          "name": "智慧型手機",
-          "companies": 9,
-          "change": 0.58
-        },
-        {
-          "name": "電商零售",
-          "companies": 13,
-          "change": 0.49
-        },
-        {
-          "name": "離岸風電",
-          "companies": 15,
-          "change": 0.46
-        },
-        {
-          "name": "電器電纜",
-          "companies": 19,
-          "change": 0.37
-        },
-        {
-          "name": "CNC 工具機",
-          "companies": 9,
-          "change": 0.31
-        },
-        {
-          "name": "太陽能",
-          "companies": 15,
-          "change": 0.23
-        },
-        {
-          "name": "國防軍工",
-          "companies": 20,
-          "change": 0.16
-        },
-        {
-          "name": "前段製程材料",
-          "companies": 14,
-          "change": -0.02
-        },
-        {
-          "name": "PC 與平板",
-          "companies": 14,
-          "change": -0.03
+          "change": -1.23
         },
         {
           "name": "體外診斷 IVD",
           "companies": 5,
-          "change": -0.08
+          "change": -1.83
         },
         {
-          "name": "醫療耗材",
-          "companies": 11,
-          "change": -0.18
-        },
-        {
-          "name": "鋼鐵與特鋼",
-          "companies": 15,
-          "change": -0.43
-        },
-        {
-          "name": "電子廢料回收",
-          "companies": 10,
-          "change": -0.61
-        },
-        {
-          "name": "CDMO 與原料藥",
-          "companies": 7,
-          "change": -0.91
-        },
-        {
-          "name": "企業 SaaS",
-          "companies": 9,
-          "change": -0.93
-        },
-        {
-          "name": "AI 機器人",
-          "companies": 18,
-          "change": -1.01
-        },
-        {
-          "name": "學名與相似藥",
-          "companies": 6,
-          "change": -1.21
-        },
-        {
-          "name": "液冷散熱",
-          "companies": 13,
-          "change": -1.27
+          "name": "運動鞋服代工",
+          "companies": 14,
+          "change": -2.25
         },
         {
           "name": "新藥研發",
           "companies": 10,
-          "change": -1.85
+          "change": -2.28
+        },
+        {
+          "name": "醫療耗材",
+          "companies": 12,
+          "change": -2.8
+        },
+        {
+          "name": "電子廢料回收",
+          "companies": 11,
+          "change": -2.92
         },
         {
           "name": "醫療電子",
+          "companies": 12,
+          "change": -3.35
+        },
+        {
+          "name": "水資源工程",
+          "companies": 14,
+          "change": -3.59
+        },
+        {
+          "name": "食品與日常消費",
           "companies": 7,
-          "change": -1.89
+          "change": -3.76
         },
         {
-          "name": "CXL 技術",
-          "companies": 8,
-          "change": -1.98
+          "name": "銀行金融",
+          "companies": 25,
+          "change": -4.22
         },
         {
-          "name": "汽車精密件",
-          "companies": 11,
-          "change": -2.37
+          "name": "鋼鐵與特鋼",
+          "companies": 15,
+          "change": -4.6
         },
         {
-          "name": "EMS 電子代工",
+          "name": "營建資產",
+          "companies": 18,
+          "change": -4.64
+        },
+        {
+          "name": "雲端與 MSP",
+          "companies": 9,
+          "change": -4.7
+        },
+        {
+          "name": "資安防護",
+          "companies": 17,
+          "change": -5.28
+        },
+        {
+          "name": "電池材料",
           "companies": 6,
-          "change": -2.6
+          "change": -5.37
         },
         {
           "name": "貨櫃航運",
           "companies": 11,
-          "change": -2.66
+          "change": -5.5
         },
         {
-          "name": "交換器與網通",
+          "name": "電商零售",
           "companies": 12,
-          "change": -3.37
+          "change": -5.51
         },
         {
-          "name": "光學鏡頭",
-          "companies": 8,
-          "change": -3.62
+          "name": "CNC 工具機",
+          "companies": 11,
+          "change": -5.65
         },
         {
-          "name": "AI 互連元件",
-          "companies": 17,
-          "change": -3.77
+          "name": "散裝航運",
+          "companies": 9,
+          "change": -5.7
         },
         {
-          "name": "儲能系統",
-          "companies": 16,
-          "change": -3.97
-        },
-        {
-          "name": "高速光模組",
-          "companies": 19,
-          "change": -4
-        },
-        {
-          "name": "工業自動化",
-          "companies": 20,
-          "change": -4.02
+          "name": "離岸風電",
+          "companies": 13,
+          "change": -5.91
         },
         {
           "name": "車用連接器",
           "companies": 8,
-          "change": -4.05
+          "change": -5.93
         },
         {
-          "name": "BBU 電池備援",
-          "companies": 8,
-          "change": -4.23
+          "name": "電信與媒體",
+          "companies": 12,
+          "change": -6.08
         },
         {
-          "name": "電源供應器",
-          "companies": 17,
-          "change": -4.33
+          "name": "企業 SaaS",
+          "companies": 10,
+          "change": -6.16
+        },
+        {
+          "name": "儲能系統",
+          "companies": 16,
+          "change": -6.24
         },
         {
           "name": "封裝材料",
           "companies": 4,
-          "change": -4.59
+          "change": -6.29
         },
         {
-          "name": "電池材料",
-          "companies": 9,
-          "change": -4.91
+          "name": "石化與塑橡膠",
+          "companies": 21,
+          "change": -6.51
+        },
+        {
+          "name": "電器電纜",
+          "companies": 19,
+          "change": -6.85
+        },
+        {
+          "name": "汽車精密件",
+          "companies": 11,
+          "change": -6.97
+        },
+        {
+          "name": "AI 伺服器組裝",
+          "companies": 14,
+          "change": -7.03
+        },
+        {
+          "name": "廠務工程",
+          "companies": 18,
+          "change": -7.16
+        },
+        {
+          "name": "國防軍工",
+          "companies": 21,
+          "change": -7.34
+        },
+        {
+          "name": "PC 與平板",
+          "companies": 19,
+          "change": -7.7
         },
         {
           "name": "連接器",
           "companies": 17,
-          "change": -5.23
+          "change": -7.97
+        },
+        {
+          "name": "前段製程材料",
+          "companies": 14,
+          "change": -8.11
+        },
+        {
+          "name": "Edge AI",
+          "companies": 15,
+          "change": -8.3
+        },
+        {
+          "name": "面板產業",
+          "companies": 14,
+          "change": -8.46
+        },
+        {
+          "name": "顯示驅動 IC",
+          "companies": 13,
+          "change": -8.84
+        },
+        {
+          "name": "車用電子",
+          "companies": 11,
+          "change": -8.95
+        },
+        {
+          "name": "IC 通路",
+          "companies": 19,
+          "change": -9.18
+        },
+        {
+          "name": "電芯與模組",
+          "companies": 12,
+          "change": -9.51
+        },
+        {
+          "name": "智慧型手機",
+          "companies": 9,
+          "change": -9.6
+        },
+        {
+          "name": "交換器與網通",
+          "companies": 13,
+          "change": -9.64
+        },
+        {
+          "name": "AI 機器人",
+          "companies": 18,
+          "change": -9.81
+        },
+        {
+          "name": "玻纖布",
+          "companies": 11,
+          "change": -9.88
+        },
+        {
+          "name": "EMS 電子代工",
+          "companies": 7,
+          "change": -9.95
+        },
+        {
+          "name": "記憶體模組",
+          "companies": 11,
+          "change": -10.09
+        },
+        {
+          "name": "低軌衛星",
+          "companies": 21,
+          "change": -10.26
+        },
+        {
+          "name": "BBU 電池備援",
+          "companies": 10,
+          "change": -10.28
+        },
+        {
+          "name": "MCU 嵌入式 IC",
+          "companies": 13,
+          "change": -10.48
+        },
+        {
+          "name": "AI 互連元件",
+          "companies": 17,
+          "change": -10.76
+        },
+        {
+          "name": "AR/VR/XR 光學",
+          "companies": 10,
+          "change": -10.81
+        },
+        {
+          "name": "ASIC 與矽智財",
+          "companies": 11,
+          "change": -10.82
+        },
+        {
+          "name": "電源供應器",
+          "companies": 17,
+          "change": -10.87
+        },
+        {
+          "name": "工業自動化",
+          "companies": 21,
+          "change": -10.92
+        },
+        {
+          "name": "類比與功率 IC",
+          "companies": 18,
+          "change": -10.92
+        },
+        {
+          "name": "AI CPU",
+          "companies": 15,
+          "change": -10.97
+        },
+        {
+          "name": "精密機構件",
+          "companies": 7,
+          "change": -11
+        },
+        {
+          "name": "第三代半導體",
+          "companies": 10,
+          "change": -11.3
+        },
+        {
+          "name": "光學感測",
+          "companies": 16,
+          "change": -11.45
         },
         {
           "name": "機殼與滑軌",
           "companies": 12,
-          "change": -5.74
+          "change": -11.6
+        },
+        {
+          "name": "HPC 與網通 IC",
+          "companies": 14,
+          "change": -11.66
+        },
+        {
+          "name": "氣冷散熱",
+          "companies": 14,
+          "change": -11.77
+        },
+        {
+          "name": "光學鏡頭",
+          "companies": 10,
+          "change": -11.79
+        },
+        {
+          "name": "AI 先進封裝",
+          "companies": 11,
+          "change": -11.85
+        },
+        {
+          "name": "功率離散元件",
+          "companies": 14,
+          "change": -11.95
+        },
+        {
+          "name": "PCB 硬板",
+          "companies": 21,
+          "change": -12.16
+        },
+        {
+          "name": "晶圓代工",
+          "companies": 8,
+          "change": -12.27
+        },
+        {
+          "name": "玻璃基板",
+          "companies": 13,
+          "change": -12.28
+        },
+        {
+          "name": "軟板",
+          "companies": 10,
+          "change": -12.34
+        },
+        {
+          "name": "導線架",
+          "companies": 3,
+          "change": -12.48
+        },
+        {
+          "name": "液冷散熱",
+          "companies": 13,
+          "change": -12.56
+        },
+        {
+          "name": "MicroLED",
+          "companies": 7,
+          "change": -12.7
+        },
+        {
+          "name": "晶圓廠設備",
+          "companies": 15,
+          "change": -12.72
+        },
+        {
+          "name": "功率電感",
+          "companies": 14,
+          "change": -13.17
+        },
+        {
+          "name": "石英元件",
+          "companies": 6,
+          "change": -13.24
+        },
+        {
+          "name": "CXL 技術",
+          "companies": 7,
+          "change": -13.44
+        },
+        {
+          "name": "利基記憶體",
+          "companies": 6,
+          "change": -13.96
+        },
+        {
+          "name": "矽光子與 CPO",
+          "companies": 20,
+          "change": -14.17
+        },
+        {
+          "name": "HBM",
+          "companies": 15,
+          "change": -14.19
+        },
+        {
+          "name": "封測代工",
+          "companies": 14,
+          "change": -14.24
+        },
+        {
+          "name": "電阻與保護",
+          "companies": 12,
+          "change": -14.31
+        },
+        {
+          "name": "電容器",
+          "companies": 13,
+          "change": -14.98
+        },
+        {
+          "name": "封裝量測",
+          "companies": 16,
+          "change": -15.02
+        },
+        {
+          "name": "高速光模組",
+          "companies": 21,
+          "change": -15.67
+        },
+        {
+          "name": "封裝製程機台",
+          "companies": 17,
+          "change": -15.96
+        },
+        {
+          "name": "矽晶圓",
+          "companies": 8,
+          "change": -17.56
+        },
+        {
+          "name": "碳化矽基板",
+          "companies": 4,
+          "change": -18.49
+        },
+        {
+          "name": "IC 載板",
+          "companies": 10,
+          "change": -18.96
+        },
+        {
+          "name": "IC 測試",
+          "companies": 10,
+          "change": -19.17
         }
       ]
     },
@@ -474,833 +1745,474 @@
       "sourceUpdatedAt": null,
       "industries": [
         {
-          "name": "光學鏡頭",
-          "companies": 8,
-          "change": 52.62
-        },
-        {
-          "name": "氣冷散熱",
-          "companies": 13,
-          "change": 29.02
-        },
-        {
-          "name": "AR/VR/XR 光學",
-          "companies": 11,
-          "change": 25.53
-        },
-        {
-          "name": "石化與塑橡膠",
-          "companies": 21,
-          "change": 24.62
-        },
-        {
-          "name": "ASIC 與矽智財",
-          "companies": 10,
-          "change": 22.46
-        },
-        {
-          "name": "光學感測",
-          "companies": 15,
-          "change": 20.25
-        },
-        {
-          "name": "HPC 與網通 IC",
-          "companies": 14,
-          "change": 16.13
-        },
-        {
-          "name": "Edge AI",
-          "companies": 12,
-          "change": 16.06
-        },
-        {
-          "name": "玻纖布",
-          "companies": 10,
-          "change": 15.53
-        },
-        {
-          "name": "散裝航運",
-          "companies": 8,
-          "change": 14.49
-        },
-        {
-          "name": "貨櫃航運",
-          "companies": 11,
-          "change": 13.69
+          "name": "航空客貨運",
+          "companies": 5,
+          "change": 1.34
         },
         {
           "name": "雲端與 MSP",
-          "companies": 8,
-          "change": 13.49
-        },
-        {
-          "name": "系統整合",
-          "companies": 10,
-          "change": 13.24
-        },
-        {
-          "name": "矽晶圓",
-          "companies": 8,
-          "change": 12.29
-        },
-        {
-          "name": "低軌衛星",
-          "companies": 23,
-          "change": 12.09
-        },
-        {
-          "name": "導線架",
-          "companies": 3,
-          "change": 11.88
-        },
-        {
-          "name": "顯示驅動 IC",
-          "companies": 13,
-          "change": 11.43
-        },
-        {
-          "name": "銀行金融",
-          "companies": 25,
-          "change": 10.59
-        },
-        {
-          "name": "MCU 嵌入式 IC",
-          "companies": 10,
-          "change": 10.25
-        },
-        {
-          "name": "精密機構件",
-          "companies": 7,
-          "change": 10.16
-        },
-        {
-          "name": "PCB 硬板",
-          "companies": 19,
-          "change": 10.13
-        },
-        {
-          "name": "晶圓廠設備",
-          "companies": 15,
-          "change": 8.61
-        },
-        {
-          "name": "第三代半導體",
-          "companies": 11,
-          "change": 8.29
-        },
-        {
-          "name": "智慧型手機",
-          "companies": 9,
-          "change": 8.11
-        },
-        {
-          "name": "碳化矽基板",
-          "companies": 5,
-          "change": 7.5
-        },
-        {
-          "name": "電容器",
-          "companies": 13,
-          "change": 6.96
-        },
-        {
-          "name": "液冷散熱",
-          "companies": 13,
-          "change": 6.86
-        },
-        {
-          "name": "軟板",
-          "companies": 9,
-          "change": 6.52
-        },
-        {
-          "name": "電器電纜",
-          "companies": 19,
-          "change": 6.17
-        },
-        {
-          "name": "PC 與平板",
-          "companies": 14,
-          "change": 5.89
-        },
-        {
-          "name": "封裝量測",
-          "companies": 14,
-          "change": 5.68
-        },
-        {
-          "name": "AI 伺服器組裝",
-          "companies": 12,
-          "change": 5.25
-        },
-        {
-          "name": "體外診斷 IVD",
-          "companies": 5,
-          "change": 5.24
-        },
-        {
-          "name": "機殼與滑軌",
-          "companies": 12,
-          "change": 4.99
-        },
-        {
-          "name": "AI 先進封裝",
-          "companies": 10,
-          "change": 4.84
-        },
-        {
-          "name": "MicroLED",
-          "companies": 7,
-          "change": 4.74
-        },
-        {
-          "name": "封測代工",
-          "companies": 14,
-          "change": 4.64
-        },
-        {
-          "name": "封裝製程機台",
-          "companies": 16,
-          "change": 4.2
-        },
-        {
-          "name": "IC 測試",
-          "companies": 10,
-          "change": 4.18
-        },
-        {
-          "name": "HBM",
-          "companies": 16,
-          "change": 3.87
-        },
-        {
-          "name": "功率離散元件",
-          "companies": 13,
-          "change": 3.85
-        },
-        {
-          "name": "企業 SaaS",
-          "companies": 9,
-          "change": 3.57
-        },
-        {
-          "name": "電阻與保護",
-          "companies": 12,
-          "change": 3.38
-        },
-        {
-          "name": "矽光子與 CPO",
-          "companies": 19,
-          "change": 3.36
-        },
-        {
-          "name": "晶圓代工",
-          "companies": 5,
-          "change": 3.32
-        },
-        {
-          "name": "資安防護",
-          "companies": 17,
-          "change": 3.22
-        },
-        {
-          "name": "玻璃基板",
-          "companies": 13,
-          "change": 2.81
-        },
-        {
-          "name": "AI CPU",
-          "companies": 15,
-          "change": 2.59
-        },
-        {
-          "name": "高速光模組",
-          "companies": 19,
-          "change": 2.57
-        },
-        {
-          "name": "CXL 技術",
-          "companies": 8,
-          "change": 2.55
-        },
-        {
-          "name": "IC 載板",
-          "companies": 10,
-          "change": 2.49
-        },
-        {
-          "name": "電信與媒體",
-          "companies": 12,
-          "change": 2.46
-        },
-        {
-          "name": "功率電感",
-          "companies": 14,
-          "change": 2.34
-        },
-        {
-          "name": "利基記憶體",
-          "companies": 6,
-          "change": 2.13
-        },
-        {
-          "name": "離岸風電",
-          "companies": 15,
-          "change": 1.05
-        },
-        {
-          "name": "封裝材料",
-          "companies": 4,
-          "change": 0.86
-        },
-        {
-          "name": "水資源工程",
-          "companies": 14,
-          "change": 0.31
-        },
-        {
-          "name": "醫療耗材",
-          "companies": 11,
-          "change": 0.12
-        },
-        {
-          "name": "太陽能",
-          "companies": 15,
-          "change": -0.21
-        },
-        {
-          "name": "記憶體模組",
-          "companies": 10,
-          "change": -0.84
-        },
-        {
-          "name": "前段製程材料",
-          "companies": 14,
-          "change": -1.07
-        },
-        {
-          "name": "石英元件",
-          "companies": 6,
-          "change": -1.24
-        },
-        {
-          "name": "新藥研發",
-          "companies": 10,
-          "change": -1.27
-        },
-        {
-          "name": "電池材料",
-          "companies": 9,
-          "change": -1.47
-        },
-        {
-          "name": "國防軍工",
-          "companies": 20,
-          "change": -1.51
-        },
-        {
-          "name": "鋼鐵與特鋼",
-          "companies": 15,
-          "change": -1.58
-        },
-        {
-          "name": "面板產業",
-          "companies": 13,
-          "change": -1.59
-        },
-        {
-          "name": "汽車精密件",
-          "companies": 11,
-          "change": -2.36
-        },
-        {
-          "name": "電芯與模組",
-          "companies": 13,
-          "change": -2.72
-        },
-        {
-          "name": "車用電子",
-          "companies": 9,
-          "change": -3.01
-        },
-        {
-          "name": "廠務工程",
-          "companies": 16,
-          "change": -3.14
-        },
-        {
-          "name": "AI 機器人",
-          "companies": 18,
-          "change": -3.79
-        },
-        {
-          "name": "電商零售",
-          "companies": 13,
-          "change": -3.84
-        },
-        {
-          "name": "CDMO 與原料藥",
-          "companies": 7,
-          "change": -4.18
-        },
-        {
-          "name": "類比與功率 IC",
-          "companies": 17,
-          "change": -4.2
-        },
-        {
-          "name": "EMS 電子代工",
-          "companies": 6,
-          "change": -5.03
-        },
-        {
-          "name": "電源供應器",
-          "companies": 17,
-          "change": -5.32
-        },
-        {
-          "name": "BBU 電池備援",
-          "companies": 8,
-          "change": -5.38
-        },
-        {
-          "name": "學名與相似藥",
-          "companies": 6,
-          "change": -5.67
-        },
-        {
-          "name": "連接器",
-          "companies": 17,
-          "change": -5.76
-        },
-        {
-          "name": "儲能系統",
-          "companies": 16,
-          "change": -5.85
-        },
-        {
-          "name": "醫療電子",
-          "companies": 7,
-          "change": -6.24
-        },
-        {
-          "name": "車用連接器",
-          "companies": 8,
-          "change": -6.44
-        },
-        {
-          "name": "AI 互連元件",
-          "companies": 17,
-          "change": -6.82
-        },
-        {
-          "name": "工業自動化",
-          "companies": 20,
-          "change": -6.84
-        },
-        {
-          "name": "交換器與網通",
-          "companies": 12,
-          "change": -7.08
-        },
-        {
-          "name": "電子廢料回收",
-          "companies": 10,
-          "change": -7.88
-        },
-        {
-          "name": "CNC 工具機",
-          "companies": 9,
-          "change": -8.51
-        },
-        {
-          "name": "IC 通路",
-          "companies": 18,
-          "change": -11.38
-        }
-      ]
-    },
-    {
-      "id": "us-day",
-      "title": "美股單日",
-      "market": "美股",
-      "period": "單日",
-      "sourceUpdatedAt": null,
-      "industries": [
-        {
-          "name": "社群媒體",
-          "companies": 6,
-          "change": 6.25
-        },
-        {
-          "name": "半導體測試",
-          "companies": 5,
-          "change": 3.31
-        },
-        {
-          "name": "FPGA 與邊緣 AI",
-          "companies": 7,
-          "change": 2.4
-        },
-        {
-          "name": "HBM 與 NAND",
-          "companies": 4,
-          "change": 2.35
-        },
-        {
-          "name": "數位廣告",
-          "companies": 8,
-          "change": 1.61
-        },
-        {
-          "name": "能源油氣",
-          "companies": 11,
-          "change": 1.6
-        },
-        {
-          "name": "晶圓代工廠",
-          "companies": 4,
-          "change": 1.56
-        },
-        {
-          "name": "先進封裝",
-          "companies": 3,
-          "change": 1.27
-        },
-        {
-          "name": "SiC/GaN 功率",
-          "companies": 4,
-          "change": 1.26
-        },
-        {
-          "name": "AI PC 裝置",
-          "companies": 9,
-          "change": 0.89
-        },
-        {
-          "name": "AI 伺服器與代工",
-          "companies": 7,
-          "change": 0.84
-        },
-        {
-          "name": "玻璃基板",
-          "companies": 9,
-          "change": 0.77
-        },
-        {
-          "name": "企業資安",
-          "companies": 14,
-          "change": 0.76
-        },
-        {
-          "name": "IT 服務",
-          "companies": 12,
-          "change": 0.76
-        },
-        {
-          "name": "電源管理 IC",
-          "companies": 6,
-          "change": 0.51
-        },
-        {
-          "name": "資料平台",
-          "companies": 8,
-          "change": 0.35
-        },
-        {
-          "name": "工業與車用 IC",
-          "companies": 10,
-          "change": 0.25
-        },
-        {
-          "name": "SiC 基板材料",
-          "companies": 3,
-          "change": 0.22
-        },
-        {
-          "name": "保險與再保",
-          "companies": 9,
-          "change": 0.16
-        },
-        {
-          "name": "銀行與券商",
           "companies": 9,
           "change": 0.15
         },
         {
-          "name": "工廠自動化",
-          "companies": 6,
-          "change": 0.02
+          "name": "資安防護",
+          "companies": 17,
+          "change": 0
         },
         {
-          "name": "GPU 與加速器",
-          "companies": 6,
-          "change": -0.03
-        },
-        {
-          "name": "超大型雲端",
-          "companies": 5,
-          "change": -0.12
-        },
-        {
-          "name": "鋼鐵與銅鋁",
-          "companies": 20,
-          "change": -0.12
-        },
-        {
-          "name": "AI CPU",
-          "companies": 6,
-          "change": -0.13
-        },
-        {
-          "name": "資料中心 REIT",
-          "companies": 15,
-          "change": -0.15
-        },
-        {
-          "name": "醫療器材",
-          "companies": 8,
-          "change": -0.19
-        },
-        {
-          "name": "天然氣與 LNG",
-          "companies": 13,
-          "change": -0.24
-        },
-        {
-          "name": "GLP-1 減肥藥",
+          "name": "企業 SaaS",
           "companies": 10,
-          "change": -0.24
+          "change": -0.35
         },
         {
-          "name": "EDA 工具",
-          "companies": 4,
-          "change": -0.26
+          "name": "系統整合",
+          "companies": 10,
+          "change": -1.82
         },
         {
-          "name": "光通訊與互連",
-          "companies": 11,
-          "change": -0.3
+          "name": "銀行金融",
+          "companies": 25,
+          "change": -1.96
         },
         {
-          "name": "醫保與給付",
-          "companies": 18,
-          "change": -0.31
+          "name": "體外診斷 IVD",
+          "companies": 5,
+          "change": -2.48
         },
         {
-          "name": "ASIC 與矽智財",
-          "companies": 3,
-          "change": -0.36
-        },
-        {
-          "name": "生技工具與外包",
-          "companies": 17,
-          "change": -0.37
-        },
-        {
-          "name": "大型製藥",
-          "companies": 17,
-          "change": -0.38
-        },
-        {
-          "name": "高速連接器",
-          "companies": 2,
-          "change": -0.43
-        },
-        {
-          "name": "PCB 與代工",
-          "companies": 6,
-          "change": -0.51
-        },
-        {
-          "name": "半導體材料",
+          "name": "食品與日常消費",
           "companies": 7,
-          "change": -0.54
+          "change": -2.6
         },
         {
-          "name": "人形機器人",
-          "companies": 8,
-          "change": -0.6
-        },
-        {
-          "name": "重工機械",
+          "name": "運動鞋服代工",
           "companies": 14,
-          "change": -0.61
+          "change": -4.2
         },
         {
-          "name": "遊戲與電競",
-          "companies": 7,
-          "change": -0.62
-        },
-        {
-          "name": "AI 乙太網路",
+          "name": "CDMO 與原料藥",
           "companies": 8,
-          "change": -0.71
+          "change": -4.75
         },
         {
-          "name": "射頻前端",
-          "companies": 6,
-          "change": -0.81
-        },
-        {
-          "name": "必需消費",
+          "name": "鋼鐵與特鋼",
           "companies": 15,
-          "change": -0.87
+          "change": -4.77
+        },
+        {
+          "name": "自行車與電輔車",
+          "companies": 4,
+          "change": -5.74
+        },
+        {
+          "name": "醫療耗材",
+          "companies": 12,
+          "change": -6.05
+        },
+        {
+          "name": "貨櫃航運",
+          "companies": 11,
+          "change": -6.25
+        },
+        {
+          "name": "水資源工程",
+          "companies": 14,
+          "change": -6.54
+        },
+        {
+          "name": "學名與相似藥",
+          "companies": 6,
+          "change": -6.79
+        },
+        {
+          "name": "醫療電子",
+          "companies": 12,
+          "change": -6.86
+        },
+        {
+          "name": "CNC 工具機",
+          "companies": 11,
+          "change": -7.69
+        },
+        {
+          "name": "營建資產",
+          "companies": 18,
+          "change": -7.82
+        },
+        {
+          "name": "太陽能",
+          "companies": 16,
+          "change": -8.17
+        },
+        {
+          "name": "新藥研發",
+          "companies": 10,
+          "change": -8.8
+        },
+        {
+          "name": "PC 與平板",
+          "companies": 19,
+          "change": -9.12
+        },
+        {
+          "name": "電信與媒體",
+          "companies": 12,
+          "change": -9.19
+        },
+        {
+          "name": "散裝航運",
+          "companies": 9,
+          "change": -9.34
+        },
+        {
+          "name": "電商零售",
+          "companies": 12,
+          "change": -9.46
+        },
+        {
+          "name": "離岸風電",
+          "companies": 13,
+          "change": -10.18
+        },
+        {
+          "name": "電子廢料回收",
+          "companies": 11,
+          "change": -10.65
+        },
+        {
+          "name": "國防軍工",
+          "companies": 21,
+          "change": -11.72
+        },
+        {
+          "name": "AI 伺服器組裝",
+          "companies": 14,
+          "change": -11.83
+        },
+        {
+          "name": "車用連接器",
+          "companies": 8,
+          "change": -12.69
+        },
+        {
+          "name": "汽車精密件",
+          "companies": 11,
+          "change": -13.01
+        },
+        {
+          "name": "軟板",
+          "companies": 10,
+          "change": -13.09
+        },
+        {
+          "name": "顯示驅動 IC",
+          "companies": 13,
+          "change": -13.32
+        },
+        {
+          "name": "封裝材料",
+          "companies": 4,
+          "change": -13.35
+        },
+        {
+          "name": "石化與塑橡膠",
+          "companies": 21,
+          "change": -13.37
+        },
+        {
+          "name": "電器電纜",
+          "companies": 19,
+          "change": -13.62
+        },
+        {
+          "name": "精密機構件",
+          "companies": 7,
+          "change": -14.91
+        },
+        {
+          "name": "智慧型手機",
+          "companies": 9,
+          "change": -15.24
+        },
+        {
+          "name": "電池材料",
+          "companies": 6,
+          "change": -15.4
+        },
+        {
+          "name": "儲能系統",
+          "companies": 16,
+          "change": -15.43
+        },
+        {
+          "name": "Edge AI",
+          "companies": 15,
+          "change": -15.72
+        },
+        {
+          "name": "交換器與網通",
+          "companies": 13,
+          "change": -15.83
         },
         {
           "name": "IC 通路",
-          "companies": 8,
-          "change": -0.91
+          "companies": 19,
+          "change": -15.92
         },
         {
-          "name": "量子運算",
+          "name": "EMS 電子代工",
           "companies": 7,
-          "change": -0.94
+          "change": -16.15
         },
         {
-          "name": "串流娛樂",
-          "companies": 4,
-          "change": -0.98
+          "name": "車用電子",
+          "companies": 11,
+          "change": -16.42
         },
         {
-          "name": "金融科技",
-          "companies": 13,
-          "change": -0.99
+          "name": "廠務工程",
+          "companies": 18,
+          "change": -16.75
         },
         {
-          "name": "國防科技",
-          "companies": 15,
-          "change": -1.03
+          "name": "AI 機器人",
+          "companies": 18,
+          "change": -16.81
         },
         {
-          "name": "電動車與自駕",
-          "companies": 15,
-          "change": -1.07
+          "name": "面板產業",
+          "companies": 14,
+          "change": -17.08
         },
         {
-          "name": "化工材料",
+          "name": "HPC 與網通 IC",
+          "companies": 14,
+          "change": -17.12
+        },
+        {
+          "name": "連接器",
           "companies": 17,
-          "change": -1.16
+          "change": -17.63
         },
         {
-          "name": "公用事業與 IPP",
+          "name": "電芯與模組",
+          "companies": 12,
+          "change": -17.89
+        },
+        {
+          "name": "類比與功率 IC",
+          "companies": 18,
+          "change": -18.11
+        },
+        {
+          "name": "光學感測",
+          "companies": 16,
+          "change": -18.47
+        },
+        {
+          "name": "AR/VR/XR 光學",
+          "companies": 10,
+          "change": -18.49
+        },
+        {
+          "name": "記憶體模組",
+          "companies": 11,
+          "change": -18.68
+        },
+        {
+          "name": "氣冷散熱",
+          "companies": 14,
+          "change": -18.87
+        },
+        {
+          "name": "前段製程材料",
+          "companies": 14,
+          "change": -19.31
+        },
+        {
+          "name": "BBU 電池備援",
+          "companies": 10,
+          "change": -19.56
+        },
+        {
+          "name": "機殼與滑軌",
+          "companies": 12,
+          "change": -19.59
+        },
+        {
+          "name": "玻纖布",
+          "companies": 11,
+          "change": -19.78
+        },
+        {
+          "name": "工業自動化",
+          "companies": 21,
+          "change": -19.87
+        },
+        {
+          "name": "MCU 嵌入式 IC",
           "companies": 13,
-          "change": -1.17
+          "change": -19.98
         },
         {
-          "name": "航空客運",
+          "name": "低軌衛星",
+          "companies": 21,
+          "change": -20.53
+        },
+        {
+          "name": "ASIC 與矽智財",
+          "companies": 11,
+          "change": -20.6
+        },
+        {
+          "name": "AI CPU",
+          "companies": 15,
+          "change": -20.61
+        },
+        {
+          "name": "液冷散熱",
           "companies": 13,
-          "change": -1.19
+          "change": -21.21
         },
         {
-          "name": "被動與保護元件",
-          "companies": 8,
-          "change": -1.19
+          "name": "MicroLED",
+          "companies": 7,
+          "change": -21.31
+        },
+        {
+          "name": "電源供應器",
+          "companies": 17,
+          "change": -21.82
         },
         {
           "name": "晶圓廠設備",
+          "companies": 15,
+          "change": -22.31
+        },
+        {
+          "name": "利基記憶體",
           "companies": 6,
-          "change": -1.22
+          "change": -22.33
         },
         {
-          "name": "交易所與金融資料",
-          "companies": 13,
-          "change": -1.25
-        },
-        {
-          "name": "美國房市",
+          "name": "AI 互連元件",
           "companies": 17,
-          "change": -1.34
+          "change": -22.55
         },
         {
-          "name": "零售通路",
-          "companies": 20,
-          "change": -1.43
+          "name": "光學鏡頭",
+          "companies": 10,
+          "change": -23.13
         },
         {
-          "name": "水資源與水處理",
+          "name": "玻璃基板",
           "companies": 13,
-          "change": -1.44
+          "change": -23.31
         },
         {
-          "name": "貨運與物流",
-          "companies": 18,
-          "change": -1.44
+          "name": "PCB 硬板",
+          "companies": 21,
+          "change": -24.47
         },
         {
-          "name": "AI 生技製藥",
-          "companies": 16,
-          "change": -1.44
+          "name": "功率電感",
+          "companies": 14,
+          "change": -24.6
         },
         {
-          "name": "企業軟體",
-          "companies": 12,
-          "change": -1.48
+          "name": "AI 先進封裝",
+          "companies": 11,
+          "change": -25.66
         },
         {
-          "name": "核能與 SMR",
-          "companies": 16,
-          "change": -1.49
+          "name": "封測代工",
+          "companies": 14,
+          "change": -26.55
         },
         {
-          "name": "航太製造",
-          "companies": 10,
-          "change": -1.53
-        },
-        {
-          "name": "太空與衛星",
-          "companies": 18,
-          "change": -1.71
-        },
-        {
-          "name": "關鍵礦產",
+          "name": "晶圓代工",
           "companies": 8,
-          "change": -1.75
+          "change": -26.71
         },
         {
-          "name": "智慧電網",
-          "companies": 10,
-          "change": -1.84
-        },
-        {
-          "name": "太陽能與儲能",
-          "companies": 8,
-          "change": -1.95
-        },
-        {
-          "name": "另類資產",
-          "companies": 17,
-          "change": -2.14
-        },
-        {
-          "name": "加密幣生態",
+          "name": "CXL 技術",
           "companies": 7,
-          "change": -2.17
+          "change": -26.88
         },
         {
-          "name": "電信服務",
+          "name": "第三代半導體",
           "companies": 10,
-          "change": -2.2
+          "change": -27.2
         },
         {
-          "name": "資料中心營建",
+          "name": "功率離散元件",
+          "companies": 14,
+          "change": -27.54
+        },
+        {
+          "name": "HBM",
+          "companies": 15,
+          "change": -27.99
+        },
+        {
+          "name": "導線架",
+          "companies": 3,
+          "change": -28.37
+        },
+        {
+          "name": "電阻與保護",
+          "companies": 12,
+          "change": -28.64
+        },
+        {
+          "name": "矽光子與 CPO",
+          "companies": 20,
+          "change": -30.07
+        },
+        {
+          "name": "電容器",
           "companies": 13,
-          "change": -2.33
+          "change": -30.24
         },
         {
-          "name": "資料中心散熱",
+          "name": "封裝量測",
+          "companies": 16,
+          "change": -30.67
+        },
+        {
+          "name": "封裝製程機台",
+          "companies": 17,
+          "change": -31.86
+        },
+        {
+          "name": "石英元件",
+          "companies": 6,
+          "change": -33.68
+        },
+        {
+          "name": "IC 載板",
           "companies": 10,
-          "change": -2.86
+          "change": -34.38
         },
         {
-          "name": "GPU 雲租賃",
+          "name": "高速光模組",
+          "companies": 21,
+          "change": -34.68
+        },
+        {
+          "name": "矽晶圓",
           "companies": 8,
-          "change": -3.42
+          "change": -36.49
         },
         {
-          "name": "機房供電",
+          "name": "IC 測試",
+          "companies": 10,
+          "change": -37.62
+        },
+        {
+          "name": "碳化矽基板",
           "companies": 4,
-          "change": -4.16
+          "change": -39.27
         }
       ]
     }
