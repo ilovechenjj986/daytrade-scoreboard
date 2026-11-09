@@ -1,37 +1,51 @@
 {
-  "date": "2026-10-11",
-  "capturedAt": "2026-10-10T16:09:28.635Z",
+  "date": "2026-11-10",
+  "headlineTitle": "盤前 LINE 轉貼版 11/10",
+  "capturedAt": "2026-11-09T21:03:41.722Z",
   "sources": {
     "line": "https://chengwaye.com/",
     "events": "https://chengwaye.com/realtime-events"
   },
   "eventCounts": {
-    "進處置": 3,
+    "進處置": 5,
     "法說": 0,
     "除權息": 0
   },
   "stocks": [
     {
-      "code": "2492",
-      "name": "華新科",
+      "code": "2455",
+      "name": "全新",
       "events": [
         "進處置"
       ]
     },
     {
-      "code": "5228",
-      "name": "鈺鎧",
+      "code": "3026",
+      "name": "禾伸堂",
       "events": [
         "進處置"
       ]
     },
     {
-      "code": "8111",
-      "name": "立碁",
+      "code": "5274",
+      "name": "信驊",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6727",
+      "name": "亞泰金屬",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "7750",
+      "name": "新代",
       "events": [
         "進處置"
       ]
     }
-  ],
-  "headlineTitle": "盤前 LINE 轉貼版 10/12"
+  ]
 }
