@@ -1,20 +1,27 @@
 {
-  "date": "2026-10-14",
-  "headlineTitle": "盤前 LINE 轉貼版 10/14",
-  "capturedAt": "2026-10-13T17:48:00.634Z",
+  "date": "2026-11-13",
+  "headlineTitle": "盤前 LINE 轉貼版 11/13",
+  "capturedAt": "2026-11-12T18:35:18.821Z",
   "sources": {
     "line": "https://chengwaye.com/",
     "events": "https://chengwaye.com/realtime-events"
   },
   "eventCounts": {
-    "進處置": 1,
+    "進處置": 2,
     "法說": 0,
     "除權息": 0
   },
   "stocks": [
     {
-      "code": "3564",
-      "name": "其陽",
+      "code": "1416",
+      "name": "廣豐",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "4747",
+      "name": "強生*",
       "events": [
         "進處置"
       ]
