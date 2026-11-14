@@ -1,41 +1,34 @@
 {
-  "date": "2026-10-16",
-  "headlineTitle": "盤前 LINE 轉貼版 10/16",
-  "capturedAt": "2026-10-15T19:23:06.196Z",
+  "date": "2026-11-15",
+  "headlineTitle": "盤前 LINE 轉貼版 11/16",
+  "capturedAt": "2026-11-14T16:44:57.473Z",
   "sources": {
     "line": "https://chengwaye.com/",
     "events": "https://chengwaye.com/realtime-events"
   },
   "eventCounts": {
-    "進處置": 4,
+    "進處置": 3,
     "法說": 0,
     "除權息": 0
   },
   "stocks": [
     {
-      "code": "2059",
-      "name": "川湖",
+      "code": "2314",
+      "name": "台揚",
       "events": [
         "進處置"
       ]
     },
     {
-      "code": "3230",
-      "name": "錦明",
+      "code": "5230",
+      "name": "雷笛克光學",
       "events": [
         "進處置"
       ]
     },
     {
-      "code": "3287",
-      "name": "廣寰科",
-      "events": [
-        "進處置"
-      ]
-    },
-    {
-      "code": "6278",
-      "name": "台表科",
+      "code": "6108",
+      "name": "競國",
       "events": [
         "進處置"
       ]
