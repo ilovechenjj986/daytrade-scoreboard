@@ -1,27 +1,83 @@
 {
-  "date": "2026-10-18",
-  "headlineTitle": "盤前 LINE 轉貼版 10/19",
-  "capturedAt": "2026-10-17T17:08:16.332Z",
+  "date": "2026-11-17",
+  "headlineTitle": "盤前 LINE 轉貼版 11/17",
+  "capturedAt": "2026-11-16T20:40:17.790Z",
   "sources": {
     "line": "https://chengwaye.com/",
     "events": "https://chengwaye.com/realtime-events"
   },
   "eventCounts": {
-    "進處置": 2,
+    "進處置": 10,
     "法說": 0,
     "除權息": 0
   },
   "stocks": [
     {
-      "code": "6217",
-      "name": "中探針",
+      "code": "3661",
+      "name": "世芯-KY",
       "events": [
         "進處置"
       ]
     },
     {
-      "code": "6716",
-      "name": "應廣",
+      "code": "3693",
+      "name": "營邦",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "3715",
+      "name": "定穎投控",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6140",
+      "name": "訊達",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6148",
+      "name": "驊宏資",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6510",
+      "name": "精測",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6697",
+      "name": "東捷資訊",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "7584",
+      "name": "樂意",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "7717",
+      "name": "萊德光電-KY",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "8089",
+      "name": "康全電訊",
       "events": [
         "進處置"
       ]
