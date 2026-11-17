@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-18",
+  "headlineTitle": "盤前 LINE 轉貼版 11/18",
+  "capturedAt": "2026-11-17T19:23:18.964Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 3,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "2471",
+      "name": "資通",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "3491",
+      "name": "昇達科",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "4747",
+      "name": "強生*",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
