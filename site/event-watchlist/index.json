@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "date": "2026-11-19",
+      "headlineTitle": "盤前 LINE 轉貼版 11/19",
+      "slot": 16,
+      "capturedAt": "2026-11-18T19:02:06.207Z",
+      "count": 2,
+      "file": "data/slot-16.json"
+    },
+    {
       "date": "2026-11-18",
       "headlineTitle": "盤前 LINE 轉貼版 11/18",
       "slot": 15,
@@ -191,14 +199,6 @@
       "capturedAt": "2026-10-20T19:35:21.063Z",
       "count": 1,
       "file": "data/slot-17.json"
-    },
-    {
-      "date": "2026-10-20",
-      "headlineTitle": "盤前 LINE 轉貼版 10/20",
-      "slot": 16,
-      "capturedAt": "2026-10-19T17:09:45.576Z",
-      "count": 1,
-      "file": "data/slot-16.json"
     },
     {
       "date": "2026-10-17",

@@ -1,20 +1,27 @@
 {
-  "date": "2026-10-20",
-  "headlineTitle": "盤前 LINE 轉貼版 10/20",
-  "capturedAt": "2026-10-19T17:09:45.576Z",
+  "date": "2026-11-19",
+  "headlineTitle": "盤前 LINE 轉貼版 11/19",
+  "capturedAt": "2026-11-18T19:02:06.207Z",
   "sources": {
     "line": "https://chengwaye.com/",
     "events": "https://chengwaye.com/realtime-events"
   },
   "eventCounts": {
-    "進處置": 1,
+    "進處置": 2,
     "法說": 0,
     "除權息": 0
   },
   "stocks": [
     {
-      "code": "3354",
-      "name": "律勝",
+      "code": "4534",
+      "name": "慶騰",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "7610",
+      "name": "聯友金屬-創",
       "events": [
         "進處置"
       ]
