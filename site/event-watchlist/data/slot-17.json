@@ -1,20 +1,41 @@
 {
-  "date": "2026-10-21",
-  "headlineTitle": "盤前 LINE 轉貼版 10/21",
-  "capturedAt": "2026-10-20T19:35:21.063Z",
+  "date": "2026-11-20",
+  "headlineTitle": "盤前 LINE 轉貼版 11/20",
+  "capturedAt": "2026-11-19T19:09:30.186Z",
   "sources": {
     "line": "https://chengwaye.com/",
     "events": "https://chengwaye.com/realtime-events"
   },
   "eventCounts": {
-    "進處置": 1,
+    "進處置": 4,
     "法說": 0,
     "除權息": 0
   },
   "stocks": [
     {
-      "code": "8291",
-      "name": "尚茂",
+      "code": "2305",
+      "name": "全友",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6538",
+      "name": "倉和",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6933",
+      "name": "AMAX-KY",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "7584",
+      "name": "樂意",
       "events": [
         "進處置"
       ]
