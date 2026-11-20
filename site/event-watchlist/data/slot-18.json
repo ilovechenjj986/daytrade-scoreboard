@@ -1,27 +1,125 @@
 {
-  "date": "2026-10-22",
-  "headlineTitle": "盤前 LINE 轉貼版 10/22",
-  "capturedAt": "2026-10-21T16:03:01.855Z",
+  "date": "2026-11-21",
+  "headlineTitle": "盤前 LINE 轉貼版 11/23",
+  "capturedAt": "2026-11-20T18:49:10.672Z",
   "sources": {
     "line": "https://chengwaye.com/",
     "events": "https://chengwaye.com/realtime-events"
   },
   "eventCounts": {
-    "進處置": 2,
+    "進處置": 16,
     "法說": 0,
     "除權息": 0
   },
   "stocks": [
     {
-      "code": "6269",
-      "name": "台郡",
+      "code": "1569",
+      "name": "濱川",
       "events": [
         "進處置"
       ]
     },
     {
-      "code": "8437",
-      "name": "大地-KY",
+      "code": "1795",
+      "name": "美時",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "3081",
+      "name": "聯亞",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "3162",
+      "name": "精確",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "3363",
+      "name": "上詮",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "3653",
+      "name": "健策",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "4566",
+      "name": "時碩工業",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "4741",
+      "name": "泓瀚",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "4927",
+      "name": "泰鼎-KY",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "5432",
+      "name": "新門",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6451",
+      "name": "訊芯-KY",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6620",
+      "name": "漢達",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6715",
+      "name": "嘉基",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "7856",
+      "name": "漢測",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "8042",
+      "name": "金山電",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "8996",
+      "name": "高力",
       "events": [
         "進處置"
       ]
