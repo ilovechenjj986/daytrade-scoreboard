@@ -1,27 +1,118 @@
 {
-  "date": "2026-10-25",
-  "headlineTitle": "盤前 LINE 轉貼版 10/27",
-  "capturedAt": "2026-10-25T07:47:44.784Z",
+  "date": "2026-11-24",
+  "headlineTitle": "盤前 LINE 轉貼版 11/24",
+  "capturedAt": "2026-11-23T22:13:43.532Z",
   "sources": {
     "line": "https://chengwaye.com/",
     "events": "https://chengwaye.com/realtime-events"
   },
   "eventCounts": {
-    "進處置": 2,
+    "進處置": 15,
     "法說": 0,
     "除權息": 0
   },
   "stocks": [
     {
-      "code": "6751",
-      "name": "智聯服務",
+      "code": "1528",
+      "name": "恩德",
       "events": [
         "進處置"
       ]
     },
     {
-      "code": "6925",
-      "name": "意藍",
+      "code": "1809",
+      "name": "中釉",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "2243",
+      "name": "宏旭-KY",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "2426",
+      "name": "鼎元",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "2486",
+      "name": "一詮",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "3443",
+      "name": "創意",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "3498",
+      "name": "陽程",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "3693",
+      "name": "營邦",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "4556",
+      "name": "旭然",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "4716",
+      "name": "大立",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6141",
+      "name": "柏承",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6456",
+      "name": "GIS-KY",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6472",
+      "name": "保瑞",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6609",
+      "name": "瀧澤科",
+      "events": [
+        "進處置"
+      ]
+    },
+    {
+      "code": "6830",
+      "name": "汎銓",
       "events": [
         "進處置"
       ]

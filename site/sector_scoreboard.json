@@ -1,10 +1,10 @@
 {
   "source": "https://chengwaye.com/nextday-performance",
-  "generatedAt": "2026-11-20 13:57:02 +00:00",
-  "limitDate": "2026/11/19",
-  "nextDate": "2026/11/20",
-  "stockCount": 3,
-  "sectorCount": 3,
+  "generatedAt": "2026-11-23 22:13:34 +00:00",
+  "limitDate": "2026/11/20",
+  "nextDate": "2026/11/23",
+  "stockCount": 10,
+  "sectorCount": 7,
   "scoring": {
     "續漲停": 2,
     "強續漲": 1,
@@ -14,45 +14,120 @@
   },
   "stocks": [
     {
-      "code": "2923",
-      "name": "鼎固-KY",
+      "code": "6725",
+      "name": "矽科宏晟",
+      "label": "續漲停",
+      "sector": "工程服務",
+      "score": 2
+    },
+    {
+      "code": "6925",
+      "name": "意藍",
+      "label": "續漲停",
+      "sector": "軟體",
+      "score": 2
+    },
+    {
+      "code": "6614",
+      "name": "資拓宏宇",
+      "label": "續漲停",
+      "sector": "軟體",
+      "score": 2
+    },
+    {
+      "code": "5457",
+      "name": "宣德",
+      "label": "續漲停",
+      "sector": "連接器",
+      "score": 2
+    },
+    {
+      "code": "2468",
+      "name": "華經",
+      "label": "開高走低",
+      "sector": "軟體",
+      "score": -1
+    },
+    {
+      "code": "7828",
+      "name": "創新服務",
       "label": "直接跌",
-      "sector": "營建資產",
+      "sector": "半導體設備",
       "score": -2
     },
     {
-      "code": "7584",
-      "name": "樂意",
-      "label": "強續漲",
-      "sector": "出版文創",
-      "score": 1
+      "code": "2471",
+      "name": "資通",
+      "label": "直接跌",
+      "sector": "軟體",
+      "score": -2
     },
     {
-      "code": "7715",
-      "name": "裕山",
+      "code": "7767",
+      "name": "仁大資訊",
       "label": "開高走低",
-      "sector": "環保水處理",
+      "sector": "資訊服務",
       "score": -1
+    },
+    {
+      "code": "7765",
+      "name": "中華資安",
+      "label": "直接跌",
+      "sector": "資安",
+      "score": -2
+    },
+    {
+      "code": "7814",
+      "name": "海昌生技",
+      "label": "直接跌",
+      "sector": "生技醫療",
+      "score": -2
     }
   ],
   "nonNegative": [
     {
-      "sector": "出版文創",
-      "average": 1.0,
-      "total": 1,
+      "sector": "工程服務",
+      "average": 2.0,
+      "total": 2,
       "count": 1,
       "counts": {
-        "續漲停": 0,
-        "強續漲": 1,
+        "續漲停": 1,
+        "強續漲": 0,
         "弱續漲": 0,
         "開高走低": 0,
         "直接跌": 0
+      }
+    },
+    {
+      "sector": "連接器",
+      "average": 2.0,
+      "total": 2,
+      "count": 1,
+      "counts": {
+        "續漲停": 1,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "軟體",
+      "average": 0.25,
+      "total": 1,
+      "count": 4,
+      "counts": {
+        "續漲停": 2,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 1,
+        "直接跌": 1
       }
     }
   ],
   "negative": [
     {
-      "sector": "環保水處理",
+      "sector": "資訊服務",
       "average": -1.0,
       "total": -1,
       "count": 1,
@@ -65,7 +140,33 @@
       }
     },
     {
-      "sector": "營建資產",
+      "sector": "半導體設備",
+      "average": -2.0,
+      "total": -2,
+      "count": 1,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 1
+      }
+    },
+    {
+      "sector": "生技醫療",
+      "average": -2.0,
+      "total": -2,
+      "count": 1,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 1
+      }
+    },
+    {
+      "sector": "資安",
       "average": -2.0,
       "total": -2,
       "count": 1,
