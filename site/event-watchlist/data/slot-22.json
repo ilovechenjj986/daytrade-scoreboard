@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-25",
+  "headlineTitle": "盤前 LINE 轉貼版 11/25",
+  "capturedAt": "2026-11-24T16:50:53.085Z",
+  "sources": {
+    "line": "https://chengwaye.com/",
+    "events": "https://chengwaye.com/realtime-events"
+  },
+  "eventCounts": {
+    "進處置": 1,
+    "法說": 0,
+    "除權息": 0
+  },
+  "stocks": [
+    {
+      "code": "3593",
+      "name": "力銘",
+      "events": [
+        "進處置"
+      ]
+    }
+  ]
+}
