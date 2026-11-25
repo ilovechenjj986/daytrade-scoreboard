@@ -1,27 +1,42 @@
 {
-  "date": "2026-07-28",
-  "capturedAt": "2026-07-28T12:15:21.095Z",
+  "date": "2026-11-25",
+  "capturedAt": "2026-11-25T16:38:51.127Z",
   "sourceUrl": "https://chengwaye.com/daily",
   "stocks": [
     {
-      "code": "3018",
-      "name": "隆銘綠能",
-      "group": "綠能"
+      "code": "1598",
+      "name": "岱宇",
+      "group": "消費內需"
     },
     {
-      "code": "4577",
-      "name": "達航科技",
-      "group": "自行車"
+      "code": "2471",
+      "name": "資通",
+      "group": "軟體"
     },
     {
-      "code": "6226",
-      "name": "光鼎",
-      "group": "面板光電"
+      "code": "3664",
+      "name": "安瑞-KY",
+      "group": "資安"
     },
     {
-      "code": "6733",
-      "name": "博晟生醫",
-      "group": "生技醫療"
+      "code": "6140",
+      "name": "訊達",
+      "group": "網通"
+    },
+    {
+      "code": "6614",
+      "name": "資拓宏宇",
+      "group": "軟體"
+    },
+    {
+      "code": "7765",
+      "name": "中華資安",
+      "group": "資安"
+    },
+    {
+      "code": "7767",
+      "name": "仁大資訊",
+      "group": "資訊服務"
     }
   ]
 }

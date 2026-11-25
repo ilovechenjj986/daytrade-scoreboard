@@ -1,6 +1,13 @@
 {
   "snapshots": [
     {
+      "date": "2026-11-25",
+      "slot": 22,
+      "capturedAt": "2026-11-25T16:38:51.127Z",
+      "count": 7,
+      "file": "data/slot-22.json"
+    },
+    {
       "date": "2026-11-23",
       "slot": 20,
       "capturedAt": "2026-11-23T22:13:37.031Z",
@@ -188,13 +195,6 @@
       "capturedAt": "2026-09-09T14:37:48.610Z",
       "count": 23,
       "file": "data/slot-05.json"
-    },
-    {
-      "date": "2026-07-28",
-      "slot": 22,
-      "capturedAt": "2026-07-28T12:15:21.095Z",
-      "count": 4,
-      "file": "data/slot-22.json"
     },
     {
       "date": "2026-07-27",
