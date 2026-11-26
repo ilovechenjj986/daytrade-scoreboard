@@ -1,0 +1,135 @@
+{
+  "source": "https://chengwaye.com/nextday-performance",
+  "generatedAt": "2026-11-26 16:12:21 +00:00",
+  "limitDate": "2026/11/25",
+  "nextDate": "2026/11/26",
+  "stockCount": 7,
+  "sectorCount": 5,
+  "scoring": {
+    "續漲停": 2,
+    "強續漲": 1,
+    "弱續漲": 0,
+    "開高走低": -1,
+    "直接跌": -2
+  },
+  "stocks": [
+    {
+      "code": "6140",
+      "name": "訊達",
+      "label": "弱續漲",
+      "sector": "網通",
+      "score": 0
+    },
+    {
+      "code": "3664",
+      "name": "安瑞-KY",
+      "label": "弱續漲",
+      "sector": "資安",
+      "score": 0
+    },
+    {
+      "code": "7767",
+      "name": "仁大資訊",
+      "label": "開高走低",
+      "sector": "資訊服務",
+      "score": -1
+    },
+    {
+      "code": "2471",
+      "name": "資通",
+      "label": "直接跌",
+      "sector": "軟體",
+      "score": -2
+    },
+    {
+      "code": "1598",
+      "name": "岱宇",
+      "label": "直接跌",
+      "sector": "消費內需",
+      "score": -2
+    },
+    {
+      "code": "6614",
+      "name": "資拓宏宇",
+      "label": "直接跌",
+      "sector": "軟體",
+      "score": -2
+    },
+    {
+      "code": "7765",
+      "name": "中華資安",
+      "label": "直接跌",
+      "sector": "資安",
+      "score": -2
+    }
+  ],
+  "nonNegative": [
+    {
+      "sector": "網通",
+      "average": 0.0,
+      "total": 0,
+      "count": 1,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 1,
+        "開高走低": 0,
+        "直接跌": 0
+      }
+    }
+  ],
+  "negative": [
+    {
+      "sector": "資安",
+      "average": -1.0,
+      "total": -2,
+      "count": 2,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 1,
+        "開高走低": 0,
+        "直接跌": 1
+      }
+    },
+    {
+      "sector": "資訊服務",
+      "average": -1.0,
+      "total": -1,
+      "count": 1,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 1,
+        "直接跌": 0
+      }
+    },
+    {
+      "sector": "軟體",
+      "average": -2.0,
+      "total": -4,
+      "count": 2,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 2
+      }
+    },
+    {
+      "sector": "消費內需",
+      "average": -2.0,
+      "total": -2,
+      "count": 1,
+      "counts": {
+        "續漲停": 0,
+        "強續漲": 0,
+        "弱續漲": 0,
+        "開高走低": 0,
+        "直接跌": 1
+      }
+    }
+  ]
+}
