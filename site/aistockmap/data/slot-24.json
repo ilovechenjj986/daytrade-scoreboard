@@ -1,8 +1,8 @@
 {
   "date": "2026-11-27",
-  "capturedAt": "2026-11-28T02:19:18.717Z",
+  "capturedAt": "2026-11-28T06:06:30.601Z",
   "sourceUrl": "https://aistockmap.com/?activeTab=heatmap",
-  "contentHash": "15cf3e52d2b68156651d4de89160e42bb03639ec26bca1be3fee614dd893d071",
+  "contentHash": "a3de78e7f1d51bb749392701cf0ed4113b9f9046397cd03689d98878183b18dd",
   "changeThreshold": 1,
   "complete": false,
   "availableViewIds": [
@@ -589,14 +589,14 @@
         "change": -2.04
       },
       {
-        "name": "IC 測試",
-        "companies": 10,
-        "change": -2.47
-      },
-      {
         "name": "矽光子",
         "companies": 20,
         "change": -2.55
+      },
+      {
+        "name": "IC 測試",
+        "companies": 11,
+        "change": -2.57
       },
       {
         "name": "封裝量測",
@@ -774,11 +774,6 @@
           "change": 10.16
         },
         {
-          "name": "IC 測試",
-          "companies": 10,
-          "change": 10.1
-        },
-        {
           "name": "車用連接器",
           "companies": 8,
           "change": 9.98
@@ -842,6 +837,11 @@
           "name": "液冷散熱",
           "companies": 13,
           "change": 8.7
+        },
+        {
+          "name": "IC 測試",
+          "companies": 11,
+          "change": 8.69
         },
         {
           "name": "伺服器組裝",
@@ -1558,11 +1558,6 @@
           "change": -32.79
         },
         {
-          "name": "IC 測試",
-          "companies": 10,
-          "change": -32.87
-        },
-        {
           "name": "封裝設備",
           "companies": 17,
           "change": -32.95
@@ -1575,6 +1570,11 @@
         {
           "name": "矽晶圓",
           "companies": 8,
+          "change": -34.04
+        },
+        {
+          "name": "IC 測試",
+          "companies": 11,
           "change": -34.04
         },
         {

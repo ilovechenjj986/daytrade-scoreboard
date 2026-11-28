@@ -3,10 +3,10 @@
     {
       "date": "2026-11-27",
       "slot": 24,
-      "capturedAt": "2026-11-28T02:19:18.717Z",
+      "capturedAt": "2026-11-28T06:06:30.601Z",
       "sourceUrl": "https://aistockmap.com/?activeTab=heatmap",
       "file": "data/slot-24.json",
-      "contentHash": "15cf3e52d2b68156651d4de89160e42bb03639ec26bca1be3fee614dd893d071",
+      "contentHash": "a3de78e7f1d51bb749392701cf0ed4113b9f9046397cd03689d98878183b18dd",
       "changeThreshold": 1,
       "complete": false,
       "availableViewIds": [
